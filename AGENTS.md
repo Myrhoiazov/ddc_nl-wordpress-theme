@@ -14,7 +14,7 @@
 - **Основная ветка**: `main` подготовлена как чистый initial commit без старой истории проекта. Не возвращайте legacy remote и не пушьте старую историю.
 - **Перед коммитом**: выполните `git status --short --branch` и проверьте, что в индекс не попали секреты, приватные медиа, `.DS_Store`, `.env`, `node_modules/`, `images/` или `videos/`.
 - **Сообщения коммитов**: используйте понятные сообщения. Для обычной разработки предпочтительны Conventional Commits: `feat:`, `fix:`, `chore:`, `refactor:`.
-- **Push**: пушьте только после проверок. Если сеть заблокирована песочницей, повторите `git push` с запросом разрешения.
+- **Push в main**: перед push в `main` поднимите версию темы, сделайте release commit и поставьте соответствующий Git tag. Пушьте только после проверок. Если сеть заблокирована песочницей, повторите `git push` с запросом разрешения.
 
 ## 3. Структура темы
 
@@ -35,6 +35,7 @@
 - **PHP lint**: для измененных PHP-файлов запускайте `php -l`.
 - **Template lint**: после правок шаблонов проверяйте `templates/`, `page-templates/`, `parts/`, `includes/`, `home.php`, `header*.php`, `footer*.php`.
 - **JS syntax**: для измененных проектных JS-файлов запускайте `node --check`, кроме сторонних минифицированных библиотек.
+- **Version bump**: перед push в `main` обновите `Version:` в `style.scss`, `style.css` и `css/style.css`. Затем создайте release commit вида `chore: release X.Y.Z` и tag `vX.Y.Z`.
 - **Brand scan**: перед коммитом проверяйте отсутствие legacy strings. Не сохраняйте сами legacy-строки в документации; используйте временный локальный список или placeholder-ы:
   ```bash
   rg -n -uu -i "<legacy-token-1>|<legacy-token-2>" . --glob '!.git/**' --glob '!node_modules/**'
