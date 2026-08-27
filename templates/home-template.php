@@ -36,7 +36,7 @@ $BsWp->get_template_parts([
             <div class="hero-card__content">
                 <span class="hero-card__eyebrow"><?php esc_html_e('Пробное занятие', 'wp_denysmyr'); ?></span>
                 <strong><?php esc_html_e('Начни танцевать сегодня', 'wp_denysmyr'); ?></strong>
-                <p><?php esc_html_e('Для детей от 4 до 18 лет.', 'wp_denysmyr'); ?></p>
+                <p><?php esc_html_e('Для детей от 4 лет, подростков и взрослых.', 'wp_denysmyr'); ?></p>
                 <button type="button" class="hero-card__button" data-bs-toggle="modal" data-bs-target="#contact_form">
                     <span><?php esc_html_e('Записаться', 'wp_denysmyr'); ?></span>
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
@@ -70,7 +70,7 @@ $BsWp->get_template_parts([
                     <span class="st-eyebrow"><?php echo __('Почему выбирают нас', 'wp_denysmyr'); ?></span>
                     <h2 class="st-heading"><?php echo __('ТАНЦЫ,<br>КОТОРЫЕ<br>РАСКРЫВАЮТ<br>ТАЛАНТ И<br>УВЕРЕННОСТЬ', 'wp_denysmyr'); ?></h2>
                     <ul class="st-features">
-                        <li><?php echo __('Танцы для детей и подростков от 4 до 18 лет', 'wp_denysmyr'); ?></li>
+                        <li><?php echo __('Танцы для детей от 4 лет, подростков и взрослых', 'wp_denysmyr'); ?></li>
                         <li><?php echo __('Современные направления и программы', 'wp_denysmyr'); ?></li>
                         <li><?php echo __('Профессиональные и заботливые преподаватели', 'wp_denysmyr'); ?></li>
                         <li><?php echo __('Комфортные, безопасные залы', 'wp_denysmyr'); ?></li>
@@ -92,7 +92,7 @@ $BsWp->get_template_parts([
     </div>
 </section>
 
-<!-- 3. НАПРАВЛЕНИЯ — Что может выбрать ребёнок? Интерес и желание -->
+<!-- 3. НАПРАВЛЕНИЯ — Что выбрать для себя или ребёнка? Интерес и желание -->
 <section class="styles-section">
     <div class="container mb-2">
         <div class="row align-items-center mb-5">
@@ -102,8 +102,8 @@ $BsWp->get_template_parts([
             </div>
             <div class="col-12 col-lg-6">
                 <div class="seo-text">
-                    <p><?php echo __('Программы для детей от 4 до 18 лет — hip-hop, contemporary, heels, dancehall и другие современные направления. Каждый ребёнок найдёт свой стиль и своих друзей.', 'wp_denysmyr'); ?></p>
-                    <p><?php echo __('Занятия проходят в небольших группах по возрасту и уровню подготовки — от абсолютных новичков до опытных танцоров. Удобное расписание и внимательный подход к каждому ребёнку.', 'wp_denysmyr'); ?></p>
+                    <p><?php echo __('Программы для детей от 4 лет, подростков и взрослых — hip-hop, contemporary, dancehall и другие современные направления. Каждый ученик найдёт свой стиль, свою группу и уверенность в движении.', 'wp_denysmyr'); ?></p>
+                    <p><?php echo __('Занятия проходят в небольших группах по возрасту и уровню подготовки — от абсолютных новичков до опытных танцоров. Удобное расписание и внимательный подход к детям, подросткам и взрослым.', 'wp_denysmyr'); ?></p>
                 </div>
             </div>
         </div>
@@ -168,14 +168,14 @@ $BsWp->get_template_parts([
             <?php _e('НАШИ<br>ДОСТИЖЕНИЯ', 'wp_denysmyr'); ?>
         </h2>
         <p class="ddc-description">
-            <?php _e('Более 15 лет опыта, более 100 детей в Нидерландах и Украине — доверие родителей, которое мы заслужили годами работы.', 'wp_denysmyr'); ?>
+            <?php _e('Более 15 лет опыта, более 100 учеников в Нидерландах и Украине — доверие семей и взрослых танцоров, которое мы заслужили годами работы.', 'wp_denysmyr'); ?>
         </p>
         <ul class="ddc-list">
-            <li><?php _e('Более 15 лет опыта преподавания танцев для детей и подростков', 'wp_denysmyr'); ?></li>
+            <li><?php _e('Более 15 лет опыта преподавания танцев для детей, подростков и взрослых', 'wp_denysmyr'); ?></li>
             <li><?php _e('2 года успешной работы в Нидерландах', 'wp_denysmyr'); ?></li>
             <li><?php _e('4 филиала — в Нидерландах и Украине', 'wp_denysmyr'); ?></li>
-            <li><?php _e('Более 100 детей, которые регулярно посещают занятия', 'wp_denysmyr'); ?></li>
-            <li><?php _e('Современные программы для детей от 4 до 18 лет', 'wp_denysmyr'); ?></li>
+            <li><?php _e('Более 100 учеников, которые регулярно посещают занятия', 'wp_denysmyr'); ?></li>
+            <li><?php _e('Современные программы для детей от 4 лет, подростков и взрослых', 'wp_denysmyr'); ?></li>
             <li><?php _e('Участие учеников в выступлениях, фестивалях и конкурсах', 'wp_denysmyr'); ?></li>
         </ul>
         <div class="ddc-stats">
@@ -185,7 +185,7 @@ $BsWp->get_template_parts([
             </div>
             <div class="stat">
                 <span class="number" data-target="100">0</span>
-                <span class="label"><?php _e('детей', 'wp_denysmyr'); ?>+</span>
+                <span class="label"><?php _e('учеников', 'wp_denysmyr'); ?>+</span>
             </div>
             <div class="stat">
                 <span class="number" data-target="4">0</span>
@@ -209,7 +209,7 @@ $BsWp->get_template_parts([
             </div>
             <div class="col-12 col-lg-6">
                 <div class="seo-text">
-                    <p><?php echo __('Студии танцев для детей в Нидерландах и Украине — выберите ближайший филиал и запишитесь на пробное занятие. Удобное расположение, комфортные залы и дружелюбная атмосфера ждут вашего ребёнка.', 'wp_denysmyr'); ?></p>
+                    <p><?php echo __('Студии танцев для детей, подростков и взрослых в Нидерландах и Украине — выберите ближайший филиал и запишитесь на пробное занятие. Удобное расположение, комфортные залы и дружелюбная атмосфера ждут каждого ученика.', 'wp_denysmyr'); ?></p>
                     <p><?php echo __('В каждом филиале работают опытные преподаватели, занятия проходят по гибкому расписанию — утром, вечером и в выходные дни. Нажмите на карточку города, чтобы узнать расписание занятий.', 'wp_denysmyr'); ?></p>
                 </div>
             </div>
