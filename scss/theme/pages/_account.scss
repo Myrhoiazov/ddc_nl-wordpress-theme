@@ -1,0 +1,142 @@
+.uwp-account-class.bsui {
+    .navbar-light,
+    .bg-light {
+        background-color: $grey !important;
+        .card + a {
+            pointer-events: none;
+            color: $pink;
+        }
+    }
+    .uwp-account-notifications {
+        display: none;
+    }
+    .nav-link {
+        &.active {
+            color: $pink;
+        }
+        &:hover, &:focus, &:active {
+            color: $pink !important;
+        }
+    }
+    .nav {
+        @include set-breakpoint(lg, down) {
+            li {
+                width: 100% !important;
+                a {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .btn-primary {
+        background-color: $pink;
+        border-color: $pink;
+        font-weight: bold !important;
+        &:hover, &:focus, &:active {
+            background-color: $pink !important;
+            border-color: $pink !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+#uwp-upload-avatar-form ,
+#uwp-upload-banner-form {
+    .btn {
+        i {
+            display: none;
+        }
+    }
+}
+
+body.uwp_profile_page,
+body.uwp_account_page {
+    h1 {
+        display: none;
+    }
+    h2,
+    h3,
+    h4 {
+        font-weight: bold;
+    }
+}
+
+body.uwp_page {
+    .uwp-user-loop-action {
+        .btn-toolbar {
+            display: none;
+        }
+    }
+    .uwp-users-list-user {
+        .card-footer {
+            display: none;
+        }
+        .uwp-profile-header {
+            .rounded-circle {
+                margin-top: -4rem;
+            }
+        }
+        .uwp-profile-extra {
+            color: $black;
+            .country-select {
+                font-size: 14px;
+                margin-top: 7px;
+            }
+        }
+    }
+    .uwp-output-location-users {
+        .uwp-profile-extra-key {
+            display: none !important;
+        }
+    }
+    .navbar-light .nav-item {
+        text-align: center;
+    }
+    .border-white {
+        border-color: $pink !important;
+    }
+    .bsui h2 {
+        font-weight: bold;
+        color: $black;
+        font-size: 27px;
+    }
+    .btn-primary {
+        background-color: $pink;
+        border-color: $pink;
+        font-weight: bold !important;
+        &:hover, &:focus, &:active {
+            background-color: $pink !important;
+            border-color: $pink !important;
+            box-shadow: none !important;
+        }
+    }
+    .nav-link > i {
+        display: none;
+    }
+    a {
+        color: $pink;
+        &:hover, &:active, &:focus {
+            color: $pink;
+        }
+    }
+    .card-title {
+        display: none;
+    }
+
+    .bsui {
+        .text-bg-primary {
+            background-color: $pink !important;
+            color: $white !important;
+        }
+    }
+    .btn-outline-primary {
+        border: 1px solid $pink !important;
+        color: $pink !important;
+    }
+}
+
+.uwp-pagination {
+    .screen-reader-text {
+        display: none;
+    }
+}

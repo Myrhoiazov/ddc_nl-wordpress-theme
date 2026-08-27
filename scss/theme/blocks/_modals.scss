@@ -1,0 +1,151 @@
+// ─── Contact modal — white / lime / black ────────────────────────────────────
+
+#contact_form {
+    .modal-content {
+        background-color: $white;
+        border-radius: 20px;
+        border: none;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .modal-header {
+        background-color: $white;
+        border-bottom: 2px solid #f0f0f0;
+        padding: 1.8rem 2rem 1.4rem;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, $lime 0%, #b3ff3f 100%);
+        }
+    }
+
+    .modal-title {
+        color: $black;
+        font-weight: 800;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .btn-close {
+        opacity: 0.55;
+        transition: opacity 180ms ease, transform 180ms ease;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+    }
+
+    .modal-body {
+        background-color: $white;
+        padding: 1.5rem 2rem 2rem;
+    }
+
+    // ── CF7 form — fix label/placeholder overlap ──────────────────────────────
+    // CF7 wraps <input> inside <label>, so we hide the label text
+    // and let the placeholder carry the hint text.
+
+    .wpcf7-form {
+        p {
+            margin-bottom: 0.9rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0;   // hide label text that duplicates placeholder
+            line-height: 0;
+        }
+
+        .wpcf7-form-control:not(.wpcf7-submit) {
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            background-color: #f7f7f7;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            color: $black;
+            padding: 0.85rem 1.1rem;
+            transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+            line-height: 1.5;
+
+            &::placeholder {
+                color: #aaa;
+                font-size: 0.95rem;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $lime;
+                background-color: $white;
+                box-shadow: 0 0 0 4px rgba(141, 240, 0, 0.15);
+            }
+
+            &.wpcf7-textarea {
+                resize: vertical;
+                min-height: 110px;
+            }
+        }
+
+        .wpcf7-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $black;
+            border: none;
+            border-radius: 50px;
+            color: $white;
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.85rem 2.4rem;
+            cursor: pointer;
+            transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+            float: right;
+
+            &:hover,
+            &:focus {
+                background-color: $lime;
+                color: $black;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(141, 240, 0, 0.35);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Validation
+        .wpcf7-not-valid {
+            border-color: #ff4d6d !important;
+            box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.15) !important;
+        }
+
+        .wpcf7-not-valid-tip {
+            color: #ff4d6d;
+            font-size: 0.78rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .wpcf7-response-output {
+            border-color: $lime !important;
+            background-color: rgba(141, 240, 0, 0.08);
+            color: $black;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem !important;
+            margin-top: 1rem !important;
+        }
+    }
+}

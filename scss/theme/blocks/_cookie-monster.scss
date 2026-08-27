@@ -1,0 +1,238 @@
+
+#cookie_monster {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1086;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1.5rem;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 300ms ease;
+
+    @include set-breakpoint(lg, up) {
+        align-items: center;
+    }
+
+    &.is-show {
+        opacity: 1;
+        .pop-up {
+            pointer-events: all;
+            transform: translateY(0);
+        }
+    }
+
+    .pop-up {
+        background-color: $black;
+        color: $white;
+        width: 100%;
+        max-width: 520px;
+        border-radius: 24px;
+        box-shadow: 0 24px 64px rgba($black, 0.5);
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba($white, 0.08);
+        transform: translateY(20px);
+        transition: transform 300ms ease;
+
+        > div {
+            position: relative;
+            z-index: 0;
+        }
+    }
+
+    // ── Настройки куки (кастомизация) ──────────────────────────
+    .pop-up-option {
+        position: absolute !important;
+        inset: 0;
+        background-color: $black;
+        z-index: 1 !important;
+        padding: 1.5rem 1.5rem 5rem;
+        transition: opacity 200ms ease;
+        overflow-y: auto;
+
+        &.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pop-up-title {
+            padding: 0;
+            border: none;
+        }
+
+        input {
+            + .btn {
+                position: relative;
+                font-size: 14px;
+                padding-left: 2.5rem;
+                border-radius: 999px;
+                background: rgba($white, 0.07);
+                border: 1px solid rgba($white, 0.15);
+                color: $white;
+                text-align: left;
+                font-weight: 600;
+
+                &::before {
+                    content: '';
+                    width: 18px;
+                    height: 18px;
+                    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23ff4d4d" class="bi bi-x-lg" viewBox="0 0 16 16"%3E%3Cpath d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/%3E%3C/svg%3E');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    left: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            &:checked + .btn {
+                background: rgba(#9dff09, 0.12);
+                border-color: rgba(#9dff09, 0.4);
+                color: $lime;
+
+                &::before {
+                    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%239dff09" class="bi bi-check2" viewBox="0 0 16 16"%3E%3Cpath d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/%3E%3C/svg%3E');
+                }
+            }
+        }
+    }
+
+    // ── Заголовок ───────────────────────────────────────────────
+    .pop-up-title {
+        font-size: clamp(1.6rem, 4vw, 2rem);
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        line-height: 0.95;
+        color: $white;
+        padding: 1.5rem 1.5rem 0.75rem;
+    }
+
+    // ── Табы ────────────────────────────────────────────────────
+    .pop-up-tabs {
+        display: flex;
+        border-bottom: 1px solid rgba($white, 0.1);
+        padding: 0 1.5rem;
+        gap: 0;
+
+        .tab {
+            background: none;
+            color: rgba($white, 0.4);
+            padding: 0.75rem 1rem 0.65rem;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            cursor: pointer;
+            transition: color 200ms ease, border-color 200ms ease;
+            flex-grow: 0;
+
+            &:hover {
+                color: $white;
+            }
+
+            &.active {
+                color: $lime;
+                border-bottom-color: $lime;
+            }
+        }
+    }
+
+    // ── Контент табов ───────────────────────────────────────────
+    .pop-up-tabs-content {
+        display: flex;
+
+        .tab-content {
+            background: none;
+            z-index: 0;
+            padding: 1.25rem 1.5rem;
+            opacity: 0;
+            transition: opacity 200ms ease;
+            display: none;
+            flex-grow: 1;
+            max-height: 220px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba($white, 0.2) transparent;
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba($white, 0.6);
+
+            p { margin-bottom: 0.5rem; }
+            ol { padding-left: 1.2rem; }
+            li { margin-bottom: 0.4rem; }
+            b  { color: $white; }
+
+            &.active {
+                z-index: 11;
+                opacity: 1;
+                display: block;
+            }
+        }
+    }
+
+    // ── Кнопки действий ─────────────────────────────────────────
+    .pop-up-btns {
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem 1.5rem;
+        z-index: 3 !important;
+        position: relative;
+        border-top: 1px solid rgba($white, 0.08);
+
+        > div {
+            flex: 1;
+            text-align: center;
+            padding: 0.7rem 0.75rem;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 180ms ease;
+
+            // Allow all — лаймовый
+            &:first-child {
+                background-color: $lime;
+                color: $black;
+
+                &:hover {
+                    background-color: darken(#9dff09, 8%);
+                    transform: translateY(-1px);
+                }
+            }
+
+            // Deny — тёмный с обводкой
+            &:nth-child(2) {
+                background: transparent;
+                color: rgba($white, 0.6);
+                border: 1px solid rgba($white, 0.2);
+
+                &:hover {
+                    color: $white;
+                    border-color: rgba($white, 0.5);
+                }
+            }
+
+            // Customize — приглушённый
+            &:last-child {
+                background: rgba($white, 0.07);
+                color: rgba($white, 0.7);
+
+                &:hover {
+                    background: rgba($white, 0.12);
+                    color: $white;
+                }
+            }
+        }
+    }
+}

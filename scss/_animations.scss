@@ -1,0 +1,87 @@
+@keyframes colorAnimation {
+	0% {
+		transform: scale(1.03);
+	}
+	25% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.01);
+	}
+	75% {
+		transform: scale(1.03);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes colorAnimationFill {
+	0% {
+		color: $white;
+	}
+	10% {
+		fill: lighten($color: $pink, $amount: 22%);
+	}
+	20% {
+		fill: darken($color: $pink, $amount: 7%);
+	}
+	30% {
+		fill: lighten($color: $pink, $amount: 3%);
+	}
+	40% {
+		fill: lighten($color: $pink, $amount: 11%);
+	}
+	50% {
+		fill: $pink;
+	}
+	60% {
+		fill: lighten($color: $pink, $amount: 13%);
+	}
+	70% {
+		fill: $pink;
+	}
+	80% {
+		fill: lighten($color: $pink, $amount: 22%);
+	}
+	90% {
+		fill: lighten($color: $pink, $amount: 3%);
+	}
+	100% {
+		fill: $white;
+	}
+}
+
+@keyframes swing {
+	0% {
+		transform: rotate(5deg);
+	}
+	50% {
+		transform: rotate(-5deg);
+	}
+	100% {
+		transform: rotate(5deg);
+	}
+}
+
+@keyframes round {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes lighting {
+	0%,
+	85% {
+		color: var(--bs-yellow);
+		text-shadow: none;
+	}
+
+	100% {
+		color: #ffffff;
+		text-shadow: 0 0 5px #ffffff, 0 0 3px #ffffff;
+	}
+}

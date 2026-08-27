@@ -1,0 +1,92 @@
+.marquee-wrapper {
+	max-width: 110%;
+	width: 110%;
+	overflow: hidden;
+	background-color: $white;
+	font-family: $secondaryFont;
+	position: absolute;
+	bottom: 0rem;
+	left: -30px;
+	right: -30px;
+	z-index: 0;
+	user-select: none;
+	pointer-events: none;
+	@include set-breakpoint(lg, down) {
+		display: block;
+		bottom: 0;
+		transform: none;
+		left: 0;
+		right: 0;
+	}
+}
+.marquee {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.scrolling-text-inner {
+	display: flex;
+	white-space: nowrap;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 8px 0;
+}
+
+.marquee span {
+	font-size: 2em;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	padding: 0 110px;
+	font-size: 5rem;
+	img {
+		max-width: 110px;
+		max-height: 110px;
+		@include set-breakpoint(lg, up) {
+			width: 116px !important;
+			height: auto;
+		}
+	}
+	@include set-breakpoint(lg, down) {
+		padding: 0 70px;
+		font-size: 3rem;
+	}
+}
+
+/* Apply the animation to the text items */
+.scrolling-text-inner > .marquee {
+	animation: var(--direction) 33s linear infinite;
+	transform: translateX(100%);
+}
+
+.scrolling-text-inner > .marquee2 {
+	animation-delay: 11s;
+}
+
+.scrolling-text-inner > .marquee3 {
+	animation-delay: 22s;
+}
+
+/* Setting the Animation using Keyframes */
+@keyframes scroll-left {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes scroll-right {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
