@@ -45,7 +45,18 @@ error_log
 Thumbs.db
 
 # Media content kept outside Git
-images/
+images/*
+!images/favicon-16x16.png
+!images/favicon-32x32.png
+!images/favicon.ico
+!images/apple-touch-icon.png
+!images/site.webmanifest
+!images/browserconfig.xml
+!images/web-app-manifest-192x192.png
+!images/web-app-manifest-512x512.png
+!images/mstile-150x150.png
+!images/favicon.svg
+!images/safari-pinned-tab.svg
 videos/
 
 # Build/cache output

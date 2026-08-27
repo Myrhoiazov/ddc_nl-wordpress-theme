@@ -2,24 +2,28 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+  <?php $ddc_theme_version = wp_get_theme()->get('Version'); ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri() ?>/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri() ?>/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri() ?>/images/favicon-16x16.png">
-  <link rel="manifest" href="<?php echo get_template_directory_uri() ?>/images/site.webmanifest">
-  <link rel="mask-icon" href="<?php echo get_template_directory_uri() ?>/images/safari-pinned-tab.svg" color="#e8408a">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/apple-touch-icon.png')); ?>">
+  <link rel="icon" type="image/svg+xml" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/favicon.svg')); ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/favicon-32x32.png')); ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/favicon-16x16.png')); ?>">
+  <link rel="shortcut icon" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/favicon.ico')); ?>">
+  <link rel="manifest" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/site.webmanifest')); ?>">
+  <link rel="mask-icon" href="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/safari-pinned-tab.svg')); ?>" color="#e8408a">
   <link rel="dns-prefetch" href="https://i3.ytimg.com/" />
   <link rel="preconnect" href="https://www.googletagmanager.com/" />
   <link rel="preconnect" href="https://www.recaptcha.net/" />
   <link rel="preconnect" href="https://www.gstatic.com/" />
 
 
-  <meta name="msapplication-TileColor" content="#9f00a7">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="msapplication-TileColor" content="#e8408a">
+  <meta name="msapplication-config" content="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/browserconfig.xml')); ?>">
+  <meta name="theme-color" content="#e8408a">
 
   <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/Poppins-Regular.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/Poppins-Bold.woff" as="font" type="font/woff" crossorigin>
