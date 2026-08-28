@@ -88,7 +88,9 @@ function preloadImages(section) {
 
 const showCoockie = localStorage.getItem('show_cookiebar');
 
-mainEl.addEventListener('scroll', () => {
+const handleHomeScroll = () => {
+	if (!mainEl) return;
+
 	if (intro) {
 		isInViewport(
 			intro,
@@ -308,7 +310,13 @@ mainEl.addEventListener('scroll', () => {
 			}
 		);
 	}
-});
+};
+
+if (mainEl) {
+	mainEl.addEventListener('scroll', handleHomeScroll);
+	window.addEventListener('resize', handleHomeScroll);
+	handleHomeScroll();
+}
 
 window.addEventListener('load', () => {
 	$(main).animate(
@@ -318,6 +326,7 @@ window.addEventListener('load', () => {
 		10,
 		'swing'
 	);
+	window.setTimeout(handleHomeScroll, 50);
 });
 
 const openEarlyBird = () => {
