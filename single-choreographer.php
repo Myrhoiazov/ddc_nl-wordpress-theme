@@ -41,11 +41,11 @@ $BsWp->get_template_parts([
 						<div class="img-wrap">
 							<div class="inner"></div>
 							<?php $country = get_post_meta(get_the_ID(), 'country', true); ?>
-							<div class="country <?php echo strtolower(preg_replace('/[^a-z]/i', '-', $country)); ?>">
-								<?php echo $country ?>
+							<div class="country <?php echo esc_attr(strtolower(preg_replace('/[^a-z]/i', '-', $country))); ?>">
+								<?php echo esc_html($country) ?>
 							</div>
 							<?php $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large') ?>
-							<img loading="lazy" decoding="async" src="<?php echo $src[0] ?>" alt="">
+							<img loading="lazy" decoding="async" src="<?php echo esc_url($src[0]) ?>" alt="">
 						</div>
 					<?php endif; ?>
 				</div>
@@ -85,37 +85,37 @@ $BsWp->get_template_parts([
 							<nav id="social-nav">
 								<?php if (!empty($instagram)): ?>
 									<span>
-										<a href="<?php echo $instagram; ?>" target="_blank" class="magic-hover magic-hover__square">
+										<a href="<?php echo esc_url($instagram); ?>" target="_blank" class="magic-hover magic-hover__square">
 											<span class="icon">
 												<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
 													<path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
 												</svg>
 											</span>
-											<?php echo $instagramName; ?>
+											<?php echo esc_html($instagramName); ?>
 										</a>
 									</span>
 								<?php endif; ?>
 								<?php if (!empty($tiktok)): ?>
 									<span>
-										<a href="<?php echo $tiktok; ?>" target="_blank" class="magic-hover magic-hover__square">
+										<a href="<?php echo esc_url($tiktok); ?>" target="_blank" class="magic-hover magic-hover__square">
 											<span class="icon">
 												<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
 													<path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
 												</svg>
 											</span>
-											<?php echo $tiktokName; ?>
+											<?php echo esc_html($tiktokName); ?>
 										</a>
 									</span>
 								<?php endif; ?>
 								<?php if (!empty($website)): ?>
 									<span>
-										<a href="<?php echo $website; ?>" target="_blank" class="magic-hover magic-hover__square">
+										<a href="<?php echo esc_url($website); ?>" target="_blank" class="magic-hover magic-hover__square">
 											<span class="icon">
 												<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
 													<path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
 												</svg>
 											</span>
-											<?php echo $websiteName; ?>
+											<?php echo esc_html($websiteName); ?>
 										</a>
 									</span>
 								<?php endif; ?>
@@ -138,11 +138,11 @@ $BsWp->get_template_parts([
 							<?php if (!empty($video_01)): ?>
 								<div class="col-12 col-lg-6 mb-5 position-relative">
 								<?php if(is_user_logged_in() && !empty($download_01)): ?>
-									<a href="<?php echo $download_01; ?>" class="btn-download me-2 me-lg-3" target="_blank" download></a>
+									<a href="<?php echo esc_url($download_01); ?>" class="btn-download me-2 me-lg-3" target="_blank" download></a>
 								<?php endif; ?>
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square d-block" href="<?php echo $video_01; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square d-block" href="<?php echo esc_url($video_01); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_01_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_01_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
@@ -157,11 +157,11 @@ $BsWp->get_template_parts([
 							<?php if (!empty($video_02)): ?>
 								<div class="col-12 col-lg-6 mb-5 position-relative">
 									<?php if(is_user_logged_in() && !empty($download_02)): ?>
-										<a href="<?php echo $download_02; ?>" class="btn-download me-3" target="_blank" download></a>
+										<a href="<?php echo esc_url($download_02); ?>" class="btn-download me-3" target="_blank" download></a>
 									<?php endif; ?>
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo $video_02; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo esc_url($video_02); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_02_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_02_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
@@ -174,9 +174,9 @@ $BsWp->get_template_parts([
 							?>
 							<?php if (!empty($video_03)): ?>
 								<div class="col-12 col-lg-6 mb-5">
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo $video_03; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo esc_url($video_03); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_03_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_03_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
@@ -185,7 +185,7 @@ $BsWp->get_template_parts([
 							$video_04 = get_post_meta(get_the_ID(), 'video_04', true);
 							$video_04_id = '';
 							if (!empty($video_04)) {
-								preg_match('/v=(.*)/', $video_04, $matches);
+								preg_match('/v=([A-Za-z0-9_-]+)/', $video_04, $matches);
 								if (!empty($matches[1])) {
 									$video_04_id = $matches[1];
 								}
@@ -194,9 +194,9 @@ $BsWp->get_template_parts([
 							?>
 							<?php if (!empty($video_04)): ?>
 								<div class="col-12 col-lg-6 mb-5">
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo $video_04; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo esc_url($video_04); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_04_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_04_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
@@ -205,7 +205,7 @@ $BsWp->get_template_parts([
 							$video_05 = get_post_meta(get_the_ID(), 'video_05', true);
 							$video_05_id = '';
 							if (!empty($video_05)) {
-								preg_match('/v=(.*)/', $video_05, $matches);
+								preg_match('/v=([A-Za-z0-9_-]+)/', $video_05, $matches);
 								if (!empty($matches[1])) {
 									$video_05_id = $matches[1];
 								}
@@ -214,9 +214,9 @@ $BsWp->get_template_parts([
 							?>
 							<?php if (!empty($video_05)): ?>
 								<div class="col-12 col-lg-6 mb-5">
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo $video_05; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo esc_url($video_05); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_05_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_05_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
@@ -225,7 +225,7 @@ $BsWp->get_template_parts([
 							$video_06 = get_post_meta(get_the_ID(), 'video_06', true);
 							$video_06_id = '';
 							if (!empty($video_06)) {
-								preg_match('/v=(.*)/', $video_06, $matches);
+								preg_match('/v=([A-Za-z0-9_-]+)/', $video_06, $matches);
 								if (!empty($matches[1])) {
 									$video_06_id = $matches[1];
 								}
@@ -234,9 +234,9 @@ $BsWp->get_template_parts([
 							?>
 							<?php if (!empty($video_06)): ?>
 								<div class="col-12 col-lg-6 mb-5">
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo $video_06; ?>">
+									<a data-fslightbox="gallery" class="magic-hover magic-hover__square" href="<?php echo esc_url($video_06); ?>">
 										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo $video_06_id ?>/hqdefault.jpg" alt="">
+											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_06_id) ?>/hqdefault.jpg" alt="">
 										</span>
 									</a>
 								</div>
