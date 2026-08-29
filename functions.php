@@ -85,11 +85,71 @@
 	// Clean up title: normalize "— — Brand" or "—  Brand" double separators that
 	// can appear when the stored title already ends with " — " and AIOSEO appends site name.
 	add_filter('pre_get_document_title', function(string $title): string {
+		if (is_page('camp')) {
+			return ddc_get_camp_seo_title();
+		}
+
 		// Collapse any sequence of "—" or "–" with surrounding spaces into a single " — ".
 		$title = preg_replace('/(\s*[-–—]\s*){2,}/u', ' — ', $title);
 		// Remove a trailing standalone separator left if site name was stripped elsewhere.
 		$title = preg_replace('/\s*[-–—]\s*$/u', '', $title);
 		return $title;
+	}, 99);
+
+	function ddc_get_camp_seo_title(): string
+	{
+		return 'Детский танцевальный лагерь в Испании 2027 | LITO DANCE CAMP';
+	}
+
+	function ddc_get_camp_seo_description(): string
+	{
+		return 'LITO DANCE CAMP 2027 в Санта-Сусанне: 10 дней моря, танцев, новых друзей и ярких эмоций. 26 июля - 4 августа. Hotel Don Angel 4★.';
+	}
+
+	function ddc_get_camp_og_image(): string
+	{
+		return 'https://talentcenterddc.nl/wp-content/uploads/2026/03/camp-1.webp';
+	}
+
+	add_filter('aioseo_title', function(string $title): string {
+		return is_page('camp') ? ddc_get_camp_seo_title() : $title;
+	}, 99);
+
+	add_filter('aioseo_description', function(string $description): string {
+		return is_page('camp') ? ddc_get_camp_seo_description() : $description;
+	}, 99);
+
+	add_filter('aioseo_facebook_tags', function(array $tags): array {
+		if (!is_page('camp')) {
+			return $tags;
+		}
+
+		$tags['og:type'] = 'website';
+		$tags['og:title'] = ddc_get_camp_seo_title();
+		$tags['og:description'] = ddc_get_camp_seo_description();
+		$tags['og:image'] = ddc_get_camp_og_image();
+		$tags['og:url'] = home_url('/camp/');
+
+		unset($tags['article:published_time'], $tags['article:modified_time']);
+
+		return $tags;
+	}, 99);
+
+	add_filter('aioseo_twitter_tags', function(array $tags): array {
+		if (!is_page('camp')) {
+			return $tags;
+		}
+
+		$tags['twitter:card'] = 'summary_large_image';
+		$tags['twitter:title'] = ddc_get_camp_seo_title();
+		$tags['twitter:description'] = ddc_get_camp_seo_description();
+		$tags['twitter:image'] = ddc_get_camp_og_image();
+
+		return $tags;
+	}, 99);
+
+	add_filter('aioseo_schema_disable', function(bool $disabled): bool {
+		return is_page('camp') ? true : $disabled;
 	}, 99);
 
 	// Fix empty alt attributes on images served from the Instagram Feed plugin cache.
@@ -173,23 +233,22 @@
 			$event = [
 				'@context'            => 'https://schema.org',
 				'@type'               => 'Event',
-				'name'                => 'Детский танцевальный лагерь DDC — Испания 2026',
-				'startDate'           => '2026-07-19',
-				'endDate'             => '2026-07-29',
+				'name'                => 'LITO DANCE CAMP 2027',
+				'startDate'           => '2027-07-26',
+				'endDate'             => '2027-08-04',
 				'eventStatus'         => 'https://schema.org/EventScheduled',
 				'eventAttendanceMode' => 'https://schema.org/OfflineEventAttendanceMode',
-				'description'         => '11-дневный детский танцевальный лагерь на Коста-Брава. Ежедневные уроки танцев, отель 4*, аквапарк, питание включено. 55 км от Барселоны.',
+				'description'         => 'LITO DANCE CAMP 2027 в Санта-Сусанне: 10 дней моря, танцев, новых друзей и ярких эмоций. Hotel Don Angel 4★.',
 				'location' => [
 					'@type'   => 'Place',
-					'name'    => 'Hotel Gran Garbí',
-					'address' => ['@type' => 'PostalAddress', 'addressLocality' => 'Lloret de Mar', 'addressRegion' => 'Catalonia', 'addressCountry' => 'ES'],
+					'name'    => 'Hotel Don Angel',
+					'address' => ['@type' => 'PostalAddress', 'addressLocality' => 'Santa Susanna', 'addressRegion' => 'Catalonia', 'addressCountry' => 'ES'],
 				],
 				'organizer' => ['@type' => 'Organization', 'name' => 'Talent Center DDC', 'url' => 'https://talentcenterddc.nl'],
 				'offers' => [
-					['@type' => 'Offer', 'name' => 'Ребёнок (Early Bird)',  'price' => '1059', 'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/LimitedAvailability'],
-					['@type' => 'Offer', 'name' => 'Ребёнок (стандарт)',   'price' => '1159', 'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/LimitedAvailability'],
-					['@type' => 'Offer', 'name' => 'Взрослый (Early Bird)', 'price' => '759',  'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/InStock'],
-					['@type' => 'Offer', 'name' => 'Взрослый (стандарт)',  'price' => '859',  'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/InStock'],
+					['@type' => 'Offer', 'name' => 'PRE-SALE', 'price' => '1190', 'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/SoldOut'],
+					['@type' => 'Offer', 'name' => 'REGULAR', 'price' => '1390', 'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/InStock'],
+					['@type' => 'Offer', 'name' => 'LATE TICKET', 'price' => '1590', 'priceCurrency' => 'EUR', 'availability' => 'https://schema.org/LimitedAvailability'],
 				],
 			];
 			echo '<script type="application/ld+json">' . wp_json_encode($event, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "</script>\n";
@@ -511,6 +570,13 @@ add_action('rest_api_init', function () {
 	register_rest_route('contact-form', '/tg', [
 		'methods'  => 'POST',
 		'callback' => 'send_cf7_to_telegram',
+		'permission_callback' => '__return_true',
+	]);
+
+	register_rest_route('contact-form', '/camp-booking', [
+		'methods'  => 'POST',
+		'callback' => 'send_camp_booking_to_telegram',
+		'permission_callback' => '__return_true',
 	]);
 });
 
@@ -584,6 +650,82 @@ function send_cf7_to_telegram(WP_REST_Request $request)
 			'parse_mode' => 'HTML',
 		],
 	]);
+
+	return ['status' => 'ok'];
+}
+
+function ddc_clean_camp_booking_field(array $data, string $key): string
+{
+	return trim(sanitize_text_field((string) ($data[$key] ?? '')));
+}
+
+function send_camp_booking_to_telegram(WP_REST_Request $request)
+{
+	$data = $request->get_json_params();
+	$data = is_array($data) ? $data : [];
+
+	$parent_name = ddc_clean_camp_booking_field($data, 'parent_name');
+	$child_name = ddc_clean_camp_booking_field($data, 'child_name');
+	$child_age = ddc_clean_camp_booking_field($data, 'child_age');
+	$phone = ddc_clean_camp_booking_field($data, 'phone');
+	$email = sanitize_email((string) ($data['email'] ?? ''));
+	$messenger = ddc_clean_camp_booking_field($data, 'messenger');
+	$city = ddc_clean_camp_booking_field($data, 'city');
+	$comment = trim(sanitize_textarea_field((string) ($data['comment'] ?? '')));
+
+	if (!$parent_name || !$child_name || !$child_age || !$phone || !$email || !is_email($email)) {
+		return new WP_Error(
+			'camp_booking_invalid',
+			'Please fill in all required booking fields.',
+			['status' => 400]
+		);
+	}
+
+	$message  = "🏖 <b>Новая заявка — LITO DANCE CAMP 2027</b>\n";
+	$message .= "━━━━━━━━━━━━━━━━━━━━\n";
+	$message .= "👤 <b>Родитель:</b> " . htmlspecialchars($parent_name) . "\n";
+	$message .= "🧒 <b>Ребёнок:</b> " . htmlspecialchars($child_name) . "\n";
+	$message .= "🎂 <b>Возраст:</b> " . htmlspecialchars($child_age) . "\n";
+	$message .= "📞 <b>Телефон:</b> " . htmlspecialchars($phone) . "\n";
+	$message .= "📧 <b>Email:</b> " . htmlspecialchars($email) . "\n";
+	$message .= "💬 <b>WhatsApp / Telegram:</b> " . htmlspecialchars($messenger ?: '-') . "\n";
+	$message .= "📍 <b>Город:</b> " . htmlspecialchars($city ?: '-') . "\n";
+	$message .= "💶 <b>Тариф:</b> REGULAR €1390, предоплата €450\n";
+	$message .= "🚌 <b>Транспорт:</b> автобус оплачивается отдельно\n";
+	$message .= "━━━━━━━━━━━━━━━━━━━━\n";
+	$message .= "📝 <b>Комментарий:</b>\n" . htmlspecialchars($comment ?: '-') . "\n";
+
+	$token   = ddc_get_secret_value('TELEGRAM_TOKEN');
+	$chat_id = ddc_get_secret_value('TELEGRAM_CHAT_ID');
+
+	if (!$token || !$chat_id) {
+		return new WP_Error(
+			'telegram_not_configured',
+			'Telegram integration is not configured.',
+			['status' => 500]
+		);
+	}
+
+	$response = wp_remote_post("https://api.telegram.org/bot{$token}/sendMessage", [
+		'body' => [
+			'chat_id'    => $chat_id,
+			'text'       => $message,
+			'parse_mode' => 'HTML',
+		],
+	]);
+
+	if (is_wp_error($response)) {
+		return $response;
+	}
+
+	$response_code = wp_remote_retrieve_response_code($response);
+	if ($response_code < 200 || $response_code >= 300) {
+		return new WP_Error(
+			'telegram_request_failed',
+			'Telegram request failed.',
+			['status' => 502]
+		);
+	}
 
 	return ['status' => 'ok'];
 }

@@ -34,7 +34,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Six+Caps&display=swap" rel="stylesheet">
 
   <?php wp_head(); ?>
-  <meta property="og:image" content="https://talentcenterddc.nl/wp-content/uploads/2025/12/faq-talent-center-ddc.jpg" />
+  <?php if (!is_page('camp')) : ?>
+    <meta property="og:image" content="https://talentcenterddc.nl/wp-content/uploads/2025/12/faq-talent-center-ddc.jpg" />
+  <?php endif; ?>
   <script>
     window.dataLayer = window.dataLayer || [];
     const gtag = (arguments) => {
