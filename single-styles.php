@@ -17,79 +17,55 @@ $BsWp->get_template_parts([
 ]);
 ?>
 
-<?php if (have_posts()) while (have_posts()) : the_post(); ?>
-	<section id="single">
-		<a href="<?php echo esc_url(get_site_url()); ?>/" class="small-logo">
-			<span class="year"><?php echo esc_html(NEXT_EDITION_YEAR); ?></span>
-			<img loading="lazy" decoding="async" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/ddc_logo_white.png" alt="">
-			<div class="place">
-				Amsterdam
-			</div>
-		</a>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 mb-4 d-flex justify-content-end justify-content-lg-start">
-					<a href="javascript:void(0);" onclick="history.back();" class="btn btn-link text-light back-btn text-decoration-none">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-						</svg>
-						Back
-					</a>
-				</div>
-				<div class="col-lg-4">
-					<?php if (has_post_thumbnail()): ?>
-						<div class="img-wrap">
-							<div class="inner"></div>
-							<?php $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large') ?>
-							<img loading="lazy" decoding="async" src="<?php echo esc_url($src[0]) ?>" alt="">
-						</div>
-					<?php endif; ?>
-				</div>
-				<div class="col-lg-8">
-					<div class="inner-field">
-						<h1>
-							<?php the_title(); ?>
-						</h1>
-						<div class="description"><?php the_content(); ?></div>
-						<h3 class="mt-5 mb-4 d-none d-lg-block">
-							<?php echo __('Video\'s', 'wp_denysmyr') ?>
-						</h3>
-						<div class="row video-row mt-5 mt-lg-0">
-							<?php
-							$youtube = new Youtube;
-							for ($i = 1; $i <= 6; $i++) {
-								$field = sprintf('video_%02d', $i);
-								$videoData = $youtube->getYoutubeId(get_post_meta(get_the_ID(), $field, true));
-								$video_url = $videoData->url;
-								$video_id = $videoData->id;
+<div class="styles-page">
 
-								if (empty($video_url)) {
-									continue;
-								}
-							?>
-								<div class="col-12 col-lg-6 mb-5">
-									<a data-fslightbox="gallery" class="magic-hover magic-hover__square d-block" href="<?php echo esc_url($video_url); ?>">
-										<span class="video-wrap ratio ratio-16x9 d-block">
-											<img src="https://i3.ytimg.com/vi/<?php echo esc_attr($video_id) ?>/hqdefault.jpg" alt="">
-										</span>
-									</a>
-								</div>
-							<?php
-							}
-							?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row mt-5 pb-5">
-				<div class="col-8 offset-4" style="padding-left: 5rem;">
-				</div>
-			</div>
+	<!-- Hero -->
+	<section class="styles-hero" style="<?php $thumb = get_the_post_thumbnail_url(); if ($thumb) echo 'background-image: url(' . esc_url($thumb) . ');'; ?>">
+		<div class="styles-hero__overlay"></div>
+		<div class="container styles-hero__inner">
+			<?php if (have_posts()) while (have_posts()) : the_post(); ?>
+				<span class="styles-hero__eyebrow"><?php esc_html_e('Talent Center DDC', 'wp_denysmyr'); ?></span>
+				<h1 class="styles-hero__title"><?php the_title(); ?></h1>
+				<?php if (trim(get_the_content())) : ?>
+					<div class="styles-hero__sub"><?php the_content(); ?></div>
+				<?php endif; ?>
+			<?php endwhile; ?>
 		</div>
 	</section>
 
+	<!-- Videos -->
+	<section class="styles-videos">
+		<div class="container">
+			<?php
+			$youtube = new Youtube;
+			$videos = [];
+			for ($i = 1; $i <= 6; $i++) {
+				$field = sprintf('video_%02d', $i);
+				$videoData = $youtube->getYoutubeId(get_post_meta(get_the_ID(), $field, true));
+				if (!empty($videoData->url)) {
+					$videos[] = $videoData;
+				}
+			}
+			?>
+			<?php if ($videos) : ?>
+				<h2 class="styles-videos__title"><?php esc_html_e("Video's", 'wp_denysmyr'); ?></h2>
+				<div class="row g-4">
+					<?php foreach ($videos as $videoData) : ?>
+						<div class="col-6 col-lg-4">
+							<a data-fslightbox="gallery" class="styles-video-card" href="<?php echo esc_url($videoData->url); ?>">
+								<img loading="lazy" decoding="async" src="https://i3.ytimg.com/vi/<?php echo esc_attr($videoData->id) ?>/hqdefault.jpg" alt="">
+								<span class="styles-video-card__play" aria-hidden="true">
+									<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+								</span>
+							</a>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+		</div>
+	</section>
 
-<?php endwhile; ?>
+</div>
 
 <?php
 $BsWp->get_template_parts([

@@ -17,70 +17,60 @@ $BsWp->get_template_parts([
 ]);
 ?>
 
-<?php if (have_posts()) while (have_posts()) : the_post(); ?>
-    <section id="styles">
-        <a href="<?php echo esc_url(get_site_url()); ?>/" class="small-logo">
-            <span class="year"><?php echo esc_html(NEXT_EDITION_YEAR); ?></span>
-            <img loading="lazy" decoding="async" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/ddc_logo_white.png" alt="">
-            <div class="place">
-                Amsterdam
-            </div>
-        </a>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="mb-3">
-                        <?php the_title(); ?>
-                    </h1>
-                    <div class="description mb-5"><?php the_content(); ?></div>
-                    <?php
-                    // the query.
-                    $args = [
-                        'post_type' => 'styles',
-                        'posts_per_page' => -1,
-                        'nopaging' => true,
-                        'orderby' => 'menu_order',
-                        'order' => 'ASC'
-                    ];
-                    $the_query = new WP_Query( $args ); ?>
+<div class="styles-page">
 
-                    <?php if ( $the_query->have_posts() ) : ?>
-                        <div class="row choreographer-row mt-5">
+	<!-- Hero -->
+	<section class="styles-hero" style="<?php $thumb = get_the_post_thumbnail_url(); if ($thumb) echo 'background-image: url(' . esc_url($thumb) . ');'; ?>">
+		<div class="styles-hero__overlay"></div>
+		<div class="container styles-hero__inner">
+			<?php if (have_posts()) while (have_posts()) : the_post(); ?>
+				<span class="styles-hero__eyebrow"><?php esc_html_e('Talent Center DDC', 'wp_denysmyr'); ?></span>
+				<h1 class="styles-hero__title"><?php the_title(); ?></h1>
+				<?php if (trim(get_the_content())) : ?>
+					<div class="styles-hero__sub"><?php the_content(); ?></div>
+				<?php endif; ?>
+			<?php endwhile; ?>
+		</div>
+	</section>
 
-                            <!-- pagination here -->
+	<!-- Grid -->
+	<section class="styles-grid">
+		<div class="container">
+			<?php
+			$args = [
+				'post_type'      => 'styles',
+				'posts_per_page' => -1,
+				'nopaging'       => true,
+				'orderby'        => 'menu_order',
+				'order'          => 'ASC',
+			];
+			$the_query = new WP_Query($args);
+			?>
+			<?php if ($the_query->have_posts()) : ?>
+				<div class="row g-4">
+					<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+						<div class="col-6 col-lg-3">
+							<a href="<?php echo esc_url(get_permalink()); ?>" class="styles-card">
+								<?php
+								$src = has_post_thumbnail() ? wp_get_attachment_image_src(get_post_thumbnail_id(), 'large') : false;
+								if ($src) :
+								?>
+									<img class="styles-card__img" loading="lazy" decoding="async" src="<?php echo esc_url($src[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+								<?php endif; ?>
+								<span class="styles-card__overlay"></span>
+								<h3 class="styles-card__title"><?php echo esc_html(get_the_title()); ?></h3>
+							</a>
+						</div>
+					<?php endwhile; ?>
+				</div>
+				<?php wp_reset_postdata(); ?>
+			<?php else : ?>
+				<p class="styles-empty"><?php esc_html_e('Sorry, no posts matched your criteria.', 'wp_denysmyr'); ?></p>
+			<?php endif; ?>
+		</div>
+	</section>
 
-                            <!-- the loop -->
-                            <?php
-                            while ( $the_query->have_posts() ) :
-                                $the_query->the_post();
-                                ?>
-                                <a href="<?php the_permalink(); ?>" class="col-6 col-lg-3 choreographer" style="opacity: 1;">
-                                    <?php if(has_post_thumbnail()): ?>
-                                        <div class="img-wrap magic-hover magic-hover__square bdb-0">
-                                            <?php $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large') ?>
-                                            <img loading="lazy" decoding="async" src="<?php echo esc_url($src[0]) ?>" alt="">
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php the_title( '<h3>', '</h3>' ); ?>
-                                </a>
-                            <?php endwhile; ?>
-                            <!-- end of the loop -->
-
-                            <!-- pagination here -->
-                        </div>
-
-                        <?php wp_reset_postdata(); ?>
-
-                    <?php else : ?>
-                        <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<?php endwhile; ?>
+</div>
 
 <?php
 $BsWp->get_template_parts([
