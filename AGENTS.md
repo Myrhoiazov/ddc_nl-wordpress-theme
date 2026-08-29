@@ -46,3 +46,10 @@
 
 - **Единый источник**: `CLAUDE.md` должен оставаться короткой ссылкой на этот файл. Основные правила поддерживайте здесь, чтобы не расходились инструкции между агентами.
 - **Commit attribution**: never add `Co-authored-by`, `Generated-by`, `--co-author`, AI attribution trailers, or similar metadata to commits unless the user explicitly asks for it.
+
+## 7. Локальные агенты и skills
+
+- **Основной flow**: для автономной разработки используйте `.agents/skills/agent-loop/SKILL.md`. Он ведет работу от intake и planning до checks, review, browser QA и pull request.
+- **Профиль агента**: `.agents/agents/dev-loop.md` должен оставаться тонкой оберткой над `agent-loop`, без дублирования полного процесса.
+- **DDC NL специфика**: локальные skills должны быть адаптированы под WordPress/XAMPP, публичный язык из `CONTEXT.md`, приватность contact requests и правила Git из этого файла.
+- **Deploy gate**: production deploy пока не автоматизирован в `.agents`. Добавьте явный deploy contract перед тем, как разрешать агенту выполнять деплой end-to-end.
