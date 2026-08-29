@@ -19,19 +19,29 @@ $BsWp->get_template_parts([
 
 <div class="styles-page">
 
-	<!-- Hero -->
-	<section class="styles-hero" style="<?php $thumb = get_the_post_thumbnail_url(); if ($thumb) echo 'background-image: url(' . esc_url($thumb) . ');'; ?>">
-		<div class="styles-hero__overlay"></div>
-		<div class="container styles-hero__inner">
-			<?php if (have_posts()) while (have_posts()) : the_post(); ?>
+	<?php if (have_posts()) while (have_posts()) : the_post(); ?>
+
+		<!-- Hero -->
+		<section class="styles-hero" style="<?php $thumb = get_the_post_thumbnail_url(); if ($thumb) echo 'background-image: url(' . esc_url($thumb) . ');'; ?>">
+			<div class="styles-hero__overlay"></div>
+			<div class="container styles-hero__inner">
 				<span class="styles-hero__eyebrow"><?php esc_html_e('Talent Center DDC', 'wp_denysmyr'); ?></span>
 				<h1 class="styles-hero__title"><?php the_title(); ?></h1>
-				<?php if (trim(get_the_content())) : ?>
-					<div class="styles-hero__sub"><?php the_content(); ?></div>
-				<?php endif; ?>
-			<?php endwhile; ?>
-		</div>
-	</section>
+			</div>
+		</section>
+
+		<!-- Content -->
+		<?php if (trim(get_the_content())) : ?>
+			<section class="styles-content">
+				<div class="container">
+					<div class="styles-content__inner">
+						<?php the_content(); ?>
+					</div>
+				</div>
+			</section>
+		<?php endif; ?>
+
+	<?php endwhile; ?>
 
 	<!-- Videos -->
 	<section class="styles-videos">

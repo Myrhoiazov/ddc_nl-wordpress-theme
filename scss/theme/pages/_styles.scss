@@ -149,6 +149,91 @@ body.page-template-styles-template {
 // ── Single style page ────────────────────────────────────────
 body.single-styles {
 
+  .styles-content {
+    padding: 64px 0 16px;
+
+    @include set-breakpoint(lg, down) {
+      padding: 40px 0 8px;
+    }
+
+    &__inner {
+      max-width: 780px;
+      color: rgba($white, 0.75);
+      font-size: 17px;
+      line-height: 1.7;
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      strong {
+        color: $white;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        color: $white;
+        margin: 2.5rem 0 1.25rem;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 1.5rem;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      ul li,
+      ol li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 0.75rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.65em;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: $pink;
+        }
+      }
+
+      a {
+        color: $pink;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus-visible {
+          color: $white;
+        }
+      }
+    }
+  }
+
   .styles-videos {
     padding: 64px 0;
 
