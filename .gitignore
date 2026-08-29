@@ -66,4 +66,10 @@ dist/
 build/
 coverage/
 
-/docs/
+# Project documentation
+docs/*
+!docs/spec/
+!docs/spec/**
+
+# Local agent task notes
+/tasks/
