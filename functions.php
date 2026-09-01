@@ -735,3 +735,9 @@ function send_camp_booking_to_telegram(WP_REST_Request $request)
 
 	return ['status' => 'ok'];
 }
+
+add_filter('mc4wp_form_fields', function (array $field_data) {
+	$field_data['LANG'] = strtoupper(ddc_get_current_language());
+
+	return $field_data;
+});
