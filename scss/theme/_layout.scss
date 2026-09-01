@@ -565,6 +565,37 @@ body {
 		background-color: $lime;
 	}
 
+	&__lang {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-left: 0.5rem;
+		padding-left: 0.85rem;
+		border-left: 1px solid rgba($black, 0.12);
+	}
+
+	&__lang-link {
+		display: flex;
+		align-items: center;
+		min-height: 32px;
+		padding: 0 0.6rem;
+		border-radius: 6px;
+		color: $black;
+		font-size: 13px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: background-color 180ms ease;
+
+		&:hover,
+		&:focus {
+			background-color: rgba($lime, 0.16);
+		}
+
+		&.is-active {
+			background-color: $lime;
+		}
+	}
+
 	&__submenu-toggle {
 		position: absolute;
 		inset: 0;

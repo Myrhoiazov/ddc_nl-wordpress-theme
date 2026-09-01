@@ -395,6 +395,33 @@ ul {
 			color: $red;
 		}
 	}
+	&__lang {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgba($black, 0.12);
+	}
+	&__lang-link {
+		padding: 0.4rem 0.9rem;
+		border-radius: 6px;
+		color: $black;
+		font-weight: 700;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: background-color 200ms ease;
+
+		&:hover,
+		&:focus {
+			background-color: rgba($lime, 0.16);
+		}
+
+		&.is-active {
+			background-color: $lime;
+		}
+	}
 	.back-btn {
 		border: 0;
 		background: transparent;

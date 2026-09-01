@@ -45,6 +45,18 @@ foreach ($children as $parent_id => $child_items) {
 }
 
 $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
+
+// hide_if_no_translation: languages with no published content for the current
+// page never show up here — no separate "hidden language" flag needed, this is
+// Polylang's own built-in behavior (verified against the live install: NL/UK/EN
+// correctly disappear from this list while empty). Computed once and rendered
+// in two places below: the desktop switcher inside .site-header__nav, and a
+// second copy inside #mobile_menu — .site-header is a 2-column CSS grid, so a
+// bare third element between </nav> and #menu_btn wraps onto its own grid row
+// and pushes the menu button out of the header entirely.
+$pll_switcher_languages = function_exists('pll_the_languages')
+    ? pll_the_languages(['raw' => 1, 'hide_if_no_translation' => 1])
+    : [];
 ?>
 
 <header class="site-header">
@@ -82,20 +94,9 @@ $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
-    </nav>
 
-    <?php if (function_exists('pll_the_languages')) :
-        // hide_if_no_translation: languages with no published content for the
-        // current page never show up here — no separate "hidden language" flag
-        // needed, this is Polylang's own built-in behavior (verified against the
-        // live install: NL/UK/EN correctly disappear from this list while empty).
-        $pll_switcher_languages = pll_the_languages([
-            'raw'                    => 1,
-            'hide_if_no_translation' => 1,
-        ]);
-    ?>
         <?php if (!empty($pll_switcher_languages)) : ?>
-            <div class="site-header__lang d-flex align-items-center gap-2" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
+            <div class="site-header__lang" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
                 <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
                     <a
                         href="<?php echo esc_url($pll_lang['url']); ?>"
@@ -106,7 +107,7 @@ $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-    <?php endif; ?>
+    </nav>
 
     <button id="menu_btn" class="site-header__menu-toggle" type="button" aria-expanded="false" aria-controls="mobile_menu">
         <span></span>
@@ -126,6 +127,19 @@ $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
                 <?php echo esc_html($item->title); ?>
             </a>
         <?php endforeach; ?>
+
+        <?php if (!empty($pll_switcher_languages)) : ?>
+            <div class="main-menu__lang" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
+                <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
+                    <a
+                        href="<?php echo esc_url($pll_lang['url']); ?>"
+                        class="main-menu__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
+                        hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
+                        <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
+                    ><?php echo esc_html($pll_lang['name']); ?></a>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </nav>
 
     <?php foreach ($menu_tree as $node) : ?>
