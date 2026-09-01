@@ -53,7 +53,7 @@ $BsWp->get_template_parts([
 								</iframe>
 							</div>
 							<div class="contact-loc__info">
-								<h3 class="contact-loc__city">Rotterdam</h3>
+								<h3 class="contact-loc__city"><?php echo esc_html(ddc_get_city_display_name('rotterdam')); ?></h3>
 								<address class="contact-loc__address">
 									Van Alkemadehof 51<br>
 									3031 PB Rotterdam<br>
@@ -82,7 +82,7 @@ $BsWp->get_template_parts([
 								</iframe>
 							</div>
 							<div class="contact-loc__info">
-								<h3 class="contact-loc__city">Amsterdam <span>— Hoogoorddreef</span></h3>
+								<h3 class="contact-loc__city"><?php echo esc_html(ddc_get_city_display_name('amsterdam')); ?> <span>— Hoogoorddreef</span></h3>
 								<address class="contact-loc__address">
 									Hoogoorddreef 74<br>
 									1101 BG Amsterdam<br>
@@ -111,7 +111,7 @@ $BsWp->get_template_parts([
 								</iframe>
 							</div>
 							<div class="contact-loc__info">
-								<h3 class="contact-loc__city">Amsterdam <span>— Nieuwe Achtergracht</span></h3>
+								<h3 class="contact-loc__city"><?php echo esc_html(ddc_get_city_display_name('amsterdam')); ?> <span>— Nieuwe Achtergracht</span></h3>
 								<address class="contact-loc__address">
 									Nieuwe Achtergracht 170<br>
 									1018 WV Amsterdam<br>
@@ -140,7 +140,7 @@ $BsWp->get_template_parts([
 								</iframe>
 							</div>
 							<div class="contact-loc__info">
-								<h3 class="contact-loc__city">Apeldoorn</h3>
+								<h3 class="contact-loc__city"><?php echo esc_html(ddc_get_city_display_name('apeldoorn')); ?></h3>
 								<address class="contact-loc__address">
 									Musschenbroekstraat 19<br>
 									7316 JD Apeldoorn<br>
@@ -169,7 +169,7 @@ $BsWp->get_template_parts([
 								</iframe>
 							</div>
 							<div class="contact-loc__info">
-								<h3 class="contact-loc__city">Arnhem</h3>
+								<h3 class="contact-loc__city"><?php echo esc_html(ddc_get_city_display_name('arnhem')); ?></h3>
 								<address class="contact-loc__address">
 									Kazerneplein 6-2<br>
 									6822 ET Arnhem<br>
