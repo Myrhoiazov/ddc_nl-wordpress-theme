@@ -21,8 +21,8 @@ The public view of cities, groups, and class times where visitors decide which l
 _Avoid_: Timetable dump, event agenda
 
 **Location**:
-A physical city or studio place where Talent Center DDC classes happen. Location names should be specific enough for parents to recognize the branch.
-_Avoid_: Venue, stage, camp city
+A physical city or studio place where Talent Center DDC classes happen. Location names should be specific enough for parents to recognize which one they mean.
+_Avoid_: Venue, stage, camp city, Branch, Филиал
 
 **Choreographer**:
 A teacher or dance professional presented through profile and video pages. Use this term for artist/teacher profile content, not for general staff.
@@ -51,3 +51,15 @@ _Avoid_: Free class unless it is explicitly free
 **Contact Request**:
 A submitted lead or message from a visitor through the site forms. It may include preferred messenger details and should be treated as private customer communication.
 _Avoid_: Telegram message, ticket
+
+**Site Language**:
+One of the languages a visitor can browse Talent Center DDC content in (Russian, Dutch, Ukrainian, English). Content and navigation for a Site Language are only shown to visitors once that language meets its Launch Baseline.
+_Avoid_: Locale, translation, language version
+
+**Default Language**:
+The Site Language served at the site's root address without a language prefix. Which Site Language holds this role can change over time as other languages reach their Launch Baseline — it is not a fixed identity of one language.
+_Avoid_: Primary language, canonical language
+
+**Launch Baseline**:
+The minimum set of pages and content a Site Language must have translated before that language is shown to visitors and opened to search engines.
+_Avoid_: Core pages, MVP translation

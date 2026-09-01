@@ -70,6 +70,8 @@ coverage/
 docs/*
 !docs/spec/
 !docs/spec/**
+!docs/adr/
+!docs/adr/**
 
 # Local agent task notes
 /tasks/
