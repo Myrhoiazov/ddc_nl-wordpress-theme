@@ -28,31 +28,31 @@ add_action('wp_footer', function () {
             amsterdam: {
                 name: 'Amsterdam',
                 groups: [
-                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         classes: 4, price: 80  },
-                    { label_en: 'Kids 12+ · 2×/week',           label_nl: 'Kids 12+ · 2×/week',           label_ru: 'Дети 12+ · 2 р/нед',           classes: 8, price: 100 },
-                    { label_en: 'Kids 7–11 · 2×/week',          label_nl: 'Kids 7–11 · 2×/week',          label_ru: 'Дети 7–11 л. · 2 р/нед',       classes: 8, price: 100 }
+                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         label_uk: 'DDC NL · 1 р/тижд',              classes: 4, price: 80  },
+                    { label_en: 'Kids 12+ · 2×/week',           label_nl: 'Kids 12+ · 2×/week',           label_ru: 'Дети 12+ · 2 р/нед',           label_uk: 'Діти 12+ · 2 р/тижд',            classes: 8, price: 100 },
+                    { label_en: 'Kids 7–11 · 2×/week',          label_nl: 'Kids 7–11 · 2×/week',          label_ru: 'Дети 7–11 л. · 2 р/нед',       label_uk: 'Діти 7–11 р. · 2 р/тижд',        classes: 8, price: 100 }
                 ]
             },
             rotterdam: {
                 name: 'Rotterdam',
                 groups: [
-                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         classes: 4, price: 70 },
-                    { label_en: 'Kids 5–7 · 1×/week',           label_nl: 'Kids 5–7 · 1×/week',           label_ru: 'Дети 5–7 л. · 1 р/нед',        classes: 4, price: 60 },
-                    { label_en: 'Kids 8–13 · 1×/week',          label_nl: 'Kids 8–13 · 1×/week',          label_ru: 'Дети 8–13 л. · 1 р/нед',       classes: 4, price: 60 }
+                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         label_uk: 'DDC NL · 1 р/тижд',        classes: 4, price: 70 },
+                    { label_en: 'Kids 5–7 · 1×/week',           label_nl: 'Kids 5–7 · 1×/week',           label_ru: 'Дети 5–7 л. · 1 р/нед',        label_uk: 'Діти 5–7 р. · 1 р/тижд',   classes: 4, price: 60 },
+                    { label_en: 'Kids 8–13 · 1×/week',          label_nl: 'Kids 8–13 · 1×/week',          label_ru: 'Дети 8–13 л. · 1 р/нед',       label_uk: 'Діти 8–13 р. · 1 р/тижд',  classes: 4, price: 60 }
                 ]
             },
             apeldoorn: {
                 name: 'Apeldoorn',
                 groups: [
-                    { label_en: 'Kids 8–12 · 1×/week',          label_nl: 'Kids 8–12 · 1×/week',          label_ru: 'Дети 8–12 л. · 1 р/нед',       classes: 4, price: 50 }
+                    { label_en: 'Kids 8–12 · 1×/week',          label_nl: 'Kids 8–12 · 1×/week',          label_ru: 'Дети 8–12 л. · 1 р/нед',       label_uk: 'Діти 8–12 р. · 1 р/тижд',  classes: 4, price: 50 }
                 ]
             },
             arnhem: {
                 name: 'Arnhem',
                 groups: [
-                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         classes: 4, price: 80 },
-                    { label_en: 'DDC NL · Ivanna · 1×/week', label_nl: 'DDC NL · Ivanna · 1×/week', label_ru: 'DDC NL · Иванна · 1 р/нед', classes: 4, price: 80 },
-                    { label_en: 'Kids 7–11 · Ivanna · 1×/week', label_nl: 'Kids 7–11 · Ivanna · 1×/week', label_ru: 'Дети 7–11 · Иванна · 1 р/нед', classes: 4, price: 60 }
+                    { label_en: 'DDC NL · 1×/week',         label_nl: 'DDC NL · 1×/week',         label_ru: 'DDC NL · 1 р/нед',         label_uk: 'DDC NL · 1 р/тижд',              classes: 4, price: 80 },
+                    { label_en: 'DDC NL · Ivanna · 1×/week', label_nl: 'DDC NL · Ivanna · 1×/week', label_ru: 'DDC NL · Иванна · 1 р/нед', label_uk: 'DDC NL · Іванна · 1 р/тижд',      classes: 4, price: 80 },
+                    { label_en: 'Kids 7–11 · Ivanna · 1×/week', label_nl: 'Kids 7–11 · Ivanna · 1×/week', label_ru: 'Дети 7–11 · Иванна · 1 р/нед', label_uk: 'Діти 7–11 · Іванна · 1 р/тижд', classes: 4, price: 60 }
                 ]
             }
         };
@@ -139,7 +139,7 @@ add_action('wp_footer', function () {
                 });
             });
 
-            ['en', 'nl', 'ru'].forEach(function (lang) {
+            ['en', 'nl', 'ru', 'uk'].forEach(function (lang) {
                 var branchSel = document.getElementById('agr-branch-' + lang);
                 var groupSel  = document.getElementById('agr-group-' + lang);
                 if (branchSel) branchSel.addEventListener('change', function () { updateGroups(lang); });
@@ -179,6 +179,7 @@ $BsWp->get_template_parts([
             <button class="agr-lang-btn" data-lang="en" type="button">EN</button>
             <button class="agr-lang-btn" data-lang="nl" type="button">NL</button>
             <button class="agr-lang-btn is-active" data-lang="ru" type="button">RU</button>
+            <button class="agr-lang-btn" data-lang="uk" type="button">UK</button>
         </div>
 
         <div data-lang="en">
@@ -195,6 +196,11 @@ $BsWp->get_template_parts([
             <div class="agr-hero-tag">Договор на занятия</div>
             <h1>Ваш договор с <span>Talent Center DDC</span></h1>
             <p class="agr-hero-sub">Всё, что нужно знать перед подписанием — оплата, посещаемость, отмена и SEPA-мандат простым языком.</p>
+        </div>
+        <div data-lang="uk">
+            <div class="agr-hero-tag">Договір на танцювальні заняття</div>
+            <h1>Ваш договір з <span>Talent Center DDC</span></h1>
+            <p class="agr-hero-sub">Все, що потрібно знати перед підписанням — оплата, відвідуваність, скасування та SEPA-мандат простою мовою.</p>
         </div>
     </div>
 
@@ -225,6 +231,15 @@ $BsWp->get_template_parts([
             <a href="#agr-attendance">Посещаемость</a>
             <a href="#agr-cancellation">Отмена</a>
             <a href="#agr-company">Реквизиты</a>
+            <a href="#agr-faq">FAQ</a>
+        </div>
+        <div data-lang="uk">
+            <a href="#agr-pricing">Ціни</a>
+            <a href="#agr-payment">Оплата та списання</a>
+            <a href="#agr-sepa">SEPA-мандат</a>
+            <a href="#agr-attendance">Відвідуваність</a>
+            <a href="#agr-cancellation">Скасування</a>
+            <a href="#agr-company">Реквізити</a>
             <a href="#agr-faq">FAQ</a>
         </div>
     </div>
@@ -336,6 +351,40 @@ $BsWp->get_template_parts([
                 </div>
             </div>
 
+            <div data-lang="uk">
+                <div class="agr-eyebrow">Ціни</div>
+                <h2>Оберіть філію та групу</h2>
+                <p>Оберіть нижче свою філію та групу, щоб дізнатися точну щомісячну вартість. Ціни залежать від міста, стилю та кількості занять на тиждень.</p>
+                <div class="agr-calc">
+                    <h3>💶 Розрахуйте щомісячну оплату</h3>
+                    <div class="agr-calc-row">
+                        <div class="agr-calc-field">
+                            <label for="agr-branch-uk">Філія</label>
+                            <select id="agr-branch-uk">
+                                <option value="">— Оберіть філію —</option>
+                                <option value="amsterdam">Amsterdam</option>
+                                <option value="rotterdam">Rotterdam</option>
+                                <option value="apeldoorn">Apeldoorn</option>
+                                <option value="arnhem">Arnhem</option>
+                            </select>
+                        </div>
+                        <div class="agr-calc-field">
+                            <label for="agr-group-uk">Група</label>
+                            <select id="agr-group-uk" disabled>
+                                <option value="">— Спочатку оберіть філію —</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="agr-result" id="agr-result-uk">
+                        <div class="agr-result-row"><span class="agr-result-label">Філія</span><span class="agr-result-value" id="agr-res-branch-uk">—</span></div>
+                        <div class="agr-result-row"><span class="agr-result-label">Група</span><span class="agr-result-value" id="agr-res-group-uk">—</span></div>
+                        <div class="agr-result-row"><span class="agr-result-label">Занять на місяць</span><span class="agr-result-value" id="agr-res-classes-uk">—</span></div>
+                        <div class="agr-result-row"><span class="agr-result-label">Щомісячна оплата (з ПДВ)</span><span class="agr-result-value is-total" id="agr-res-price-uk">—</span></div>
+                        <p class="agr-result-note">Оплата автоматично списується 1-го числа кожного місяця через SEPA Direct Debit.</p>
+                    </div>
+                </div>
+            </div>
+
         </div><!-- #agr-pricing -->
 
         <?php /* ── КАК РАБОТАЕТ ОПЛАТА ────────────────────────── */ ?>
@@ -392,6 +441,23 @@ $BsWp->get_template_parts([
                 </div>
             </div>
 
+            <div data-lang="uk">
+                <div class="agr-eyebrow">Оплата та автосписання</div>
+                <h2>Як працює оплата</h2>
+                <p>Платежі списуються автоматично щомісяця через SEPA Direct Debit — після початкового налаштування нічого робити не потрібно.</p>
+                <div class="agr-steps">
+                    <div class="agr-step"><div class="agr-step-num">1</div><div class="agr-step-body"><h4>Підписання договору та мандата</h4><p>Ви надаєте IBAN і дозволяєте Talent Center DDC щомісяця списувати оплату з вашого рахунку.</p></div></div>
+                    <div class="agr-step"><div class="agr-step-num">2</div><div class="agr-step-body"><h4>Перший платіж</h4><p>Перший щомісячний внесок списується при підписанні договору.</p></div></div>
+                    <div class="agr-step"><div class="agr-step-num">3</div><div class="agr-step-body"><h4>Щомісячне автосписання</h4><p>Кожного 1-го числа місяця оплата автоматично списується з вашого рахунку через SEPA.</p></div></div>
+                    <div class="agr-step"><div class="agr-step-num">4</div><div class="agr-step-body"><h4>Невдалий платіж</h4><p>Якщо платіж не пройшов — потрібно оплатити вручну протягом 5 робочих днів.</p></div></div>
+                </div>
+                <div class="agr-highlight">
+                    <h3>Важливо знати</h3>
+                    <p>Щомісячна оплата не повертається. Пропущені заняття не компенсуються і не переносяться, якщо не скасовані організатором.</p>
+                    <p>Усі суми включають ПДВ. Ви отримуєте підтвердження оплати щомісяця.</p>
+                </div>
+            </div>
+
         </div><!-- #agr-payment -->
 
         <?php /* ── SEPA МАНДАТ ─────────────────────────────────── */ ?>
@@ -442,6 +508,21 @@ $BsWp->get_template_parts([
                 </div>
             </div>
 
+            <div data-lang="uk">
+                <div class="agr-eyebrow">SEPA-мандат</div>
+                <h2>Що таке мандат SEPA Direct Debit?</h2>
+                <p>Мандат SEPA — це письмовий дозвіл, який дозволяє компанії автоматично списувати платежі з вашого рахунку. Стандартний метод оплати в Європі, повністю захищений банківським законодавством ЄС.</p>
+                <div class="agr-sepa">
+                    <h3>Ваші права за SEPA</h3>
+                    <ul>
+                        <li>Ви можете запросити повернення коштів у банку за несанкціоноване списання протягом <strong>8 тижнів</strong>.</li>
+                        <li>Вас повідомлять не менш ніж за <strong>14 днів</strong> до першого списання.</li>
+                        <li>Ви можете відкликати мандат через банк — це не замінює повідомлення про розірвання договору на адресу DDC.</li>
+                        <li>Банківські дані зберігаються безпечно і використовуються лише для збору платежів.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div><!-- #agr-sepa -->
 
         <?php /* ── ПОСЕЩАЕМОСТЬ ─────────────────────────────────── */ ?>
@@ -474,6 +555,16 @@ $BsWp->get_template_parts([
                     <div class="agr-info-card"><div class="agr-info-icon">❌</div><h4>Пропущенные занятия</h4><p>Не компенсируются и не переносятся, если не отменены организатором.</p></div>
                     <div class="agr-info-card"><div class="agr-info-icon">✅</div><h4>Отмена DDC</h4><p>Если DDC отменяет занятие — ученики уведомляются заранее и принимаются альтернативные меры.</p></div>
                     <div class="agr-info-card"><div class="agr-info-icon">🔒</div><h4>Ваше место</h4><p>Гарантировано при своевременной оплате. Задолженность может привести к потере места в группе.</p></div>
+                </div>
+            </div>
+
+            <div data-lang="uk">
+                <div class="agr-eyebrow">Відвідуваність</div>
+                <h2>Правила відвідування</h2>
+                <div class="agr-info-grid">
+                    <div class="agr-info-card"><div class="agr-info-icon">❌</div><h4>Пропущені заняття</h4><p>Не компенсуються і не переносяться, якщо не скасовані організатором.</p></div>
+                    <div class="agr-info-card"><div class="agr-info-icon">✅</div><h4>Скасування DDC</h4><p>Якщо DDC скасовує заняття — учні повідомляються заздалегідь і вживаються альтернативні заходи.</p></div>
+                    <div class="agr-info-card"><div class="agr-info-icon">🔒</div><h4>Ваше місце</h4><p>Гарантовано за своєчасної оплати. Заборгованість може призвести до втрати місця в групі.</p></div>
                 </div>
             </div>
 
@@ -527,6 +618,21 @@ $BsWp->get_template_parts([
                 <p>DDC оставляет за собой право расторгнуть договор при систематических нарушениях или неоплате. Задолженность остаётся к оплате.</p>
             </div>
 
+            <div data-lang="uk">
+                <div class="agr-eyebrow">Скасування</div>
+                <h2>Як відмовитися від занять</h2>
+                <div class="agr-sepa">
+                    <h3>Правила скасування</h3>
+                    <ul>
+                        <li>Письмове повідомлення — не менш ніж за <strong>1 календарний місяць</strong>.</li>
+                        <li>Оплата за <strong>поточний місяць не повертається</strong>, навіть у разі скасування в середині місяця.</li>
+                        <li>Місяць повідомлення оплачується повністю.</li>
+                        <li>Надішліть повідомлення на: <strong>info@talentcenterddc.nl</strong></li>
+                    </ul>
+                </div>
+                <p>DDC залишає за собою право розірвати договір у разі систематичних порушень або несплати. Заборгованість залишається до сплати.</p>
+            </div>
+
         </div><!-- #agr-cancellation -->
 
         <?php /* ── РЕКВИЗИТЫ ─────────────────────────────────────── */ ?>
@@ -561,6 +667,17 @@ $BsWp->get_template_parts([
                     <div class="agr-company-detail"><div class="agr-cd-label">Название компании</div><div class="agr-cd-value">Talent Center DDC</div></div>
                     <div class="agr-company-detail"><div class="agr-cd-label">Номер НДС (VAT)</div><div class="agr-cd-value">NL004836578B09</div></div>
                     <div class="agr-company-detail"><div class="agr-cd-label">Торговая палата (KVK)</div><div class="agr-cd-value">90720814</div></div>
+                    <div class="agr-company-detail"><div class="agr-cd-label">Email</div><div class="agr-cd-value"><a href="mailto:info@talentcenterddc.nl">info@talentcenterddc.nl</a></div></div>
+                </div>
+            </div>
+
+            <div data-lang="uk">
+                <div class="agr-eyebrow">Реквізити компанії</div>
+                <h2>Talent Center DDC</h2>
+                <div class="agr-company">
+                    <div class="agr-company-detail"><div class="agr-cd-label">Назва компанії</div><div class="agr-cd-value">Talent Center DDC</div></div>
+                    <div class="agr-company-detail"><div class="agr-cd-label">Номер ПДВ (VAT)</div><div class="agr-cd-value">NL004836578B09</div></div>
+                    <div class="agr-company-detail"><div class="agr-cd-label">Торгова палата (KVK)</div><div class="agr-cd-value">90720814</div></div>
                     <div class="agr-company-detail"><div class="agr-cd-label">Email</div><div class="agr-cd-value"><a href="mailto:info@talentcenterddc.nl">info@talentcenterddc.nl</a></div></div>
                 </div>
             </div>
@@ -600,6 +717,16 @@ $BsWp->get_template_parts([
                 <div class="agr-faq-item"><div class="agr-faq-q">Можно ли передать место другому?</div><div class="agr-faq-a">Нет — договор личный и не подлежит передаче. Новый ученик должен подписать отдельный договор.</div></div>
             </div>
 
+            <div data-lang="uk">
+                <div class="agr-eyebrow">FAQ</div>
+                <h2>Часті запитання</h2>
+                <div class="agr-faq-item"><div class="agr-faq-q">Чи можна спробувати заняття перед підписанням?</div><div class="agr-faq-a">Так — DDC пропонує пробне заняття. Напишіть на <a href="mailto:info@talentcenterddc.nl">info@talentcenterddc.nl</a>, щоб записатися.</div></div>
+                <div class="agr-faq-item"><div class="agr-faq-q">Чи можна перейти в іншу групу?</div><div class="agr-faq-a">Так, за наявності місць. Зв'яжіться з нами, і ми допоможемо з переходом. Вартість може бути скоригована.</div></div>
+                <div class="agr-faq-item"><div class="agr-faq-q">Що робити, якщо мій IBAN зміниться?</div><div class="agr-faq-a">Негайно повідомте нас на <a href="mailto:info@talentcenterddc.nl">info@talentcenterddc.nl</a> з новим IBAN для оновлення реквізитів списання.</div></div>
+                <div class="agr-faq-item"><div class="agr-faq-q">Чи можна призупинити заняття?</div><div class="agr-faq-a">Призупинення не передбачено стандартним договором. Зв'яжіться з нами для обговорення ситуації.</div></div>
+                <div class="agr-faq-item"><div class="agr-faq-q">Чи можна передати місце іншому?</div><div class="agr-faq-a">Ні — договір особистий і не підлягає передачі. Новий учень має підписати окремий договір.</div></div>
+            </div>
+
         </div><!-- #agr-faq -->
 
     </div><!-- .agr-wrap -->
@@ -620,6 +747,11 @@ $BsWp->get_template_parts([
             <h2>Готовы присоединиться?</h2>
             <p>Напишите нам, чтобы записаться или попробовать пробное занятие.</p>
             <button type="button" class="agr-cta-btn" data-bs-toggle="modal" data-bs-target="#contact_form">Написать нам →</button>
+        </div>
+        <div data-lang="uk">
+            <h2>Готові приєднатися?</h2>
+            <p>Напишіть нам, щоб записатися або спробувати пробне заняття.</p>
+            <button type="button" class="agr-cta-btn" data-bs-toggle="modal" data-bs-target="#contact_form">Написати нам →</button>
         </div>
     </div>
 
