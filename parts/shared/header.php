@@ -2,6 +2,27 @@
 $locations  = get_nav_menu_locations();
 $menu_id    = $locations['primary'] ?? null;
 $menu_items = $menu_id ? wp_get_nav_menu_items($menu_id) : [];
+
+// Hide menu items that link to a post/page with no translation in the current
+// language, instead of sending visitors to content that's just going to bounce
+// them straight to the RU version anyway (see functions.php's untranslated-content
+// redirect). Only applies once a non-default language is actually being browsed —
+// leaves the RU menu, and every hidden language before it has real content, untouched.
+if (function_exists('pll_current_language') && function_exists('pll_default_language')) {
+    $current_lang = pll_current_language();
+    $default_lang = pll_default_language();
+
+    if ($current_lang && $default_lang && $current_lang !== $default_lang) {
+        $menu_items = array_values(array_filter($menu_items, function ($item) use ($current_lang) {
+            if ('post_type' !== $item->type) {
+                return true;
+            }
+
+            return (bool) pll_get_post($item->object_id, $current_lang);
+        }));
+    }
+}
+
 $menu_tree  = [];
 $children   = [];
 
@@ -62,6 +83,30 @@ $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
             </div>
         <?php endforeach; ?>
     </nav>
+
+    <?php if (function_exists('pll_the_languages')) :
+        // hide_if_no_translation: languages with no published content for the
+        // current page never show up here — no separate "hidden language" flag
+        // needed, this is Polylang's own built-in behavior (verified against the
+        // live install: NL/UK/EN correctly disappear from this list while empty).
+        $pll_switcher_languages = pll_the_languages([
+            'raw'                    => 1,
+            'hide_if_no_translation' => 1,
+        ]);
+    ?>
+        <?php if (!empty($pll_switcher_languages)) : ?>
+            <div class="site-header__lang d-flex align-items-center gap-2" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
+                <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
+                    <a
+                        href="<?php echo esc_url($pll_lang['url']); ?>"
+                        class="site-header__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
+                        hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
+                        <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
+                    ><?php echo esc_html($pll_lang['name']); ?></a>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
 
     <button id="menu_btn" class="site-header__menu-toggle" type="button" aria-expanded="false" aria-controls="mobile_menu">
         <span></span>

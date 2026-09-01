@@ -773,3 +773,43 @@ add_filter('pll_rel_hreflang_attributes', function ($hreflangs) {
 
 	return $hreflangs;
 });
+
+/**
+ * Redirect untranslated content to its RU (default-language) URL instead of
+ * silently rendering RU content under a foreign-language URL prefix.
+ *
+ * Polylang does not strictly filter the main query by language for content that
+ * has no translation in the requested language — it resolves the slug regardless
+ * of language, leaving `pll_current_language()` (from the URL prefix) out of sync
+ * with the resolved post's actual language. For ordinary content WordPress's own
+ * redirect_canonical() — extended by Polylang to account for the resolved post's
+ * actual language — already 301-redirects this case on its own (verified directly
+ * against this install: /nl/choreographer/<slug>/ and /nl/faq/, both RU-only,
+ * 301 to their RU URL with no theme code involved).
+ *
+ * The site root under a language prefix (e.g. /nl/) doesn't go through that path
+ * at all, though: with no translated front page assigned, it falls back to a plain
+ * blog-index home query (is_home() true, is_front_page() false — verified directly
+ * against this install) instead of resolving the configured static front page.
+ * redirect_canonical() never fires for this since nothing 404s and there's no
+ * single resolved object to canonicalize. That's the one gap this handles.
+ */
+add_action('template_redirect', function () {
+	if (!function_exists('pll_current_language') || is_admin() || !is_home() || is_front_page()) {
+		return;
+	}
+
+	global $wp;
+
+	$url_lang     = pll_current_language();
+	$default_lang = function_exists('pll_default_language') ? pll_default_language() : null;
+
+	if (!$url_lang || !$default_lang || $url_lang === $default_lang) {
+		return;
+	}
+
+	if (trim($wp->request, '/') === $url_lang) {
+		wp_safe_redirect(pll_home_url($default_lang), 302);
+		exit;
+	}
+});
