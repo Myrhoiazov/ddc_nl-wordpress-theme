@@ -235,6 +235,7 @@ if (document.readyState === 'loading') {
 // Отправка данных формы в Telegram
 document.addEventListener('wpcf7mailsent', function (event) {
 	const values = getFormValues(event.detail.inputs);
+	values.lang = document.documentElement.lang || 'ru';
 
 	fetch('/wp-json/contact-form/tg', {
 		method: 'POST',

@@ -614,9 +614,11 @@ function send_cf7_to_telegram(WP_REST_Request $request)
 	$messenger_phone = trim((string) $phone_raw);
 
 	$icons = ['Telegram' => '✈️ Telegram', 'WhatsApp' => '📱 WhatsApp'];
+	$source_lang = ddc_get_current_language($data['lang'] ?? null);
 
 	$message  = "📩 <b>Новая заявка — DDC NL!</b>\n";
 	$message .= "━━━━━━━━━━━━━━━━━━━━\n";
+	$message .= "🌐 <b>Язык сайта:</b> "   . strtoupper($source_lang) . "\n";
 	$message .= "👤 <b>Имя:</b> "         . htmlspecialchars($data['your-name']    ?? '-') . "\n";
 	$message .= "📧 <b>Email:</b> "        . htmlspecialchars($data['your-email']   ?? '-') . "\n";
 	$message .= "📌 <b>Тема:</b> "         . htmlspecialchars($data['your-subject'] ?? '-') . "\n";
@@ -682,8 +684,11 @@ function send_camp_booking_to_telegram(WP_REST_Request $request)
 		);
 	}
 
+	$source_lang = ddc_get_current_language($data['lang'] ?? null);
+
 	$message  = "🏖 <b>Новая заявка — LITO DANCE CAMP 2027</b>\n";
 	$message .= "━━━━━━━━━━━━━━━━━━━━\n";
+	$message .= "🌐 <b>Язык сайта:</b> " . strtoupper($source_lang) . "\n";
 	$message .= "👤 <b>Родитель:</b> " . htmlspecialchars($parent_name) . "\n";
 	$message .= "🧒 <b>Ребёнок:</b> " . htmlspecialchars($child_name) . "\n";
 	$message .= "🎂 <b>Возраст:</b> " . htmlspecialchars($child_age) . "\n";
