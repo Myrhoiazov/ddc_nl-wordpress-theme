@@ -746,3 +746,30 @@ add_filter('mc4wp_form_fields', function ($field_data) {
 
 	return $field_data;
 });
+
+// Polylang: register non-public CPTs (team, faq) as translatable. Must run before
+// `after_setup_theme`, so this stays at file scope rather than inside a hook callback.
+// choreographer/styles are public and would also work via wp-admin's own CPT settings
+// screen, but are declared here too so the translated post-type list is one source of
+// truth in code, not split between the option and this filter — see docs/spec/multilingual.
+// locations/schedule are intentionally excluded (ADR 0003).
+add_filter('pll_get_post_types', function ($post_types) {
+	$post_types['choreographer'] = 'choreographer';
+	$post_types['styles']        = 'styles';
+	$post_types['team']          = 'team';
+	$post_types['faq']           = 'faq';
+
+	return $post_types;
+});
+
+// Polylang: emit hreflang x-default pointing at the site root. Polylang's own automatic
+// x-default only fires when `hide_default` is off, but RU (the default language) is
+// configured with `hide_default` on so it can live at the URL root without a /ru/ prefix
+// — so the automatic case never applies here and this always needs adding explicitly.
+add_filter('pll_rel_hreflang_attributes', function ($hreflangs) {
+	if (!isset($hreflangs['x-default'])) {
+		$hreflangs['x-default'] = home_url('/');
+	}
+
+	return $hreflangs;
+});
