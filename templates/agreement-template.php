@@ -125,6 +125,7 @@ add_action('wp_footer', function () {
             });
 
             try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+            try { document.documentElement.lang = lang; } catch (e) {}
         }
 
         // ── ИНИЦИАЛИЗАЦИЯ ─────────────────────────────────────────

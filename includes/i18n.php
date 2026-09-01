@@ -14,6 +14,7 @@ function ddc_normalize_language_code($raw): string
     return in_array($code, $allowed, true) ? $code : 'ru';
 }
 
+// NOTE: the 'ru' fallback below assumes the WP site locale is Russian; verify against production before/at deploy.
 function ddc_get_current_language(?string $requested = null): string
 {
     if ($requested !== null && $requested !== '') {

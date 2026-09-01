@@ -736,7 +736,12 @@ function send_camp_booking_to_telegram(WP_REST_Request $request)
 	return ['status' => 'ok'];
 }
 
-add_filter('mc4wp_form_fields', function (array $field_data) {
+// TODO: re-verify hook name `mc4wp_form_fields` against the production MC4WP plugin before/at deploy (not installed locally).
+add_filter('mc4wp_form_fields', function ($field_data) {
+	if (!is_array($field_data)) {
+		return $field_data;
+	}
+
 	$field_data['LANG'] = strtoupper(ddc_get_current_language());
 
 	return $field_data;
