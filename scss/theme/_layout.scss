@@ -565,34 +565,86 @@ body {
 		background-color: $lime;
 	}
 
+	// Language dropdown — mirrors the &__submenu hover-reveal pattern above so it
+	// behaves consistently with the other header dropdowns, rather than
+	// introducing a second interaction pattern for one extra control.
 	&__lang {
+		position: relative;
 		display: flex;
 		align-items: center;
-		gap: 0.35rem;
 		margin-left: 0.5rem;
 		padding-left: 0.85rem;
 		border-left: 1px solid rgba($black, 0.12);
 	}
 
-	&__lang-link {
+	&__lang-toggle {
 		display: flex;
 		align-items: center;
+		gap: 0.3rem;
 		min-height: 32px;
-		padding: 0 0.6rem;
-		border-radius: 6px;
+		padding: 0 0.75rem;
+		border: 1.5px solid rgba($black, 0.25);
+		border-radius: 999px;
+		background: transparent;
 		color: $black;
 		font-size: 13px;
-		font-weight: 600;
+		font-weight: 700;
+		cursor: pointer;
+		transition: border-color 180ms ease;
+
+		&::after {
+			content: '';
+			width: 6px;
+			height: 6px;
+			border-right: 1.5px solid currentColor;
+			border-bottom: 1.5px solid currentColor;
+			transform: rotate(45deg) translateY(-2px);
+		}
+	}
+
+	&__lang:hover &__lang-toggle,
+	&__lang:focus-within &__lang-toggle {
+		border-color: $lime;
+	}
+
+	&__lang-menu {
+		position: absolute;
+		top: calc(100% + 12px);
+		right: 0;
+		min-width: 90px;
+		background: $black;
+		padding: 0.5rem 0;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+		border-radius: 12px;
+		box-shadow: 0 16px 30px rgba($black, 0.18);
+	}
+
+	&__lang:hover &__lang-menu,
+	&__lang:focus-within &__lang-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	&__lang-link {
+		display: block;
+		padding: 0.5rem 1.25rem;
+		color: $white;
+		font-size: 13px;
+		font-weight: 700;
 		text-decoration: none;
-		transition: background-color 180ms ease;
+		transition: color 180ms ease;
 
 		&:hover,
 		&:focus {
-			background-color: rgba($lime, 0.16);
+			color: $lime;
 		}
 
 		&.is-active {
-			background-color: $lime;
+			color: $lime;
 		}
 	}
 

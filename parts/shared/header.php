@@ -49,14 +49,33 @@ $current_url = home_url(wp_unslash($_SERVER['REQUEST_URI'] ?? '/'));
 // hide_if_no_translation: languages with no published content for the current
 // page never show up here — no separate "hidden language" flag needed, this is
 // Polylang's own built-in behavior (verified against the live install: NL/UK/EN
-// correctly disappear from this list while empty). Computed once and rendered
-// in two places below: the desktop switcher inside .site-header__nav, and a
-// second copy inside #mobile_menu — .site-header is a 2-column CSS grid, so a
-// bare third element between </nav> and #menu_btn wraps onto its own grid row
-// and pushes the menu button out of the header entirely.
+// correctly disappear from this list while empty). A single remaining language
+// means there's nothing to switch to, so the whole switcher stays hidden until
+// at least a second language actually has translated content. Computed once and
+// rendered in two places below: the desktop switcher inside .site-header__nav,
+// and a second copy inside #mobile_menu — .site-header is a 2-column CSS grid,
+// so a bare third element between </nav> and #menu_btn wraps onto its own grid
+// row and pushes the menu button out of the header entirely.
 $pll_switcher_languages = function_exists('pll_the_languages')
     ? pll_the_languages(['raw' => 1, 'hide_if_no_translation' => 1])
     : [];
+
+if (count($pll_switcher_languages) < 2) {
+    $pll_switcher_languages = [];
+}
+
+// Labels are short language codes (RU/NL/UK/EN), not full autonyms — a deliberate
+// departure from the original spec text, made explicit in MULTILINGUAL_SPEC.md
+// section 8 and ADR 0005. ADR 0004's actual decision (no national flags) is
+// unaffected either way.
+$pll_switcher_current = null;
+
+foreach ($pll_switcher_languages as $pll_lang) {
+    if ($pll_lang['current_lang']) {
+        $pll_switcher_current = $pll_lang;
+        break;
+    }
+}
 ?>
 
 <header class="site-header">
@@ -95,16 +114,25 @@ $pll_switcher_languages = function_exists('pll_the_languages')
             </div>
         <?php endforeach; ?>
 
-        <?php if (!empty($pll_switcher_languages)) : ?>
-            <div class="site-header__lang" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
-                <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
-                    <a
-                        href="<?php echo esc_url($pll_lang['url']); ?>"
-                        class="site-header__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
-                        hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
-                        <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
-                    ><?php echo esc_html($pll_lang['name']); ?></a>
-                <?php endforeach; ?>
+        <?php if (!empty($pll_switcher_languages) && $pll_switcher_current) : ?>
+            <div class="site-header__lang">
+                <button
+                    type="button"
+                    class="site-header__lang-toggle"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>"
+                ><?php echo esc_html(strtoupper($pll_switcher_current['slug'])); ?></button>
+                <div class="site-header__lang-menu">
+                    <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
+                        <a
+                            href="<?php echo esc_url($pll_lang['url']); ?>"
+                            class="site-header__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
+                            hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
+                            <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
+                        ><?php echo esc_html(strtoupper($pll_lang['slug'])); ?></a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         <?php endif; ?>
     </nav>
@@ -127,20 +155,20 @@ $pll_switcher_languages = function_exists('pll_the_languages')
                 <?php echo esc_html($item->title); ?>
             </a>
         <?php endforeach; ?>
-
-        <?php if (!empty($pll_switcher_languages)) : ?>
-            <div class="main-menu__lang" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
-                <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
-                    <a
-                        href="<?php echo esc_url($pll_lang['url']); ?>"
-                        class="main-menu__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
-                        hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
-                        <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
-                    ><?php echo esc_html($pll_lang['name']); ?></a>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
     </nav>
+
+    <?php if (!empty($pll_switcher_languages)) : ?>
+        <div class="main-menu__lang" aria-label="<?php esc_attr_e('Переключить язык', 'wp_denysmyr'); ?>">
+            <?php foreach ($pll_switcher_languages as $pll_lang) : ?>
+                <a
+                    href="<?php echo esc_url($pll_lang['url']); ?>"
+                    class="main-menu__lang-link<?php echo $pll_lang['current_lang'] ? ' is-active' : ''; ?>"
+                    hreflang="<?php echo esc_attr($pll_lang['locale']); ?>"
+                    <?php echo $pll_lang['current_lang'] ? 'aria-current="true"' : ''; ?>
+                ><?php echo esc_html(strtoupper($pll_lang['slug'])); ?></a>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
     <?php foreach ($menu_tree as $node) : ?>
         <?php if (!empty($node['children'])) : ?>

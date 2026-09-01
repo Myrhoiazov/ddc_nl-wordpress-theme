@@ -396,29 +396,36 @@ ul {
 		}
 	}
 	&__lang {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 2rem;
+		z-index: 2;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
-		padding-top: 1.5rem;
+		gap: 0.6rem;
+		padding: 1.25rem 1rem 0;
 		border-top: 1px solid rgba($black, 0.12);
 	}
 	&__lang-link {
-		padding: 0.4rem 0.9rem;
-		border-radius: 6px;
+		padding: 0.4rem 1rem;
+		border: 1.5px solid rgba($black, 0.25);
+		border-radius: 999px;
 		color: $black;
 		font-weight: 700;
-		font-size: 0.95rem;
+		font-size: 0.9rem;
 		text-decoration: none;
-		transition: background-color 200ms ease;
+		transition: background-color 200ms ease, border-color 200ms ease;
 
 		&:hover,
 		&:focus {
+			border-color: $lime;
 			background-color: rgba($lime, 0.16);
 		}
 
 		&.is-active {
+			border-color: $lime;
 			background-color: $lime;
 		}
 	}
