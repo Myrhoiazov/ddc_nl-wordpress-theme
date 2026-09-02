@@ -813,3 +813,46 @@ add_action('template_redirect', function () {
 		exit;
 	}
 });
+
+/**
+ * Resolve `pagename` to the correct per-language page when two Page-type
+ * translations intentionally share the same slug (spec requirement: identical
+ * slugs across all languages).
+ *
+ * WordPress resolves a `pagename` request to a specific post ID via
+ * get_page_by_path() deep inside WP_Query::get_posts(), before the language
+ * tax_query Polylang adds is ever applied — get_page_by_path() itself has no
+ * language awareness at all, it just returns whichever matching page it finds.
+ * Verified directly against this install: requesting /nl/faq/ resolved to the
+ * RU page (ID 102) even though Polylang had already set $qv['lang'] = 'nl'
+ * correctly at this exact point — the two mechanisms just never talk to each
+ * other for the Page post type. Custom post types with their own rewrite tags
+ * (choreographer, faq-the-question-CPT, etc.) don't hit this: WP resolves them
+ * through the tax_query-filtered main query directly, not get_page_by_path().
+ *
+ * Fix: once Polylang has set $qv['lang'] (its own 'request' filter, default
+ * priority 10, runs before this one), look up the *actual* translation for
+ * that language via pll_get_post() and swap `pagename` for an explicit
+ * `page_id` — WordPress resolves `page_id` via a direct `WHERE ID = x` query,
+ * which never goes through get_page_by_path() at all.
+ */
+add_filter('request', function ($query_vars) {
+	if (empty($query_vars['pagename']) || empty($query_vars['lang']) || !function_exists('pll_get_post')) {
+		return $query_vars;
+	}
+
+	$page = get_page_by_path($query_vars['pagename'], OBJECT, 'page');
+
+	if (!$page) {
+		return $query_vars;
+	}
+
+	$translated_id = pll_get_post($page->ID, $query_vars['lang']);
+
+	if ($translated_id && (int) $translated_id !== $page->ID) {
+		unset($query_vars['pagename']);
+		$query_vars['page_id'] = $translated_id;
+	}
+
+	return $query_vars;
+}, 20);
