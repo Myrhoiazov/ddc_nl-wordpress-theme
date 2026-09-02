@@ -87,6 +87,15 @@
     поддержки, без локализации самого слага.
 -   AIOSEO апгрейд не требуется — hreflang и SEO-метаданные покрываются
     Polylang + существующим AIOSEO для sitemap/meta.
+-   **Обязательная настройка Languages → Settings → URL modifications:
+    "Remove the page name or page id from the URL of the front page"
+    (`redirect_lang`) должна быть включена.** Без неё Polylang строит
+    home url недефолтных языков как полный permalink переведённой
+    главной страницы (`/nl/talent-center-ddc-nl/` вместо `/nl/`), и
+    `/nl/`, `/uk/`, `/en/` отдают 301 на этот адрес вместо 200 —
+    подтверждено эмпирически при подключении переводов главной
+    страницы. RU не подвержен багу отдельно, так как дефолтный язык
+    резолвится через другую ветку кода Polylang (`hide_default`).
 
 ## 6. Модель контента
 

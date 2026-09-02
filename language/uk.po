@@ -5,137 +5,137 @@ msgstr ""
 "POT-Creation-Date: 2026-09-02\n"
 "PO-Revision-Date: 2026-09-02\n"
 "Language-Team: DDC NL\n"
-"Language: nl_NL\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: wp_denysmyr\n"
 
 msgid "Раскрой талант,"
-msgstr "Ontdek talent,"
+msgstr "Розкрий талант,"
 
 msgid "сделай жизнь"
-msgstr "maak het leven"
+msgstr "зроби життя"
 
 msgid "ярче"
-msgstr "kleurrijker"
+msgstr "яскравішим"
 
 msgid "Пробное занятие"
-msgstr "Proefles"
+msgstr "Пробне заняття"
 
 msgid "Начни танцевать сегодня"
-msgstr "Begin vandaag met dansen"
+msgstr "Почни танцювати сьогодні"
 
 msgid "Для детей от 4 лет, подростков и взрослых."
-msgstr "Voor kinderen vanaf 4 jaar, tieners en volwassenen."
+msgstr "Для дітей від 4 років, підлітків та дорослих."
 
 msgid "Записаться"
-msgstr "Aanmelden"
+msgstr "Записатися"
 
 msgid "Танцы для детей Talent Center DDC"
-msgstr "Dansen voor kinderen bij Talent Center DDC"
+msgstr "Танці для дітей Talent Center DDC"
 
 msgid "Социальные сети"
-msgstr "Sociale media"
+msgstr "Соціальні мережі"
 
 msgid "Почему выбирают нас"
-msgstr "Waarom kiezen voor ons"
+msgstr "Чому обирають нас"
 
 msgid "ТАНЦЫ,<br>КОТОРЫЕ<br>РАСКРЫВАЮТ<br>ТАЛАНТ И<br>УВЕРЕННОСТЬ"
-msgstr "DANS,<br>DIE<br>TALENT EN<br>ZELFVERTROUWEN<br>ONTHULT"
+msgstr "ТАНЦІ,<br>ЩО<br>РОЗКРИВАЮТЬ<br>ТАЛАНТ І<br>ВПЕВНЕНІСТЬ"
 
 msgid "Танцы для детей от 4 лет, подростков и взрослых"
-msgstr "Dansen voor kinderen vanaf 4 jaar, tieners en volwassenen"
+msgstr "Танці для дітей від 4 років, підлітків та дорослих"
 
 msgid "Современные направления и программы"
-msgstr "Moderne richtingen en programma's"
+msgstr "Сучасні напрямки та програми"
 
 msgid "Профессиональные и заботливые преподаватели"
-msgstr "Professionele en betrokken docenten"
+msgstr "Професійні та турботливі викладачі"
 
 msgid "Комфортные, безопасные залы"
-msgstr "Comfortabele, veilige zalen"
+msgstr "Комфортні, безпечні зали"
 
 msgid "Группы по возрасту и уровню подготовки"
-msgstr "Groepen op leeftijd en niveau"
+msgstr "Групи за віком та рівнем підготовки"
 
 msgid "Записаться на пробное"
-msgstr "Aanmelden voor proefles"
+msgstr "Записатися на пробне"
 
 msgid "Направления танцев"
-msgstr "Dansrichtingen"
+msgstr "Танцювальні напрямки"
 
 msgid "НАЙДИ СВОЙ<br>СТИЛЬ"
-msgstr "VIND JOUW<br>STIJL"
+msgstr "ЗНАЙДИ СВІЙ<br>СТИЛЬ"
 
 msgid "Программы для детей от 4 лет, подростков и взрослых — hip-hop, contemporary, dancehall и другие современные направления. Каждый ученик найдёт свой стиль, свою группу и уверенность в движении."
-msgstr "Programma's voor kinderen vanaf 4 jaar, tieners en volwassenen — hip-hop, contemporary, dancehall en andere moderne richtingen. Iedere leerling vindt zijn eigen stijl, groep en zelfvertrouwen in beweging."
+msgstr "Програми для дітей від 4 років, підлітків та дорослих — hip-hop, contemporary, dancehall та інші сучасні напрямки. Кожен учень знайде свій стиль, свою групу та впевненість у русі."
 
 msgid "Занятия проходят в небольших группах по возрасту и уровню подготовки — от абсолютных новичков до опытных танцоров. Удобное расписание и внимательный подход к детям, подросткам и взрослым."
-msgstr "Lessen vinden plaats in kleine groepen op leeftijd en niveau — van absolute beginners tot ervaren dansers. Een handig rooster en een zorgzame aanpak voor kinderen, tieners en volwassenen."
+msgstr "Заняття проходять у невеликих групах за віком та рівнем підготовки — від абсолютних новачків до досвідчених танцівників. Зручний розклад та уважний підхід до дітей, підлітків та дорослих."
 
 msgid "Не знаешь с чего начать?"
-msgstr "Weet je niet waar te beginnen?"
+msgstr "Не знаєш з чого почати?"
 
 msgid "Запишись на пробное — подберём направление вместе."
-msgstr "Meld je aan voor een proefles — samen vinden we de juiste richting."
+msgstr "Запишись на пробне — підберемо напрямок разом."
 
 msgid "Talent Center DDC"
 msgstr "Talent Center DDC"
 
 msgid "НАШИ<br>ДОСТИЖЕНИЯ"
-msgstr "ONZE<br>PRESTATIES"
+msgstr "НАШІ<br>ДОСЯГНЕННЯ"
 
 msgid "Более 15 лет опыта, более 100 учеников в Нидерландах и Украине — доверие семей и взрослых танцоров, которое мы заслужили годами работы."
-msgstr "Meer dan 15 jaar ervaring, meer dan 100 leerlingen in Nederland en Oekraïne — het vertrouwen van gezinnen en volwassen dansers, dat we door jarenlang werk hebben verdiend."
+msgstr "Понад 15 років досвіду, понад 100 учнів у Нідерландах та Україні — довіра родин і дорослих танцівників, яку ми заслужили роками роботи."
 
 msgid "Более 15 лет опыта преподавания танцев для детей, подростков и взрослых"
-msgstr "Meer dan 15 jaar ervaring in het lesgeven van dans aan kinderen, tieners en volwassenen"
+msgstr "Понад 15 років досвіду викладання танців для дітей, підлітків та дорослих"
 
 msgid "2 года успешной работы в Нидерландах"
-msgstr "2 jaar succesvol actief in Nederland"
+msgstr "2 роки успішної роботи у Нідерландах"
 
 msgid "4 филиала — в Нидерландах и Украине"
-msgstr "4 vestigingen — in Nederland en Oekraïne"
+msgstr "4 філії — у Нідерландах та Україні"
 
 msgid "Более 100 учеников, которые регулярно посещают занятия"
-msgstr "Meer dan 100 leerlingen die regelmatig lessen volgen"
+msgstr "Понад 100 учнів, які регулярно відвідують заняття"
 
 msgid "Современные программы для детей от 4 лет, подростков и взрослых"
-msgstr "Moderne programma's voor kinderen vanaf 4 jaar, tieners en volwassenen"
+msgstr "Сучасні програми для дітей від 4 років, підлітків та дорослих"
 
 msgid "Участие учеников в выступлениях, фестивалях и конкурсах"
-msgstr "Leerlingen nemen deel aan optredens, festivals en wedstrijden"
+msgstr "Участь учнів у виступах, фестивалях та конкурсах"
 
 msgid "лет опыта"
-msgstr "jaar ervaring"
+msgstr "років досвіду"
 
 msgid "учеников"
-msgstr "leerlingen"
+msgstr "учнів"
 
 msgid "филиала"
-msgstr "vestigingen"
+msgstr "філії"
 
 msgid "страны"
-msgstr "landen"
+msgstr "країни"
 
 msgid "Наши филиалы"
-msgstr "Onze vestigingen"
+msgstr "Наші філії"
 
 msgid "НАЙДИ СТУДИЮ<br>РЯДОМ С ДОМОМ"
-msgstr "VIND EEN STUDIO<br>BIJ JOU IN DE BUURT"
+msgstr "ЗНАЙДИ СТУДІЮ<br>ПОРУЧ З ДОМОМ"
 
 msgid "Студии танцев для детей, подростков и взрослых в Нидерландах и Украине — выберите ближайший филиал и запишитесь на пробное занятие. Удобное расположение, комфортные залы и дружелюбная атмосфера ждут каждого ученика."
-msgstr "Dansstudio's voor kinderen, tieners en volwassenen in Nederland en Oekraïne — kies de dichtstbijzijnde vestiging en meld je aan voor een proefles. Een handige locatie, comfortabele zalen en een vriendelijke sfeer wachten op elke leerling."
+msgstr "Студії танців для дітей, підлітків та дорослих у Нідерландах та Україні — оберіть найближчу філію та запишіться на пробне заняття. Зручне розташування, комфортні зали та дружня атмосфера чекають на кожного учня."
 
 msgid "В каждом филиале работают опытные преподаватели, занятия проходят по гибкому расписанию — утром, вечером и в выходные дни. Нажмите на карточку города, чтобы узнать расписание занятий."
-msgstr "In elke vestiging werken ervaren docenten, de lessen volgen een flexibel rooster — 's ochtends, 's avonds en in het weekend. Klik op de stadskaart om het lesrooster te bekijken."
+msgstr "У кожній філії працюють досвідчені викладачі, заняття проходять за гнучким розкладом — вранці, ввечері та у вихідні дні. Натисніть на картку міста, щоб дізнатися розклад занять."
 
 msgid "Живая атмосфера"
-msgstr "Levendige sfeer"
+msgstr "Жива атмосфера"
 
 msgid "КАК МЫ<br>ТАНЦУЕМ"
-msgstr "HOE WIJ<br>DANSEN"
+msgstr "ЯК МИ<br>ТАНЦЮЄМО"
 
 msgid "Реальные занятия, выступления и эмоции наших учеников — посмотрите, как проходят уроки в Talent Center DDC."
-msgstr "Echte lessen, optredens en emoties van onze leerlingen — bekijk hoe de lessen bij Talent Center DDC verlopen."
+msgstr "Реальні заняття, виступи та емоції наших учнів — подивіться, як проходять уроки в Talent Center DDC."
