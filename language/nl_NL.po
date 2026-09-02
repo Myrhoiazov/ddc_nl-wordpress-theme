@@ -139,3 +139,15 @@ msgstr "HOE WIJ<br>DANSEN"
 
 msgid "Реальные занятия, выступления и эмоции наших учеников — посмотрите, как проходят уроки в Talent Center DDC."
 msgstr "Echte lessen, optredens en emoties van onze leerlingen — bekijk hoe de lessen bij Talent Center DDC verlopen."
+
+msgid "Не нашли подходящее время? Напишите нам — подберём вариант."
+msgstr "Geen geschikte tijd gevonden? Schrijf ons — we vinden een oplossing."
+
+msgid "Связаться с нами"
+msgstr "Neem contact met ons op"
+
+msgid "Вопросы не найдены."
+msgstr "Geen vragen gevonden."
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Sorry, er zijn geen berichten gevonden die aan uw criteria voldoen."
