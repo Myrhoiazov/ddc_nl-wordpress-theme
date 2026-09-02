@@ -815,42 +815,58 @@ add_action('template_redirect', function () {
 });
 
 /**
- * Resolve `pagename` to the correct per-language page when two Page-type
- * translations intentionally share the same slug (spec requirement: identical
- * slugs across all languages).
+ * Resolve a hierarchical-post-type request to the correct per-language item
+ * when two translations intentionally share the same slug (spec requirement:
+ * identical slugs across all languages).
  *
- * WordPress resolves a `pagename` request to a specific post ID via
+ * WordPress resolves these requests to a specific post ID via
  * get_page_by_path() deep inside WP_Query::get_posts(), before the language
  * tax_query Polylang adds is ever applied — get_page_by_path() itself has no
- * language awareness at all, it just returns whichever matching page it finds.
- * Verified directly against this install: requesting /nl/faq/ resolved to the
- * RU page (ID 102) even though Polylang had already set $qv['lang'] = 'nl'
- * correctly at this exact point — the two mechanisms just never talk to each
- * other for the Page post type. Custom post types with their own rewrite tags
- * (choreographer, faq-the-question-CPT, etc.) don't hit this: WP resolves them
- * through the tax_query-filtered main query directly, not get_page_by_path().
+ * language awareness at all, it just returns whichever matching post it finds.
+ * Verified directly against this install for both cases below.
+ *
+ * The query vars differ by case, confirmed by direct inspection:
+ * - Page: `$qv['pagename']` is set, no explicit `post_type`.
+ * - A `hierarchical => true` CPT (styles, choreographer — see
+ *   includes/post-types.php): `$qv['pagename']` is NOT set; instead
+ *   `$qv['name']` holds the slug and `$qv['post_type']` holds the CPT name
+ *   directly (confirmed here for `styles`: `name => 'high-heels',
+ *   post_type => 'styles'`, no `pagename` key at all).
+ * Non-hierarchical translated types (faq, team) don't hit this at all: WP
+ * resolves them through the tax_query-filtered main query directly.
  *
  * Fix: once Polylang has set $qv['lang'] (its own 'request' filter, default
  * priority 10, runs before this one), look up the *actual* translation for
- * that language via pll_get_post() and swap `pagename` for an explicit
- * `page_id` — WordPress resolves `page_id` via a direct `WHERE ID = x` query,
- * which never goes through get_page_by_path() at all.
+ * that language via pll_get_post() and swap the slug-based var for an
+ * explicit `page_id` — WordPress resolves `page_id` via a direct
+ * `WHERE ID = x` query regardless of post type, bypassing get_page_by_path()
+ * entirely.
  */
 add_filter('request', function ($query_vars) {
-	if (empty($query_vars['pagename']) || empty($query_vars['lang']) || !function_exists('pll_get_post')) {
+	if (empty($query_vars['lang']) || !function_exists('pll_get_post')) {
 		return $query_vars;
 	}
 
-	$page = get_page_by_path($query_vars['pagename'], OBJECT, 'page');
-
-	if (!$page) {
+	if (!empty($query_vars['pagename'])) {
+		$slug      = $query_vars['pagename'];
+		$post_type = 'page';
+	} elseif (!empty($query_vars['name']) && in_array($query_vars['post_type'] ?? '', ['styles', 'choreographer'], true)) {
+		$slug      = $query_vars['name'];
+		$post_type = $query_vars['post_type'];
+	} else {
 		return $query_vars;
 	}
 
-	$translated_id = pll_get_post($page->ID, $query_vars['lang']);
+	$found = get_page_by_path($slug, OBJECT, $post_type);
 
-	if ($translated_id && (int) $translated_id !== $page->ID) {
-		unset($query_vars['pagename']);
+	if (!$found) {
+		return $query_vars;
+	}
+
+	$translated_id = pll_get_post($found->ID, $query_vars['lang']);
+
+	if ($translated_id && (int) $translated_id !== $found->ID) {
+		unset($query_vars['pagename'], $query_vars['name'], $query_vars[$post_type]);
 		$query_vars['page_id'] = $translated_id;
 	}
 
