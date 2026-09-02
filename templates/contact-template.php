@@ -37,7 +37,7 @@ $BsWp->get_template_parts([
 	<div class="container-fluid px-0">
 		<div class="contact-locations">
 			<div class="container">
-				<h2 class="contact-locations__heading">Наши студии</h2>
+				<h2 class="contact-locations__heading"><?php echo esc_html(ddc_ui_text('contact_studios_heading')); ?></h2>
 
 				<div class="row g-4">
 
@@ -64,7 +64,7 @@ $BsWp->get_template_parts([
 									class="contact-loc__link"
 									target="_blank"
 									rel="noopener">
-									Открыть в Google Maps →
+									<?php echo esc_html(ddc_ui_text('contact_open_maps')); ?>
 								</a>
 							</div>
 						</div>
@@ -93,7 +93,7 @@ $BsWp->get_template_parts([
 									class="contact-loc__link"
 									target="_blank"
 									rel="noopener">
-									Открыть в Google Maps →
+									<?php echo esc_html(ddc_ui_text('contact_open_maps')); ?>
 								</a>
 							</div>
 						</div>
@@ -122,7 +122,7 @@ $BsWp->get_template_parts([
 									class="contact-loc__link"
 									target="_blank"
 									rel="noopener">
-									Открыть в Google Maps →
+									<?php echo esc_html(ddc_ui_text('contact_open_maps')); ?>
 								</a>
 							</div>
 						</div>
@@ -151,7 +151,7 @@ $BsWp->get_template_parts([
 									class="contact-loc__link"
 									target="_blank"
 									rel="noopener">
-									Открыть в Google Maps →
+									<?php echo esc_html(ddc_ui_text('contact_open_maps')); ?>
 								</a>
 							</div>
 						</div>
@@ -180,7 +180,7 @@ $BsWp->get_template_parts([
 									class="contact-loc__link"
 									target="_blank"
 									rel="noopener">
-									Открыть в Google Maps →
+									<?php echo esc_html(ddc_ui_text('contact_open_maps')); ?>
 								</a>
 							</div>
 						</div>
@@ -199,7 +199,7 @@ $BsWp->get_template_parts([
 
 				<!-- Реквизиты -->
 				<div class="contact-details">
-					<h2 class="contact-details__heading">Напишите нам</h2>
+					<h2 class="contact-details__heading"><?php echo esc_html(ddc_ui_text('contact_write_heading')); ?></h2>
 					<div class="contact-details__grid">
 						<div class="contact-details__item">
 							<span class="contact-details__label">Email</span>

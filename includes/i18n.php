@@ -49,3 +49,30 @@ function ddc_get_city_display_name(string $city_key, ?string $lang = null): stri
 
     return $city[$lang] ?? $city['ru'];
 }
+
+/**
+ * Small static UI-string lookup for text hardcoded directly in template files
+ * (not wrapped in __()/_e() — this theme has no working gettext pipeline for
+ * page content, per docs/spec/multilingual/MULTILINGUAL_SPEC.md section 3).
+ * Same pattern as ddc_get_city_display_name() above: a plain array keyed by a
+ * short slug, not a gettext .po/.mo setup — appropriate for the handful of
+ * static headings/labels this theme actually has outside post content, not a
+ * substitute for gettext if that list grows much larger.
+ */
+function ddc_ui_text(string $key, ?string $lang = null): string
+{
+    static $strings = [
+        'contact_studios_heading' => ['ru' => 'Наши студии', 'uk' => 'Наші студії', 'nl' => 'Onze studio\'s', 'en' => 'Our studios'],
+        'contact_write_heading'   => ['ru' => 'Напишите нам', 'uk' => 'Напишіть нам', 'nl' => 'Schrijf ons', 'en' => 'Get in touch'],
+        'contact_open_maps'       => ['ru' => 'Открыть в Google Maps →', 'uk' => 'Відкрити в Google Maps →', 'nl' => 'Openen in Google Maps →', 'en' => 'Open in Google Maps →'],
+    ];
+
+    $lang = $lang !== null ? ddc_normalize_language_code($lang) : ddc_get_current_language();
+    $entry = $strings[$key] ?? null;
+
+    if ($entry === null) {
+        return $key;
+    }
+
+    return $entry[$lang] ?? $entry['ru'];
+}
