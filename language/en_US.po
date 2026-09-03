@@ -151,3 +151,366 @@ msgstr "No questions found."
 
 msgid "Sorry, no posts matched your criteria."
 msgstr "Sorry, no posts matched your criteria."
+
+msgid "26 июля - 4 августа 2027"
+msgstr "July 26 - August 4, 2027"
+
+msgid "Автобус оплачивается отдельно"
+msgstr "The bus is paid separately"
+
+msgid "Проживание в Hotel Don Angel."
+msgstr "Accommodation at Hotel Don Angel."
+
+msgid "Трёхразовое питание, шведский стол."
+msgstr "Three meals a day, buffet style."
+
+msgid "2-3 танцевальных занятия ежедневно."
+msgstr "2-3 dance classes daily."
+
+msgid "Активности с вожатыми и хореографами."
+msgstr "Activities with counselors and choreographers."
+
+msgid "Вечеринки и дискотеки каждый вечер."
+msgstr "Parties and discos every night."
+
+msgid "Медицинская страховка."
+msgstr "Medical insurance."
+
+msgid "Фирменная футболка LITO DANCE CAMP."
+msgstr "Branded LITO DANCE CAMP T-shirt."
+
+msgid "С какого возраста можно ехать?"
+msgstr "From what age can a child go?"
+
+msgid "Возраст участников подтверждается индивидуально при бронировании. Напишите возраст ребёнка в заявке, и команда лагеря подскажет, подходит ли программа."
+msgstr "Participants' ages are confirmed individually at booking. Include your child's age in the application, and the camp team will let you know if the program is a good fit."
+
+msgid "Можно ли ребёнку ехать без родителей?"
+msgstr "Can a child travel without parents?"
+
+msgid "Да, лагерь рассчитан на организованную поездку детей и подростков. Детали сопровождения и документов команда обсудит с родителями перед бронированием."
+msgstr "Yes, the camp is designed as an organized trip for children and teens. The team will discuss chaperoning and document details with parents before booking."
+
+msgid "Кто находится с детьми?"
+msgstr "Who stays with the children?"
+
+msgid "Дети находятся под присмотром команды лагеря, хореографов и сопровождающих взрослых."
+msgstr "Children are supervised by the camp team, choreographers, and accompanying adults."
+
+msgid "Как дети связываются с родителями?"
+msgstr "How do children stay in touch with parents?"
+
+msgid "Команда заранее согласует удобный канал связи с родителями и сообщает новости по группе. При необходимости ребёнок сможет связаться с родителями через сопровождающих."
+msgstr "The team agrees on a convenient communication channel with parents in advance and shares group updates. If needed, the child can reach parents through the chaperones."
+
+msgid "Что делать, если ребёнок заболел?"
+msgstr "What if a child gets sick?"
+
+msgid "Медицинская страховка включена. Команда связывается с родителями и помогает организовать медицинскую помощь на месте."
+msgstr "Medical insurance is included. The team contacts parents and helps arrange medical care on site."
+
+msgid "Что входит в стоимость?"
+msgstr "What's included in the price?"
+
+msgid "Проживание в Hotel Don Angel 4★, трёхразовое питание, танцевальные классы, активности, вечерняя программа, страховка и фирменная футболка лагеря."
+msgstr "Accommodation at Hotel Don Angel 4★, three meals a day, dance classes, activities, evening program, insurance, and the camp's branded T-shirt."
+
+msgid "Что оплачивается отдельно?"
+msgstr "What's paid separately?"
+
+msgid "Автобус оплачивается отдельно. Дополнительные личные расходы и документы также не входят в базовую стоимость."
+msgstr "The bus is paid separately. Additional personal expenses and documents are also not included in the base price."
+
+msgid "Как происходит бронирование?"
+msgstr "How does booking work?"
+
+msgid "Вы оставляете заявку, команда связывается с вами, подтверждает детали и отправляет информацию для внесения предоплаты."
+msgstr "You submit an application, the team contacts you, confirms the details, and sends information for making the deposit payment."
+
+msgid "Что означает предоплата €450?"
+msgstr "What does the €450 deposit mean?"
+
+msgid "Предоплата €450 бронирует место ребёнка в LITO DANCE CAMP 2027 и учитывается в общей стоимости тарифа."
+msgstr "The €450 deposit reserves your child's spot at LITO DANCE CAMP 2027 and is deducted from the total package price."
+
+msgid "Можно ли вернуть предоплату?"
+msgstr "Is the deposit refundable?"
+
+msgid "Условия возврата зависят от даты отмены и договорённостей бронирования. Команда отправит актуальные условия перед внесением предоплаты."
+msgstr "Refund terms depend on the cancellation date and booking arrangements. The team will send you the current terms before you make the deposit."
+
+msgid "Как дети добираются до Испании?"
+msgstr "How do children get to Spain?"
+
+msgid "Транспорт организуется отдельно. Автобус не входит в стоимость тарифа и оплачивается отдельно."
+msgstr "Transport is arranged separately. The bus is not included in the package price and is paid separately."
+
+msgid "Что ребёнку взять с собой?"
+msgstr "What should a child bring?"
+
+msgid "После подтверждения бронирования родители получат список вещей: одежда для танцев, пляжа, документы, базовая аптечка и личные принадлежности."
+msgstr "After the booking is confirmed, parents will receive a packing list: clothing for dance and the beach, documents, a basic first-aid kit, and personal items."
+
+msgid "Отправляем заявку..."
+msgstr "Sending your request..."
+
+msgid "🎉 Заявка получена!<br>Мы свяжемся с вами и отправим информацию для внесения предоплаты €450."
+msgstr "🎉 Request received!<br>We'll contact you and send information for making the €450 deposit payment."
+
+msgid "Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую."
+msgstr "Couldn't send the request. Please try again or message us directly."
+
+msgid "Танцевальное"
+msgstr "A Dance"
+
+msgid "лето в Испании"
+msgstr "Summer in Spain"
+
+msgid "10 дней моря, танцев, друзей и настоящих эмоций 🇪🇸"
+msgstr "10 days of sea, dance, friends, and real emotions 🇪🇸"
+
+msgid "Краткая информация о лагере"
+msgstr "Quick camp facts"
+
+msgid "ЗАБРОНИРОВАТЬ МЕСТО →"
+msgstr "BOOK YOUR SPOT →"
+
+msgid "Предоплата €%s"
+msgstr "Deposit €%s"
+
+msgid "Ключевые факты"
+msgstr "Key facts"
+
+msgid "10 ДНЕЙ"
+msgstr "10 DAYS"
+
+msgid "моря и приключений"
+msgstr "of sea and adventure"
+
+msgid "класса в день"
+msgstr "classes a day"
+
+msgid "гаджетов"
+msgstr "gadgets"
+
+msgid "эмоций"
+msgstr "emotions"
+
+msgid "море → танцы → друзья"
+msgstr "sea → dance → friends"
+
+msgid "Лето, которое"
+msgstr "The summer"
+
+msgid "они не забудут"
+msgstr "they won't forget"
+
+msgid "Целых 10 дней моря, танцев и настоящей дружбы."
+msgstr "A full 10 days of sea, dance, and real friendship."
+
+msgid "Каждый год дети возвращаются домой другими: увереннее, взрослее и счастливее."
+msgstr "Every year, children come home changed: more confident, more grown-up, and happier."
+
+msgid "Без телефонов, зато с кучей эмоций 💛"
+msgstr "No phones, but plenty of emotions 💛"
+
+msgid "Дети на LITO DANCE CAMP у моря"
+msgstr "Children at LITO DANCE CAMP by the sea"
+
+msgid "Всё, что нужно"
+msgstr "Everything you need"
+
+msgid "для идеального лета"
+msgstr "for the perfect summer"
+
+msgid "10 дней"
+msgstr "10 days"
+
+msgid "без гаджетов"
+msgstr "gadget-free"
+
+msgid "Танцевальный рост и вдохновение."
+msgstr "Dance growth and inspiration."
+
+msgid "Новые друзья и своё комьюнити."
+msgstr "New friends and a community of your own."
+
+msgid "Море, солнце, движение и настоящие эмоции."
+msgstr "Sea, sun, movement, and real emotions."
+
+msgid "Уверенность и самостоятельность."
+msgstr "Confidence and independence."
+
+msgid "Вот так"
+msgstr "This is what"
+
+msgid "выглядит LITO 💛"
+msgstr "LITO looks like 💛"
+
+msgid "Атмосфера LITO DANCE CAMP"
+msgstr "The atmosphere at LITO DANCE CAMP"
+
+msgid "Hotel Don Angel в Santa Susanna"
+msgstr "Hotel Don Angel in Santa Susanna"
+
+msgid "Где мы живём"
+msgstr "Where we stay"
+
+msgid "Hotel 4★ и организованное проживание участников лагеря."
+msgstr "4★ hotel and organized accommodation for camp participants."
+
+msgid "Трёхразовое питание, buffet."
+msgstr "Three meals a day, buffet."
+
+msgid "Ежедневные танцевальные занятия и активности."
+msgstr "Daily dance classes and activities."
+
+msgid "УЗНАТЬ БОЛЬШЕ →"
+msgstr "LEARN MORE →"
+
+msgid "Выбери"
+msgstr "Choose"
+
+msgid "своё лето"
+msgstr "your summer"
+
+msgid "Первые 10 мест."
+msgstr "The first 10 spots."
+
+msgid "Текущий основной тариф. Предоплата €%s."
+msgstr "Current standard rate. Deposit €%s."
+
+msgid "ЗАБРОНИРОВАТЬ →"
+msgstr "BOOK →"
+
+msgid "При наличии свободных мест."
+msgstr "Subject to availability."
+
+msgid "Количество мест ограничено."
+msgstr "Spots are limited."
+
+msgid "Не нужно платить"
+msgstr "No need to pay"
+
+msgid "всю сумму сразу"
+msgstr "the full amount at once"
+
+msgid "предоплата для бронирования места"
+msgstr "a deposit to reserve a spot"
+
+msgid "ЗАБРОНИРОВАТЬ МЕСТО"
+msgstr "BOOK YOUR SPOT"
+
+msgid "А как же"
+msgstr "What about"
+
+msgid "безопасность?"
+msgstr "safety?"
+
+msgid "Пока дети отдыхают, родители должны быть спокойны."
+msgstr "While the kids have fun, parents should feel at ease."
+
+msgid "КОМАНДА ВЗРОСЛЫХ"
+msgstr "ADULT TEAM"
+
+msgid "Дети находятся под присмотром команды лагеря."
+msgstr "Children are supervised by the camp team."
+
+msgid "Медицинская страховка включена."
+msgstr "Medical insurance included."
+
+msgid "Организованное проживание группы."
+msgstr "Organized group accommodation."
+
+msgid "ПИТАНИЕ"
+msgstr "MEALS"
+
+msgid "Трёхразовое питание каждый день."
+msgstr "Three meals every day."
+
+msgid "Отдых от постоянного использования телефонов и социальных сетей."
+msgstr "A break from constant phone and social media use."
+
+msgid "СВЯЗЬ С РОДИТЕЛЯМИ"
+msgstr "PARENT CONTACT"
+
+msgid "Команда заранее согласует канал новостей и связи с детьми."
+msgstr "The team arranges a communication channel for updates and contact with the children in advance."
+
+msgid "Один день"
+msgstr "A day"
+
+msgid "в LITO"
+msgstr "at LITO"
+
+msgid "☀️ Завтрак"
+msgstr "☀️ Breakfast"
+
+msgid "🌊 Море"
+msgstr "🌊 Beach time"
+
+msgid "🍉 Обед"
+msgstr "🍉 Lunch"
+
+msgid "🍽 Ужин"
+msgstr "🍽 Dinner"
+
+msgid "Пример одного дня. Финальная программа может меняться."
+msgstr "Example of one day. The final program may change."
+
+msgid "Родители"
+msgstr "Parents"
+
+msgid "уже отпускали 💛"
+msgstr "already said yes 💛"
+
+msgid "Реальные отзывы родителей будут добавлены после подтверждения текстов. Мы не публикуем вымышленные истории."
+msgstr "Real parent testimonials will be added once the texts are approved. We don't publish made-up stories."
+
+msgid "Вопросы"
+msgstr "Questions"
+
+msgid "родителей"
+msgstr "from parents"
+
+msgid "Лето"
+msgstr "Summer"
+
+msgid "начинается"
+msgstr "starts"
+
+msgid "здесь."
+msgstr "here."
+
+msgid "Для бронирования - €%s"
+msgstr "To book - €%s"
+
+msgid "ХОЧУ В LITO →"
+msgstr "I WANT LITO →"
+
+msgid "Количество мест ограничено"
+msgstr "Spots are limited"
+
+msgid "Забронировать LITO DANCE CAMP 2027"
+msgstr "Book LITO DANCE CAMP 2027"
+
+msgid "Имя родителя"
+msgstr "Parent's name"
+
+msgid "Имя ребёнка"
+msgstr "Child's name"
+
+msgid "Возраст ребёнка"
+msgstr "Child's age"
+
+msgid "Телефон"
+msgstr "Phone"
+
+msgid "@username или номер"
+msgstr "@username or phone number"
+
+msgid "Город"
+msgstr "City"
+
+msgid "Комментарий"
+msgstr "Comment"

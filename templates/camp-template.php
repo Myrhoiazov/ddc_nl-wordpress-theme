@@ -15,14 +15,14 @@ $BsWp = new BsWp;
 $camp_data = [
     'name' => 'LITO DANCE CAMP 2027',
     'location' => 'Santa Susanna, Spain',
-    'dates_display' => '26 июля - 4 августа 2027',
+    'dates_display' => __('26 июля - 4 августа 2027', 'wp_denysmyr'),
     'dates_short' => '26.07 - 04.08.2027',
     'duration' => '10 дней',
     'hotel' => 'Hotel Don Angel',
     'hotel_stars' => '★★★★',
     'regular_price' => '1390',
     'deposit' => '450',
-    'bus_note' => 'Автобус оплачивается отдельно',
+    'bus_note' => __('Автобус оплачивается отдельно', 'wp_denysmyr'),
 ];
 
 $camp_images = [
@@ -38,28 +38,28 @@ $camp_images = [
 ];
 
 $camp_included = [
-    ['HOTEL 4★', 'Проживание в Hotel Don Angel.', '🏨'],
-    ['FULL BOARD', 'Трёхразовое питание, шведский стол.', '🍽'],
-    ['DANCE', '2-3 танцевальных занятия ежедневно.', '💃'],
-    ['ACTIVITIES', 'Активности с вожатыми и хореографами.', '🌴'],
-    ['PARTIES', 'Вечеринки и дискотеки каждый вечер.', '🎉'],
-    ['INSURANCE', 'Медицинская страховка.', '🩺'],
-    ['CAMP T-SHIRT', 'Фирменная футболка LITO DANCE CAMP.', '👕'],
+    ['HOTEL 4★', __('Проживание в Hotel Don Angel.', 'wp_denysmyr'), '🏨'],
+    ['FULL BOARD', __('Трёхразовое питание, шведский стол.', 'wp_denysmyr'), '🍽'],
+    ['DANCE', __('2-3 танцевальных занятия ежедневно.', 'wp_denysmyr'), '💃'],
+    ['ACTIVITIES', __('Активности с вожатыми и хореографами.', 'wp_denysmyr'), '🌴'],
+    ['PARTIES', __('Вечеринки и дискотеки каждый вечер.', 'wp_denysmyr'), '🎉'],
+    ['INSURANCE', __('Медицинская страховка.', 'wp_denysmyr'), '🩺'],
+    ['CAMP T-SHIRT', __('Фирменная футболка LITO DANCE CAMP.', 'wp_denysmyr'), '👕'],
 ];
 
 $camp_faq = [
-    ['С какого возраста можно ехать?', 'Возраст участников подтверждается индивидуально при бронировании. Напишите возраст ребёнка в заявке, и команда лагеря подскажет, подходит ли программа.'],
-    ['Можно ли ребёнку ехать без родителей?', 'Да, лагерь рассчитан на организованную поездку детей и подростков. Детали сопровождения и документов команда обсудит с родителями перед бронированием.'],
-    ['Кто находится с детьми?', 'Дети находятся под присмотром команды лагеря, хореографов и сопровождающих взрослых.'],
-    ['Как дети связываются с родителями?', 'Команда заранее согласует удобный канал связи с родителями и сообщает новости по группе. При необходимости ребёнок сможет связаться с родителями через сопровождающих.'],
-    ['Что делать, если ребёнок заболел?', 'Медицинская страховка включена. Команда связывается с родителями и помогает организовать медицинскую помощь на месте.'],
-    ['Что входит в стоимость?', 'Проживание в Hotel Don Angel 4★, трёхразовое питание, танцевальные классы, активности, вечерняя программа, страховка и фирменная футболка лагеря.'],
-    ['Что оплачивается отдельно?', 'Автобус оплачивается отдельно. Дополнительные личные расходы и документы также не входят в базовую стоимость.'],
-    ['Как происходит бронирование?', 'Вы оставляете заявку, команда связывается с вами, подтверждает детали и отправляет информацию для внесения предоплаты.'],
-    ['Что означает предоплата €450?', 'Предоплата €450 бронирует место ребёнка в LITO DANCE CAMP 2027 и учитывается в общей стоимости тарифа.'],
-    ['Можно ли вернуть предоплату?', 'Условия возврата зависят от даты отмены и договорённостей бронирования. Команда отправит актуальные условия перед внесением предоплаты.'],
-    ['Как дети добираются до Испании?', 'Транспорт организуется отдельно. Автобус не входит в стоимость тарифа и оплачивается отдельно.'],
-    ['Что ребёнку взять с собой?', 'После подтверждения бронирования родители получат список вещей: одежда для танцев, пляжа, документы, базовая аптечка и личные принадлежности.'],
+    [__('С какого возраста можно ехать?', 'wp_denysmyr'), __('Возраст участников подтверждается индивидуально при бронировании. Напишите возраст ребёнка в заявке, и команда лагеря подскажет, подходит ли программа.', 'wp_denysmyr')],
+    [__('Можно ли ребёнку ехать без родителей?', 'wp_denysmyr'), __('Да, лагерь рассчитан на организованную поездку детей и подростков. Детали сопровождения и документов команда обсудит с родителями перед бронированием.', 'wp_denysmyr')],
+    [__('Кто находится с детьми?', 'wp_denysmyr'), __('Дети находятся под присмотром команды лагеря, хореографов и сопровождающих взрослых.', 'wp_denysmyr')],
+    [__('Как дети связываются с родителями?', 'wp_denysmyr'), __('Команда заранее согласует удобный канал связи с родителями и сообщает новости по группе. При необходимости ребёнок сможет связаться с родителями через сопровождающих.', 'wp_denysmyr')],
+    [__('Что делать, если ребёнок заболел?', 'wp_denysmyr'), __('Медицинская страховка включена. Команда связывается с родителями и помогает организовать медицинскую помощь на месте.', 'wp_denysmyr')],
+    [__('Что входит в стоимость?', 'wp_denysmyr'), __('Проживание в Hotel Don Angel 4★, трёхразовое питание, танцевальные классы, активности, вечерняя программа, страховка и фирменная футболка лагеря.', 'wp_denysmyr')],
+    [__('Что оплачивается отдельно?', 'wp_denysmyr'), __('Автобус оплачивается отдельно. Дополнительные личные расходы и документы также не входят в базовую стоимость.', 'wp_denysmyr')],
+    [__('Как происходит бронирование?', 'wp_denysmyr'), __('Вы оставляете заявку, команда связывается с вами, подтверждает детали и отправляет информацию для внесения предоплаты.', 'wp_denysmyr')],
+    [__('Что означает предоплата €450?', 'wp_denysmyr'), __('Предоплата €450 бронирует место ребёнка в LITO DANCE CAMP 2027 и учитывается в общей стоимости тарифа.', 'wp_denysmyr')],
+    [__('Можно ли вернуть предоплату?', 'wp_denysmyr'), __('Условия возврата зависят от даты отмены и договорённостей бронирования. Команда отправит актуальные условия перед внесением предоплаты.', 'wp_denysmyr')],
+    [__('Как дети добираются до Испании?', 'wp_denysmyr'), __('Транспорт организуется отдельно. Автобус не входит в стоимость тарифа и оплачивается отдельно.', 'wp_denysmyr')],
+    [__('Что ребёнку взять с собой?', 'wp_denysmyr'), __('После подтверждения бронирования родители получат список вещей: одежда для танцев, пляжа, документы, базовая аптечка и личные принадлежности.', 'wp_denysmyr')],
 ];
 
 $camp_reviews = [];
@@ -110,7 +110,7 @@ add_action('wp_head', function () use ($camp_images) {
 add_action('wp_footer', function () {
     ?>
     <script>
-    (function(){var campRoot=document.querySelector('.camp-page');if(!campRoot)return;function track(name,payload){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:name},payload||{}));if(typeof fbq==='function'){if(name==='camp_view')fbq('track','ViewContent',{content_name:'LITO DANCE CAMP 2027'});if(name==='camp_form_submit')fbq('track','Lead',{content_name:'LITO DANCE CAMP 2027'});if(name==='camp_booking_click'||name==='camp_regular_click')fbq('track','InitiateCheckout',{content_name:'LITO DANCE CAMP 2027',value:450,currency:'EUR'});}}track('camp_view');var revealObserver='IntersectionObserver'in window?new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');if(entry.target.id==='camp-prices')track('camp_price_view');if(entry.target.id==='camp-gallery')track('camp_gallery_view');revealObserver.unobserve(entry.target);}});},{rootMargin:'0px 0px -12% 0px'}):null;document.querySelectorAll('.camp-reveal,#camp-prices,#camp-gallery').forEach(function(el){if(revealObserver)revealObserver.observe(el);else el.classList.add('is-visible');});document.querySelectorAll('[data-camp-cta]').forEach(function(button){button.addEventListener('click',function(){var eventName=button.getAttribute('data-camp-event')||'camp_booking_click';track(eventName,{cta_location:button.getAttribute('data-camp-cta')||''});});});document.querySelectorAll('.camp-faq__question').forEach(function(button){button.addEventListener('click',function(){var item=button.closest('.camp-faq__item');var isOpen=item.classList.toggle('is-open');button.setAttribute('aria-expanded',isOpen?'true':'false');button.querySelector('[data-faq-icon]').textContent=isOpen?'-':'+';if(isOpen)track('camp_faq_open',{question:button.textContent.trim()});});});var sticky=document.querySelector('.camp-sticky');var hero=document.querySelector('.camp-hero');if(sticky&&hero&&'IntersectionObserver'in window){var stickyObserver=new IntersectionObserver(function(entries){sticky.classList.toggle('is-visible',!entries[0].isIntersecting);},{threshold:0});stickyObserver.observe(hero);}else if(sticky){sticky.classList.add('is-visible');}var form=document.querySelector('#camp-booking-form');if(!form)return;var started=false;var messengerTouched=false;var status=form.querySelector('.camp-form-status');var messengerField=form.querySelector('[name="messenger"]');if(messengerField){messengerField.addEventListener('focus',function(){if(!messengerTouched){messengerTouched=true;track('camp_whatsapp_click');}});}form.addEventListener('input',function(){if(!started){started=true;track('camp_form_start');}});form.addEventListener('submit',function(event){event.preventDefault();if(!form.checkValidity()){form.reportValidity();return;}var submit=form.querySelector('[type="submit"]');var payload={};new FormData(form).forEach(function(value,key){payload[key]=value;});payload.lang=document.documentElement.lang||'ru';submit.disabled=true;status.textContent='Отправляем заявку...';status.className='camp-form-status';fetch('<?php echo esc_url_raw(rest_url('contact-form/camp-booking')); ?>',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(response){if(!response.ok)throw new Error('Request failed');return response.json();}).then(function(){form.reset();status.className='camp-form-status is-success';status.innerHTML='🎉 Заявка получена!<br>Мы свяжемся с вами и отправим информацию для внесения предоплаты €450.';track('camp_form_submit');}).catch(function(){status.textContent='Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.';}).finally(function(){submit.disabled=false;});});})();
+    (function(){var campRoot=document.querySelector('.camp-page');if(!campRoot)return;function track(name,payload){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:name},payload||{}));if(typeof fbq==='function'){if(name==='camp_view')fbq('track','ViewContent',{content_name:'LITO DANCE CAMP 2027'});if(name==='camp_form_submit')fbq('track','Lead',{content_name:'LITO DANCE CAMP 2027'});if(name==='camp_booking_click'||name==='camp_regular_click')fbq('track','InitiateCheckout',{content_name:'LITO DANCE CAMP 2027',value:450,currency:'EUR'});}}track('camp_view');var revealObserver='IntersectionObserver'in window?new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');if(entry.target.id==='camp-prices')track('camp_price_view');if(entry.target.id==='camp-gallery')track('camp_gallery_view');revealObserver.unobserve(entry.target);}});},{rootMargin:'0px 0px -12% 0px'}):null;document.querySelectorAll('.camp-reveal,#camp-prices,#camp-gallery').forEach(function(el){if(revealObserver)revealObserver.observe(el);else el.classList.add('is-visible');});document.querySelectorAll('[data-camp-cta]').forEach(function(button){button.addEventListener('click',function(){var eventName=button.getAttribute('data-camp-event')||'camp_booking_click';track(eventName,{cta_location:button.getAttribute('data-camp-cta')||''});});});document.querySelectorAll('.camp-faq__question').forEach(function(button){button.addEventListener('click',function(){var item=button.closest('.camp-faq__item');var isOpen=item.classList.toggle('is-open');button.setAttribute('aria-expanded',isOpen?'true':'false');button.querySelector('[data-faq-icon]').textContent=isOpen?'-':'+';if(isOpen)track('camp_faq_open',{question:button.textContent.trim()});});});var sticky=document.querySelector('.camp-sticky');var hero=document.querySelector('.camp-hero');if(sticky&&hero&&'IntersectionObserver'in window){var stickyObserver=new IntersectionObserver(function(entries){sticky.classList.toggle('is-visible',!entries[0].isIntersecting);},{threshold:0});stickyObserver.observe(hero);}else if(sticky){sticky.classList.add('is-visible');}var form=document.querySelector('#camp-booking-form');if(!form)return;var started=false;var messengerTouched=false;var status=form.querySelector('.camp-form-status');var messengerField=form.querySelector('[name="messenger"]');if(messengerField){messengerField.addEventListener('focus',function(){if(!messengerTouched){messengerTouched=true;track('camp_whatsapp_click');}});}form.addEventListener('input',function(){if(!started){started=true;track('camp_form_start');}});form.addEventListener('submit',function(event){event.preventDefault();if(!form.checkValidity()){form.reportValidity();return;}var submit=form.querySelector('[type="submit"]');var payload={};new FormData(form).forEach(function(value,key){payload[key]=value;});payload.lang=document.documentElement.lang||'ru';submit.disabled=true;status.textContent='<?php echo esc_js(__('Отправляем заявку...', 'wp_denysmyr')); ?>';status.className='camp-form-status';fetch('<?php echo esc_url_raw(rest_url('contact-form/camp-booking')); ?>',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(response){if(!response.ok)throw new Error('Request failed');return response.json();}).then(function(){form.reset();status.className='camp-form-status is-success';status.innerHTML='<?php echo esc_js(__('🎉 Заявка получена!<br>Мы свяжемся с вами и отправим информацию для внесения предоплаты €450.', 'wp_denysmyr')); ?>';track('camp_form_submit');}).catch(function(){status.textContent='<?php echo esc_js(__('Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.', 'wp_denysmyr')); ?>';}).finally(function(){submit.disabled=false;});});})();
     </script>
     <?php
 }, 20);
@@ -125,41 +125,41 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-hero" id="camp-hero">
         <div class="camp-container camp-hero__content">
             <span class="camp-kicker">Talent Center DDC presents</span>
-            <h1><span>Танцевальное</span><span>лето в Испании</span></h1>
-            <p class="camp-hero__sub">10 дней моря, танцев, друзей и настоящих эмоций 🇪🇸</p>
-            <div class="camp-hero__facts" aria-label="Краткая информация о лагере">
+            <h1><span><?php esc_html_e('Танцевальное', 'wp_denysmyr'); ?></span><span><?php esc_html_e('лето в Испании', 'wp_denysmyr'); ?></span></h1>
+            <p class="camp-hero__sub"><?php esc_html_e('10 дней моря, танцев, друзей и настоящих эмоций 🇪🇸', 'wp_denysmyr'); ?></p>
+            <div class="camp-hero__facts" aria-label="<?php esc_attr_e('Краткая информация о лагере', 'wp_denysmyr'); ?>">
                 <span class="camp-pill">📍 <?php echo esc_html($camp_data['location']); ?></span>
                 <span class="camp-pill">📅 <?php echo esc_html($camp_data['dates_display']); ?></span>
                 <span class="camp-pill">🏨 <?php echo esc_html($camp_data['hotel'] . ' ' . $camp_data['hotel_stars']); ?></span>
             </div>
-            <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="hero" data-camp-event="camp_booking_click">ЗАБРОНИРОВАТЬ МЕСТО →</button>
-            <p class="camp-hero__deposit">Предоплата €<?php echo esc_html($camp_data['deposit']); ?></p>
+            <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="hero" data-camp-event="camp_booking_click"><?php esc_html_e('ЗАБРОНИРОВАТЬ МЕСТО →', 'wp_denysmyr'); ?></button>
+            <p class="camp-hero__deposit"><?php echo esc_html(sprintf(__('Предоплата €%s', 'wp_denysmyr'), $camp_data['deposit'])); ?></p>
         </div>
         <div class="camp-sticker camp-hero__sticker">LIMITED PLACES</div>
     </section>
 
-    <section class="camp-facts" aria-label="Ключевые факты">
+    <section class="camp-facts" aria-label="<?php esc_attr_e('Ключевые факты', 'wp_denysmyr'); ?>">
         <div class="camp-container camp-facts__grid">
-            <div class="camp-fact"><span class="camp-fact__number">10 ДНЕЙ</span><span class="camp-fact__text">моря и приключений</span></div>
-            <div class="camp-fact"><span class="camp-fact__number">2-3</span><span class="camp-fact__text">класса в день</span></div>
-            <div class="camp-fact"><span class="camp-fact__number">0</span><span class="camp-fact__text">гаджетов</span></div>
-            <div class="camp-fact"><span class="camp-fact__number">∞</span><span class="camp-fact__text">эмоций</span></div>
+            <div class="camp-fact"><span class="camp-fact__number"><?php esc_html_e('10 ДНЕЙ', 'wp_denysmyr'); ?></span><span class="camp-fact__text"><?php esc_html_e('моря и приключений', 'wp_denysmyr'); ?></span></div>
+            <div class="camp-fact"><span class="camp-fact__number">2-3</span><span class="camp-fact__text"><?php esc_html_e('класса в день', 'wp_denysmyr'); ?></span></div>
+            <div class="camp-fact"><span class="camp-fact__number">0</span><span class="camp-fact__text"><?php esc_html_e('гаджетов', 'wp_denysmyr'); ?></span></div>
+            <div class="camp-fact"><span class="camp-fact__number">∞</span><span class="camp-fact__text"><?php esc_html_e('эмоций', 'wp_denysmyr'); ?></span></div>
         </div>
     </section>
 
     <section class="camp-section camp-story">
         <div class="camp-container camp-split">
             <div class="camp-reveal">
-                <span class="camp-kicker">море → танцы → друзья</span>
-                <h2 class="camp-title"><span>Лето, которое</span><span>они не забудут</span></h2>
+                <span class="camp-kicker"><?php esc_html_e('море → танцы → друзья', 'wp_denysmyr'); ?></span>
+                <h2 class="camp-title"><span><?php esc_html_e('Лето, которое', 'wp_denysmyr'); ?></span><span><?php esc_html_e('они не забудут', 'wp_denysmyr'); ?></span></h2>
                 <div class="camp-copy">
-                    <p>Целых 10 дней моря, танцев и настоящей дружбы.</p>
-                    <p>Каждый год дети возвращаются домой другими: увереннее, взрослее и счастливее.</p>
-                    <p>Без телефонов, зато с кучей эмоций 💛</p>
+                    <p><?php esc_html_e('Целых 10 дней моря, танцев и настоящей дружбы.', 'wp_denysmyr'); ?></p>
+                    <p><?php esc_html_e('Каждый год дети возвращаются домой другими: увереннее, взрослее и счастливее.', 'wp_denysmyr'); ?></p>
+                    <p><?php esc_html_e('Без телефонов, зато с кучей эмоций 💛', 'wp_denysmyr'); ?></p>
                 </div>
             </div>
             <div class="camp-media camp-reveal">
-                <img src="<?php echo esc_url($camp_images[1]); ?>" alt="Дети на LITO DANCE CAMP у моря" loading="lazy">
+                <img src="<?php echo esc_url($camp_images[1]); ?>" alt="<?php esc_attr_e('Дети на LITO DANCE CAMP у моря', 'wp_denysmyr'); ?>" loading="lazy">
                 <span class="camp-sticker camp-story__sticker">NO PHONES. MORE LIFE.</span>
             </div>
         </div>
@@ -168,7 +168,7 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-included">
         <div class="camp-container">
             <span class="camp-kicker">What's included</span>
-            <h2 class="camp-title"><span>Всё, что нужно</span><span>для идеального лета</span></h2>
+            <h2 class="camp-title"><span><?php esc_html_e('Всё, что нужно', 'wp_denysmyr'); ?></span><span><?php esc_html_e('для идеального лета', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-card-grid">
                 <?php foreach ($camp_included as $item) : ?>
                     <article class="camp-card camp-reveal">
@@ -184,13 +184,13 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-detox">
         <div class="camp-container">
             <span class="camp-kicker">Why kids love it</span>
-            <h2 class="camp-title"><span>10 дней</span><span>без гаджетов</span></h2>
+            <h2 class="camp-title"><span><?php esc_html_e('10 дней', 'wp_denysmyr'); ?></span><span><?php esc_html_e('без гаджетов', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-detox__message">📵 PHONE OFF → 🌴 LIFE ON</div>
             <div class="camp-card-grid">
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">DANCE</span><p>Танцевальный рост и вдохновение.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">FRIENDS</span><p>Новые друзья и своё комьюнити.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">FREEDOM</span><p>Море, солнце, движение и настоящие эмоции.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">GROWTH</span><p>Уверенность и самостоятельность.</p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">DANCE</span><p><?php esc_html_e('Танцевальный рост и вдохновение.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">FRIENDS</span><p><?php esc_html_e('Новые друзья и своё комьюнити.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">FREEDOM</span><p><?php esc_html_e('Море, солнце, движение и настоящие эмоции.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">GROWTH</span><p><?php esc_html_e('Уверенность и самостоятельность.', 'wp_denysmyr'); ?></p></article>
             </div>
         </div>
     </section>
@@ -198,11 +198,11 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-gallery" id="camp-gallery">
         <div class="camp-container">
             <span class="camp-kicker">Photo / video gallery</span>
-            <h2 class="camp-title camp-title--light"><span>Вот так</span><span>выглядит LITO 💛</span></h2>
+            <h2 class="camp-title camp-title--light"><span><?php esc_html_e('Вот так', 'wp_denysmyr'); ?></span><span><?php esc_html_e('выглядит LITO 💛', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-gallery__grid">
                 <?php foreach (array_slice($camp_images, 0, 6) as $index => $image) : ?>
                     <div class="camp-gallery__item <?php echo $index === 0 || $index === 4 ? 'camp-gallery__item--big' : ''; ?> camp-reveal">
-                        <img src="<?php echo esc_url($image); ?>" alt="Атмосфера LITO DANCE CAMP" loading="lazy">
+                        <img src="<?php echo esc_url($image); ?>" alt="<?php esc_attr_e('Атмосфера LITO DANCE CAMP', 'wp_denysmyr'); ?>" loading="lazy">
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -211,18 +211,18 @@ $BsWp->get_template_parts([
 
     <section class="camp-section camp-hotel">
         <div class="camp-container camp-split">
-            <div class="camp-hotel__photo camp-reveal"><img src="<?php echo esc_url($camp_images[8]); ?>" alt="Hotel Don Angel в Santa Susanna" loading="lazy"></div>
+            <div class="camp-hotel__photo camp-reveal"><img src="<?php echo esc_url($camp_images[8]); ?>" alt="<?php esc_attr_e('Hotel Don Angel в Santa Susanna', 'wp_denysmyr'); ?>" loading="lazy"></div>
             <div class="camp-reveal">
-                <span class="camp-kicker">Где мы живём</span>
+                <span class="camp-kicker"><?php esc_html_e('Где мы живём', 'wp_denysmyr'); ?></span>
                 <h2 class="camp-title"><span><?php echo esc_html($camp_data['hotel']); ?></span><span><?php echo esc_html($camp_data['hotel_stars']); ?></span></h2>
                 <p class="camp-copy">Santa Susanna, Spain 🇪🇸</p>
                 <ul class="camp-list">
-                    <li><span>🏨</span><span>Hotel 4★ и организованное проживание участников лагеря.</span></li>
+                    <li><span>🏨</span><span><?php esc_html_e('Hotel 4★ и организованное проживание участников лагеря.', 'wp_denysmyr'); ?></span></li>
                     <li><span>📍</span><span>Santa Susanna, Spain.</span></li>
-                    <li><span>🍽</span><span>Трёхразовое питание, buffet.</span></li>
-                    <li><span>💃</span><span>Ежедневные танцевальные занятия и активности.</span></li>
+                    <li><span>🍽</span><span><?php esc_html_e('Трёхразовое питание, buffet.', 'wp_denysmyr'); ?></span></li>
+                    <li><span>💃</span><span><?php esc_html_e('Ежедневные танцевальные занятия и активности.', 'wp_denysmyr'); ?></span></li>
                 </ul>
-                <button type="button" class="camp-btn mt-4" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="hotel" data-camp-event="camp_booking_click">УЗНАТЬ БОЛЬШЕ →</button>
+                <button type="button" class="camp-btn mt-4" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="hotel" data-camp-event="camp_booking_click"><?php esc_html_e('УЗНАТЬ БОЛЬШЕ →', 'wp_denysmyr'); ?></button>
             </div>
         </div>
     </section>
@@ -230,13 +230,13 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-prices" id="camp-prices">
         <div class="camp-container">
             <span class="camp-kicker">Prices</span>
-            <h2 class="camp-title"><span>Выбери</span><span>своё лето</span></h2>
+            <h2 class="camp-title"><span><?php esc_html_e('Выбери', 'wp_denysmyr'); ?></span><span><?php esc_html_e('своё лето', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-price-grid">
-                <article class="camp-price camp-price--muted camp-reveal"><span class="camp-price__status">SOLD OUT</span><h3>PRE-SALE</h3><p class="camp-price__amount">€1190</p><p>Первые 10 мест.</p><span class="camp-price__stamp">SOLD OUT</span></article>
-                <article class="camp-price camp-price--active camp-reveal"><span class="camp-price__badge">MOST POPULAR</span><span class="camp-price__status">ACTIVE</span><h3>REGULAR</h3><p class="camp-price__amount">€<?php echo esc_html($camp_data['regular_price']); ?></p><p>Текущий основной тариф. Предоплата €<?php echo esc_html($camp_data['deposit']); ?>.</p><button type="button" class="camp-btn camp-btn--dark" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="regular_price" data-camp-event="camp_regular_click">ЗАБРОНИРОВАТЬ →</button></article>
-                <article class="camp-price camp-reveal"><span class="camp-price__status">NEXT</span><h3>LATE TICKET</h3><p class="camp-price__amount">€1590</p><p>При наличии свободных мест.</p></article>
+                <article class="camp-price camp-price--muted camp-reveal"><span class="camp-price__status">SOLD OUT</span><h3>PRE-SALE</h3><p class="camp-price__amount">€1190</p><p><?php esc_html_e('Первые 10 мест.', 'wp_denysmyr'); ?></p><span class="camp-price__stamp">SOLD OUT</span></article>
+                <article class="camp-price camp-price--active camp-reveal"><span class="camp-price__badge">MOST POPULAR</span><span class="camp-price__status">ACTIVE</span><h3>REGULAR</h3><p class="camp-price__amount">€<?php echo esc_html($camp_data['regular_price']); ?></p><p><?php echo esc_html(sprintf(__('Текущий основной тариф. Предоплата €%s.', 'wp_denysmyr'), $camp_data['deposit'])); ?></p><button type="button" class="camp-btn camp-btn--dark" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="regular_price" data-camp-event="camp_regular_click"><?php esc_html_e('ЗАБРОНИРОВАТЬ →', 'wp_denysmyr'); ?></button></article>
+                <article class="camp-price camp-reveal"><span class="camp-price__status">NEXT</span><h3>LATE TICKET</h3><p class="camp-price__amount">€1590</p><p><?php esc_html_e('При наличии свободных мест.', 'wp_denysmyr'); ?></p></article>
             </div>
-            <p class="camp-price-note">🚌 <?php echo esc_html($camp_data['bus_note']); ?>. Количество мест ограничено.</p>
+            <p class="camp-price-note">🚌 <?php echo esc_html($camp_data['bus_note']); ?>. <?php esc_html_e('Количество мест ограничено.', 'wp_denysmyr'); ?></p>
         </div>
     </section>
 
@@ -244,9 +244,9 @@ $BsWp->get_template_parts([
         <div class="camp-container camp-deposit__box camp-reveal">
             <div>
                 <span class="camp-kicker">Deposit</span>
-                <h2 class="camp-title"><span>Не нужно платить</span><span>всю сумму сразу</span></h2>
-                <p class="camp-copy">предоплата для бронирования места</p>
-                <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="deposit" data-camp-event="camp_booking_click">ЗАБРОНИРОВАТЬ МЕСТО</button>
+                <h2 class="camp-title"><span><?php esc_html_e('Не нужно платить', 'wp_denysmyr'); ?></span><span><?php esc_html_e('всю сумму сразу', 'wp_denysmyr'); ?></span></h2>
+                <p class="camp-copy"><?php esc_html_e('предоплата для бронирования места', 'wp_denysmyr'); ?></p>
+                <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="deposit" data-camp-event="camp_booking_click"><?php esc_html_e('ЗАБРОНИРОВАТЬ МЕСТО', 'wp_denysmyr'); ?></button>
             </div>
             <div class="camp-deposit__amount">€<?php echo esc_html($camp_data['deposit']); ?></div>
         </div>
@@ -255,15 +255,15 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-safety">
         <div class="camp-container">
             <span class="camp-kicker">For parents</span>
-            <h2 class="camp-title"><span>А как же</span><span>безопасность?</span></h2>
-            <p class="camp-copy">Пока дети отдыхают, родители должны быть спокойны.</p>
+            <h2 class="camp-title"><span><?php esc_html_e('А как же', 'wp_denysmyr'); ?></span><span><?php esc_html_e('безопасность?', 'wp_denysmyr'); ?></span></h2>
+            <p class="camp-copy"><?php esc_html_e('Пока дети отдыхают, родители должны быть спокойны.', 'wp_denysmyr'); ?></p>
             <div class="camp-card-grid">
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">КОМАНДА ВЗРОСЛЫХ</span><p>Дети находятся под присмотром команды лагеря.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">INSURANCE</span><p>Медицинская страховка включена.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">HOTEL 4★</span><p>Организованное проживание группы.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">ПИТАНИЕ</span><p>Трёхразовое питание каждый день.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">DIGITAL DETOX</span><p>Отдых от постоянного использования телефонов и социальных сетей.</p></article>
-                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">СВЯЗЬ С РОДИТЕЛЯМИ</span><p>Команда заранее согласует канал новостей и связи с детьми.</p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow"><?php esc_html_e('КОМАНДА ВЗРОСЛЫХ', 'wp_denysmyr'); ?></span><p><?php esc_html_e('Дети находятся под присмотром команды лагеря.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">INSURANCE</span><p><?php esc_html_e('Медицинская страховка включена.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">HOTEL 4★</span><p><?php esc_html_e('Организованное проживание группы.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow"><?php esc_html_e('ПИТАНИЕ', 'wp_denysmyr'); ?></span><p><?php esc_html_e('Трёхразовое питание каждый день.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow">DIGITAL DETOX</span><p><?php esc_html_e('Отдых от постоянного использования телефонов и социальных сетей.', 'wp_denysmyr'); ?></p></article>
+                <article class="camp-card camp-reveal"><span class="camp-card__eyebrow"><?php esc_html_e('СВЯЗЬ С РОДИТЕЛЯМИ', 'wp_denysmyr'); ?></span><p><?php esc_html_e('Команда заранее согласует канал новостей и связи с детьми.', 'wp_denysmyr'); ?></p></article>
             </div>
         </div>
     </section>
@@ -271,20 +271,20 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-day">
         <div class="camp-container">
             <span class="camp-kicker">A day at LITO</span>
-            <h2 class="camp-title"><span>Один день</span><span>в LITO</span></h2>
+            <h2 class="camp-title"><span><?php esc_html_e('Один день', 'wp_denysmyr'); ?></span><span><?php esc_html_e('в LITO', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-timeline">
-                <?php foreach ([['08:30', '☀️ Завтрак'], ['10:00', '💃 Dance Class'], ['12:00', '🌊 Море'], ['14:00', '🍉 Обед'], ['16:00', '💃 Dance / Activities'], ['19:00', '🍽 Ужин'], ['20:30', '🎉 Party / Games / Disco']] as $row) : ?>
+                <?php foreach ([['08:30', __('☀️ Завтрак', 'wp_denysmyr')], ['10:00', '💃 Dance Class'], ['12:00', __('🌊 Море', 'wp_denysmyr')], ['14:00', __('🍉 Обед', 'wp_denysmyr')], ['16:00', '💃 Dance / Activities'], ['19:00', __('🍽 Ужин', 'wp_denysmyr')], ['20:30', '🎉 Party / Games / Disco']] as $row) : ?>
                     <div class="camp-timeline__item camp-reveal"><span class="camp-timeline__time"><?php echo esc_html($row[0]); ?></span><span><?php echo esc_html($row[1]); ?></span></div>
                 <?php endforeach; ?>
             </div>
-            <p class="camp-price-note">Пример одного дня. Финальная программа может меняться.</p>
+            <p class="camp-price-note"><?php esc_html_e('Пример одного дня. Финальная программа может меняться.', 'wp_denysmyr'); ?></p>
         </div>
     </section>
 
     <section class="camp-section camp-reviews">
         <div class="camp-container">
             <span class="camp-kicker">Social proof</span>
-            <h2 class="camp-title"><span>Родители</span><span>уже отпускали 💛</span></h2>
+            <h2 class="camp-title"><span><?php esc_html_e('Родители', 'wp_denysmyr'); ?></span><span><?php esc_html_e('уже отпускали 💛', 'wp_denysmyr'); ?></span></h2>
             <?php if ($camp_reviews) : ?>
                 <div class="camp-card-grid">
                     <?php foreach ($camp_reviews as $review) : ?>
@@ -292,7 +292,7 @@ $BsWp->get_template_parts([
                     <?php endforeach; ?>
                 </div>
             <?php else : ?>
-                <div class="camp-empty-proof camp-reveal">Реальные отзывы родителей будут добавлены после подтверждения текстов. Мы не публикуем вымышленные истории.</div>
+                <div class="camp-empty-proof camp-reveal"><?php esc_html_e('Реальные отзывы родителей будут добавлены после подтверждения текстов. Мы не публикуем вымышленные истории.', 'wp_denysmyr'); ?></div>
             <?php endif; ?>
         </div>
     </section>
@@ -300,7 +300,7 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-faq">
         <div class="camp-container">
             <span class="camp-kicker">FAQ</span>
-            <h2 class="camp-title camp-title--light"><span>Вопросы</span><span>родителей</span></h2>
+            <h2 class="camp-title camp-title--light"><span><?php esc_html_e('Вопросы', 'wp_denysmyr'); ?></span><span><?php esc_html_e('родителей', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-faq__list">
                 <?php foreach ($camp_faq as $index => $faq) : ?>
                     <div class="camp-faq__item">
@@ -315,21 +315,21 @@ $BsWp->get_template_parts([
     <section class="camp-section camp-final">
         <div class="camp-container">
             <span class="camp-kicker">Final call</span>
-            <h2 class="camp-title camp-title--light"><span>Лето</span><span>начинается</span><span>здесь.</span></h2>
+            <h2 class="camp-title camp-title--light"><span><?php esc_html_e('Лето', 'wp_denysmyr'); ?></span><span><?php esc_html_e('начинается', 'wp_denysmyr'); ?></span><span><?php esc_html_e('здесь.', 'wp_denysmyr'); ?></span></h2>
             <div class="camp-final__info">
                 <span class="camp-pill">🇪🇸 Santa Susanna</span>
                 <span class="camp-pill"><?php echo esc_html($camp_data['dates_short']); ?></span>
                 <span class="camp-pill">REGULAR TICKET - €<?php echo esc_html($camp_data['regular_price']); ?></span>
-                <span class="camp-pill">Для бронирования - €<?php echo esc_html($camp_data['deposit']); ?></span>
+                <span class="camp-pill"><?php echo esc_html(sprintf(__('Для бронирования - €%s', 'wp_denysmyr'), $camp_data['deposit'])); ?></span>
             </div>
-            <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="final" data-camp-event="camp_booking_click">ХОЧУ В LITO →</button>
-            <p class="camp-hero__deposit">Количество мест ограничено</p>
+            <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="final" data-camp-event="camp_booking_click"><?php esc_html_e('ХОЧУ В LITO →', 'wp_denysmyr'); ?></button>
+            <p class="camp-hero__deposit"><?php esc_html_e('Количество мест ограничено', 'wp_denysmyr'); ?></p>
         </div>
     </section>
 
     <div class="camp-sticky" aria-live="polite">
-        <span class="camp-sticky__price">€<?php echo esc_html($camp_data['regular_price']); ?> · Предоплата €<?php echo esc_html($camp_data['deposit']); ?></span>
-        <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="sticky" data-camp-event="camp_booking_click">ЗАБРОНИРОВАТЬ</button>
+        <span class="camp-sticky__price">€<?php echo esc_html($camp_data['regular_price']); ?> · <?php echo esc_html(sprintf(__('Предоплата €%s', 'wp_denysmyr'), $camp_data['deposit'])); ?></span>
+        <button type="button" class="camp-btn" data-bs-toggle="modal" data-bs-target="#camp_booking_modal" data-camp-cta="sticky" data-camp-event="camp_booking_click"><?php esc_html_e('ЗАБРОНИРОВАТЬ', 'wp_denysmyr'); ?></button>
     </div>
 </div>
 
@@ -337,22 +337,22 @@ $BsWp->get_template_parts([
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="camp_booking_modal_label">Забронировать LITO DANCE CAMP 2027</h4>
+                <h4 class="modal-title" id="camp_booking_modal_label"><?php esc_html_e('Забронировать LITO DANCE CAMP 2027', 'wp_denysmyr'); ?></h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
                 <form class="camp-booking-form" id="camp-booking-form" novalidate>
                     <input type="hidden" name="camp" value="LITO DANCE CAMP 2027">
-                    <label>Имя родителя <input type="text" name="parent_name" autocomplete="name" required></label>
-                    <label>Имя ребёнка <input type="text" name="child_name" required></label>
-                    <label>Возраст ребёнка <input type="number" name="child_age" min="5" max="18" required></label>
-                    <label>Телефон <input type="tel" name="phone" autocomplete="tel" required></label>
+                    <label><?php esc_html_e('Имя родителя', 'wp_denysmyr'); ?> <input type="text" name="parent_name" autocomplete="name" required></label>
+                    <label><?php esc_html_e('Имя ребёнка', 'wp_denysmyr'); ?> <input type="text" name="child_name" required></label>
+                    <label><?php esc_html_e('Возраст ребёнка', 'wp_denysmyr'); ?> <input type="number" name="child_age" min="5" max="18" required></label>
+                    <label><?php esc_html_e('Телефон', 'wp_denysmyr'); ?> <input type="tel" name="phone" autocomplete="tel" required></label>
                     <label>Email <input type="email" name="email" autocomplete="email" required></label>
-                    <label>WhatsApp / Telegram <input type="text" name="messenger" placeholder="@username или номер"></label>
-                    <label class="is-full">Город <input type="text" name="city" autocomplete="address-level2"></label>
-                    <label class="is-full">Комментарий <textarea name="comment" rows="4"></textarea></label>
+                    <label>WhatsApp / Telegram <input type="text" name="messenger" placeholder="<?php esc_attr_e('@username или номер', 'wp_denysmyr'); ?>"></label>
+                    <label class="is-full"><?php esc_html_e('Город', 'wp_denysmyr'); ?> <input type="text" name="city" autocomplete="address-level2"></label>
+                    <label class="is-full"><?php esc_html_e('Комментарий', 'wp_denysmyr'); ?> <textarea name="comment" rows="4"></textarea></label>
                     <div class="camp-form-status" role="status" aria-live="polite"></div>
-                    <button type="submit" class="camp-btn is-full">ЗАБРОНИРОВАТЬ МЕСТО</button>
+                    <button type="submit" class="camp-btn is-full"><?php esc_html_e('ЗАБРОНИРОВАТЬ МЕСТО', 'wp_denysmyr'); ?></button>
                 </form>
             </div>
         </div>
