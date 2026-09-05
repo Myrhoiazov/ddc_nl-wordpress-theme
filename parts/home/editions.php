@@ -49,5 +49,5 @@ $the_query = new WP_Query($args); ?>
     <?php wp_reset_postdata(); ?>
 
 <?php } else { ?>
-    <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+    <p><?php esc_html_e('Sorry, no posts matched your criteria.', 'wp_denysmyr'); ?></p>
 <?php }; ?>

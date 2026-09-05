@@ -514,3 +514,159 @@ msgstr "Stad"
 
 msgid "Комментарий"
 msgstr "Opmerking"
+
+msgid "Talent Center DDC — главная"
+msgstr "Talent Center DDC — startpagina"
+
+msgid "Главное меню"
+msgstr "Hoofdmenu"
+
+msgid "Открыть подменю «%s»"
+msgstr "Submenu '%s' openen"
+
+msgid "Переключить язык"
+msgstr "Taal wisselen"
+
+msgid "Открыть меню"
+msgstr "Menu openen"
+
+msgid "Назад"
+msgstr "Terug"
+
+msgid "Talent Center DDC — развивает творческие способности, дисциплину и умение работать, отдавая все силы для достижения целей."
+msgstr "Talent Center DDC ontwikkelt creatief vermogen, discipline en doorzettingsvermogen om je doelen te bereiken."
+
+msgid "Даёт возможность получать удовольствие и радость в процессе обучения и открытия нового."
+msgstr "Het biedt de kans om plezier en vreugde te ervaren tijdens het leren en ontdekken van iets nieuws."
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Наши контакты:"
+msgstr "Onze contactgegevens:"
+
+msgid "Talent Center DDC:"
+msgstr "Talent Center DDC:"
+
+msgid "VAT nummer: NL004836578B09"
+msgstr "VAT nummer: NL004836578B09"
+
+msgid "Chamber of Commerce: 90720814"
+msgstr "Chamber of Commerce: 90720814"
+
+msgid "Ми в социальных сетях:"
+msgstr "Volg ons op social media:"
+
+msgid "Следите за нами"
+msgstr "Volg ons"
+
+msgid "МЫ ВЕЗДЕ,<br>ГДЕ ВЫ"
+msgstr "WIJ ZIJN OVERAL,<br>WAAR JIJ BENT"
+
+msgid "Видео с занятий, выступления учеников, расписание и живая атмосфера школы — подписывайтесь и будьте в курсе."
+msgstr "Video's van lessen, optredens van leerlingen, het lesrooster en de sfeer van de school — volg ons en blijf op de hoogte."
+
+msgid "Фото и Reels с занятий"
+msgstr "Foto's en Reels van de lessen"
+
+msgid "Короткие видео с тренировок"
+msgstr "Korte video's van trainingen"
+
+msgid "Выступления и мероприятия"
+msgstr "Optredens en evenementen"
+
+msgid "Новости и анонсы событий"
+msgstr "Nieuws en aankondigingen van evenementen"
+
+msgid "Свяжитесь с нами"
+msgstr "Neem contact met ons op"
+
+msgid "ЗАБРОНИРОВАТЬ"
+msgstr "RESERVEREN"
+
+msgid "Buy tickets"
+msgstr "Tickets kopen"
+
+msgid "Archive"
+msgstr "Archief"
+
+msgid "Leave a Comment"
+msgstr "Laat een reactie achter"
+
+msgid "1 Comment"
+msgstr "1 reactie"
+
+msgid "% Comments"
+msgstr "% reacties"
+
+msgid "No posts to display"
+msgstr "Geen berichten om weer te geven"
+
+msgid "Category Archive:"
+msgstr "Categoriearchief:"
+
+msgid "No posts to display in"
+msgstr "Geen berichten om weer te geven in"
+
+msgid "Tag Archive:"
+msgstr "Tagarchief:"
+
+msgid "Author Archives:"
+msgstr "Auteursarchief:"
+
+msgid "About"
+msgstr "Over"
+
+msgid "No posts to display for"
+msgstr "Geen berichten om weer te geven voor"
+
+msgid "Search Results for"
+msgstr "Zoekresultaten voor"
+
+msgid "No results found for"
+msgstr "Geen resultaten gevonden voor"
+
+msgid "Comments are closed"
+msgstr "Reacties zijn gesloten"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Comment"
+msgstr "Reactie"
+
+msgid "Name is required"
+msgstr "Naam is verplicht"
+
+msgid "Email is required"
+msgstr "E-mail is verplicht"
+
+msgid "Comment is required"
+msgstr "Reactie is verplicht"
+
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Video's"
+msgstr "Video's"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Latest Posts"
+msgstr "Laatste berichten"
+
+msgid "Nothing to show yet."
+msgstr "Nog niets om te tonen."
+
+msgid "Close"
+msgstr "Sluiten"

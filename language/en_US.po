@@ -514,3 +514,159 @@ msgstr "City"
 
 msgid "Комментарий"
 msgstr "Comment"
+
+msgid "Talent Center DDC — главная"
+msgstr "Talent Center DDC — home"
+
+msgid "Главное меню"
+msgstr "Main menu"
+
+msgid "Открыть подменю «%s»"
+msgstr "Open “%s” submenu"
+
+msgid "Переключить язык"
+msgstr "Switch language"
+
+msgid "Открыть меню"
+msgstr "Open menu"
+
+msgid "Назад"
+msgstr "Back"
+
+msgid "Talent Center DDC — развивает творческие способности, дисциплину и умение работать, отдавая все силы для достижения целей."
+msgstr "Talent Center DDC develops creative ability, discipline and the drive to give your all in pursuit of your goals."
+
+msgid "Даёт возможность получать удовольствие и радость в процессе обучения и открытия нового."
+msgstr "It offers the chance to feel joy and satisfaction while learning and discovering something new."
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Наши контакты:"
+msgstr "Our contacts:"
+
+msgid "Talent Center DDC:"
+msgstr "Talent Center DDC:"
+
+msgid "VAT nummer: NL004836578B09"
+msgstr "VAT nummer: NL004836578B09"
+
+msgid "Chamber of Commerce: 90720814"
+msgstr "Chamber of Commerce: 90720814"
+
+msgid "Ми в социальных сетях:"
+msgstr "Follow us on social media:"
+
+msgid "Следите за нами"
+msgstr "Follow us"
+
+msgid "МЫ ВЕЗДЕ,<br>ГДЕ ВЫ"
+msgstr "WE ARE EVERYWHERE,<br>YOU ARE"
+
+msgid "Видео с занятий, выступления учеников, расписание и живая атмосфера школы — подписывайтесь и будьте в курсе."
+msgstr "Videos from classes, student performances, the schedule and the school's everyday atmosphere — follow along and stay in the loop."
+
+msgid "Фото и Reels с занятий"
+msgstr "Photos and Reels from classes"
+
+msgid "Короткие видео с тренировок"
+msgstr "Short videos from training"
+
+msgid "Выступления и мероприятия"
+msgstr "Performances and events"
+
+msgid "Новости и анонсы событий"
+msgstr "News and event announcements"
+
+msgid "Свяжитесь с нами"
+msgstr "Get in touch"
+
+msgid "ЗАБРОНИРОВАТЬ"
+msgstr "BOOK"
+
+msgid "Buy tickets"
+msgstr "Buy tickets"
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Leave a Comment"
+msgstr "Leave a Comment"
+
+msgid "1 Comment"
+msgstr "1 Comment"
+
+msgid "% Comments"
+msgstr "% Comments"
+
+msgid "No posts to display"
+msgstr "No posts to display"
+
+msgid "Category Archive:"
+msgstr "Category Archive:"
+
+msgid "No posts to display in"
+msgstr "No posts to display in"
+
+msgid "Tag Archive:"
+msgstr "Tag Archive:"
+
+msgid "Author Archives:"
+msgstr "Author Archives:"
+
+msgid "About"
+msgstr "About"
+
+msgid "No posts to display for"
+msgstr "No posts to display for"
+
+msgid "Search Results for"
+msgstr "Search Results for"
+
+msgid "No results found for"
+msgstr "No results found for"
+
+msgid "Comments are closed"
+msgstr "Comments are closed"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Name is required"
+msgstr "Name is required"
+
+msgid "Email is required"
+msgstr "Email is required"
+
+msgid "Comment is required"
+msgstr "Comment is required"
+
+msgid "Page not found"
+msgstr "Page not found"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Video's"
+msgstr "Videos"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Latest Posts"
+msgstr "Latest Posts"
+
+msgid "Nothing to show yet."
+msgstr "Nothing to show yet."
+
+msgid "Close"
+msgstr "Close"

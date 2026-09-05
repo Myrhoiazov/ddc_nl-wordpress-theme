@@ -32,7 +32,7 @@ $BsWp->get_template_parts([
 				<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate>
 					<?php the_date(); ?> <?php the_time(); ?>
 				</time>
-				<?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
+				<?php comments_popup_link(__('Leave a Comment', 'wp_denysmyr'), __('1 Comment', 'wp_denysmyr'), __('% Comments', 'wp_denysmyr')); ?>
 				<?php the_content(); ?>
 			</article>
 		</li>

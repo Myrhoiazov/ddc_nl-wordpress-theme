@@ -514,3 +514,159 @@ msgstr "Місто"
 
 msgid "Комментарий"
 msgstr "Коментар"
+
+msgid "Talent Center DDC — главная"
+msgstr "Talent Center DDC — головна"
+
+msgid "Главное меню"
+msgstr "Головне меню"
+
+msgid "Открыть подменю «%s»"
+msgstr "Відкрити підменю «%s»"
+
+msgid "Переключить язык"
+msgstr "Змінити мову"
+
+msgid "Открыть меню"
+msgstr "Відкрити меню"
+
+msgid "Назад"
+msgstr "Назад"
+
+msgid "Talent Center DDC — развивает творческие способности, дисциплину и умение работать, отдавая все силы для достижения целей."
+msgstr "Talent Center DDC розвиває творчі здібності, дисципліну та вміння працювати, віддаючи всі сили для досягнення цілей."
+
+msgid "Даёт возможность получать удовольствие и радость в процессе обучения и открытия нового."
+msgstr "Дає можливість отримувати задоволення і радість у процесі навчання та відкриття нового."
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Наши контакты:"
+msgstr "Наші контакти:"
+
+msgid "Talent Center DDC:"
+msgstr "Talent Center DDC:"
+
+msgid "VAT nummer: NL004836578B09"
+msgstr "VAT nummer: NL004836578B09"
+
+msgid "Chamber of Commerce: 90720814"
+msgstr "Chamber of Commerce: 90720814"
+
+msgid "Ми в социальных сетях:"
+msgstr "Ми в соціальних мережах:"
+
+msgid "Следите за нами"
+msgstr "Слідкуйте за нами"
+
+msgid "МЫ ВЕЗДЕ,<br>ГДЕ ВЫ"
+msgstr "МИ СКРІЗЬ,<br>ДЕ ВИ"
+
+msgid "Видео с занятий, выступления учеников, расписание и живая атмосфера школы — подписывайтесь и будьте в курсе."
+msgstr "Відео із занять, виступи учнів, розклад і жива атмосфера школи — підписуйтесь і будьте в курсі."
+
+msgid "Фото и Reels с занятий"
+msgstr "Фото і Reels із занять"
+
+msgid "Короткие видео с тренировок"
+msgstr "Короткі відео з тренувань"
+
+msgid "Выступления и мероприятия"
+msgstr "Виступи та заходи"
+
+msgid "Новости и анонсы событий"
+msgstr "Новини та анонси подій"
+
+msgid "Свяжитесь с нами"
+msgstr "Зв'яжіться з нами"
+
+msgid "ЗАБРОНИРОВАТЬ"
+msgstr "ЗАБРОНЮВАТИ"
+
+msgid "Buy tickets"
+msgstr "Купити квитки"
+
+msgid "Archive"
+msgstr "Архів"
+
+msgid "Leave a Comment"
+msgstr "Залишити коментар"
+
+msgid "1 Comment"
+msgstr "1 коментар"
+
+msgid "% Comments"
+msgstr "% коментарів"
+
+msgid "No posts to display"
+msgstr "Немає записів для показу"
+
+msgid "Category Archive:"
+msgstr "Архів категорії:"
+
+msgid "No posts to display in"
+msgstr "Немає записів для показу в"
+
+msgid "Tag Archive:"
+msgstr "Архів тегу:"
+
+msgid "Author Archives:"
+msgstr "Архів автора:"
+
+msgid "About"
+msgstr "Про"
+
+msgid "No posts to display for"
+msgstr "Немає записів для показу для"
+
+msgid "Search Results for"
+msgstr "Результати пошуку для"
+
+msgid "No results found for"
+msgstr "Нічого не знайдено за запитом"
+
+msgid "Comments are closed"
+msgstr "Коментарі закрито"
+
+msgid "Name"
+msgstr "Ім'я"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Name is required"
+msgstr "Ім'я обов'язкове"
+
+msgid "Email is required"
+msgstr "Email обов'язковий"
+
+msgid "Comment is required"
+msgstr "Коментар обов'язковий"
+
+msgid "Page not found"
+msgstr "Сторінку не знайдено"
+
+msgid "Location"
+msgstr "Локація"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Video's"
+msgstr "Відео"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Latest Posts"
+msgstr "Останні записи"
+
+msgid "Nothing to show yet."
+msgstr "Поки що нічого немає."
+
+msgid "Close"
+msgstr "Закрити"
