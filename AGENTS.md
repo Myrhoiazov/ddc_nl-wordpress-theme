@@ -19,7 +19,7 @@
 ## 3. Структура темы
 
 - **PHP**: `functions.php`, `includes/`, `templates/`, `page-templates/`, `parts/`, `header*.php`, `footer*.php`, `home.php`, `single*.php`.
-- **Стили**: исходники находятся в `scss/`, собранные файлы в `style.css`, `css/` и `style.css.map`.
+- **Стили**: исходники находятся в `scss/`; сборка через `style.scss` компилируется в `style.css` и `style.css.map`. `css/` содержит сторонние/вендорные стили (bootstrap, animate и т.п.), а не вывод сборки.
 - **JavaScript**: проектные скрипты находятся в `js/`. Минифицированные сторонние библиотеки не переписывайте без необходимости.
 - **Медиа**: `images/` и `videos/` являются локальным контентом и намеренно не отслеживаются Git.
 
@@ -35,7 +35,7 @@
 - **PHP lint**: для измененных PHP-файлов запускайте `php -l`.
 - **Template lint**: после правок шаблонов проверяйте `templates/`, `page-templates/`, `parts/`, `includes/`, `home.php`, `header*.php`, `footer*.php`.
 - **JS syntax**: для измененных проектных JS-файлов запускайте `node --check`, кроме сторонних минифицированных библиотек.
-- **Version bump**: перед push в `main` обновите `Version:` в `style.scss`, `style.css` и `css/style.css`. Затем создайте release commit вида `chore: release X.Y.Z` и tag `vX.Y.Z`.
+- **Version bump**: перед push в `main` обновите `Version:` в `style.scss` и пересоберите `style.css` (`sass style.scss style.css --style=compressed --source-map`), чтобы версия в скомпилированном файле совпадала. Затем создайте release commit вида `chore: release X.Y.Z` и tag `vX.Y.Z`.
 - **Brand scan**: перед коммитом проверяйте отсутствие legacy strings. Не сохраняйте сами legacy-строки в документации; используйте временный локальный список или placeholder-ы:
   ```bash
   rg -n -uu -i "<legacy-token-1>|<legacy-token-2>" . --glob '!.git/**' --glob '!node_modules/**'

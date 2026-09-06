@@ -38,7 +38,7 @@ Call out risks when the work touches:
 - Slugs, template names, CSS/JS ids, or classes.
 - Telegram/contact form handling.
 - Ignored media folders: `images/`, `videos/`.
-- Generated style outputs: `style.css`, `css/style.css`, `style.css.map`.
+- Generated style outputs: `style.css`, `style.css.map`.
 - Release/version files.
 
 Completion criterion: each risk has a mitigation or an explicit open question.

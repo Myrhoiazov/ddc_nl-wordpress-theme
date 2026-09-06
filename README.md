@@ -66,13 +66,6 @@ git remote -v
 git status --short --branch
 ```
 
-To publish changes:
-
-```bash
-git status --short
-git add -A
-git commit -m "Describe your change"
-git push -u origin main
-```
+Changes are published as pull requests on a feature branch, not by pushing directly to `main`. See `AGENTS.md` for the branch/commit/version-bump/tag rules that apply before a release lands on `main`, and `.agents/skills/pull-request/SKILL.md` for the branch → commit → push → PR steps.
 
 Check `git status --ignored` if you need to confirm that local secrets and media are hidden.
