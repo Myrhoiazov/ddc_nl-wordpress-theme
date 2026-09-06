@@ -1,8 +1,14 @@
-# DDC NL Theme
+# DDC NL Project Context
 
-This context describes the public language for the Talent Center DDC NL WordPress theme. Use these terms when naming user-facing content and discussing site changes, especially after the move away from the older event branding.
+Project and domain knowledge for the Talent Center DDC NL WordPress theme —
+what an agent needs to know to understand the project correctly. For agent
+operating rules, see `AGENTS.md`; for local setup, see `README.md`.
 
-## Language
+## Domain Language
+
+This section describes the public language for the site. Use these terms
+when naming user-facing content and discussing site changes, especially
+after the move away from the older event branding.
 
 **Talent Center DDC**:
 The dance school brand presented to students, parents, and partners. Use this for the organization name on public pages.
@@ -63,3 +69,16 @@ _Avoid_: Primary language, canonical language
 **Launch Baseline**:
 The minimum set of pages and content a Site Language must have translated before that language is shown to visitors and opened to search engines.
 _Avoid_: Core pages, MVP translation
+
+## Related Documentation
+
+These terms are the source vocabulary for the specs and decisions below —
+read the relevant one when a task actually touches that area:
+
+- `docs/spec/multilingual/MULTILINGUAL_SPEC.md` — the multilingual system contract (Polylang, per-language content, translated CPTs).
+- `docs/spec/multilingual/GLOSSARY.md` — NL/RU/UK/EN term translations, sourced from this file.
+- `docs/spec/camp/LITO_DANCE_CAMP_2027_SPEC.md` — the `/camp/` landing page contract.
+- `docs/adr/0001-polylang-for-multilingual.md` — why Polylang over WPML or a custom i18n layer.
+- `docs/adr/0002-russian-default-language-until-dutch-parity.md` — why Russian, not Dutch, is the current Default Language.
+- `docs/adr/0003-locations-and-schedule-not-translated.md` — why `locations`/`schedule` are exceptions to per-language content.
+- `docs/adr/0004-no-flags-in-language-switcher.md` and `docs/adr/0005-language-switcher-uses-short-codes.md` — why the language switcher looks the way it does.

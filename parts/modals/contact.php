@@ -2,11 +2,11 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
-                <h4 class="modal-title" id="contact_form_label"><?php esc_html_e('Свяжитесь с нами', 'wp_denysmyr'); ?></h4>
+                <h4 class="modal-title" id="contact_form_label"><?php echo esc_html(ddc_ui_text('contact_modal_title')); ?></h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <?php echo do_shortcode('[contact-form-7 id="7a094fd" title="Contact form"]'); ?>
+                <?php echo ddc_localize_cf7_form_html(do_shortcode('[contact-form-7 id="7a094fd" title="Contact form"]')); ?>
             </div>
             <div class="modal-footer d-none">
                 <button type="button" class="btn btn-secondary btn-lg me-auto p-3 px-4" data-bs-dismiss="modal">
