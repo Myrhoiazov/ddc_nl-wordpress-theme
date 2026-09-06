@@ -1,145 +1,179 @@
 /**
- * Custom login form css
+ * DDC NL wp-login screen styling.
  *
- * @package 	WordPress
- * @subpackage 	Bootstrap 5.3.2
- * @autor 		ddc_nl
- * @credits     Luke McDonald https://lukemcdonald.com/ for the paterns
+ * Restyles the WordPress login screen surface only (colors, type, logo) to
+ * match the site's own brand — no login behavior/markup is touched here.
+ * Loaded via the login_head hook in functions.php ("Custom login" section).
  *
+ * @credits Luke McDonald https://lukemcdonald.com/ for the original pattern
  */
 
-$black: #333;
-$white: #FFF;
-$grey: #ddd;
-$blue: #00a0d2;
+@import '../variables';
+
+$login-border: #ddd;
+$login-radius: 0.375rem; // matches $border-radius in scss/bootstrap/_variables.scss
+$login-radius-pill: 50rem; // matches $border-radius-pill, used by the site's .btn
 
 body.login {
-    background-image: url('../images/debut_light.png');
+    background-color: $white;
+    font-family: $primaryFont;
 }
 
 .login {
     h1 {
         a {
-            background-image: url('../images/admin_logo.png');
+            background-image: url('../images/ddc_logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
             background-size: contain;
-            width: 220px;
+            width: 160px; // scaled to sit comfortably above the ~320px login form
+            height: 95px; // keeps the logo's own aspect ratio (756x449)
         }
     }
 
     label {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $black;
     }
 
     input {
         filter: none;
 
-        &[type="text"] {
-            background-color: darken($white, 2%);
-            border-color: $grey;
-        }
+        &[type='text'],
+        &[type='password'] {
+            background-color: $grey;
+            border-color: $login-border;
+            border-radius: $login-radius;
+            color: $black;
 
-        &[type="password"] {
-            background-color: darken($white, 2%);
-            border-color: $grey;
+            &:focus {
+                border-color: $pink;
+                box-shadow: 0 0 0 3px rgba($pink, 0.2);
+            }
         }
     }
 
+    #loginform,
+    #lostpasswordform,
+    #registerform {
+        border-radius: 10px;
+        border-color: $login-border;
+    }
+
+    // $darkPink (not $pink) is the resting state so button text keeps WCAG AA
+    // contrast (~7.6:1 vs ~3.8:1 for $pink) at the small font size WP core sets.
     .button-primary {
-        background: $black;
+        background: $darkPink;
         color: $white;
-        border: 1px solid $black;
+        border: 1px solid $darkPink;
+        border-radius: $login-radius-pill;
         text-shadow: none;
         box-shadow: none;
-        padding: 0px 23px 2px !important;
-        transition: all 200ms ease;
+        font-weight: 700;
+        padding: 4px 22px !important;
+        transition: background-color 200ms ease, border-color 200ms ease;
 
         &:hover,
         &:focus,
         &:active {
-            background: darken($black, 5%);
+            background: darken($darkPink, 8%);
             color: $white;
-            border: 1px solid darken($black, 5%);
+            border-color: darken($darkPink, 8%);
+            box-shadow: none;
         }
     }
+
+    #nav,
+    #backtoblog {
+        a {
+            color: $black;
+
+            &:hover,
+            &:focus {
+                color: $pink;
+            }
+        }
+    }
+
+    .privacy-policy-page-link a {
+        color: $black;
+    }
+}
+
+#login_error,
+.login .message,
+.login .success {
+    border-left-color: $pink;
 }
 
 @media (prefers-color-scheme: dark) {
     body.login {
-        background-image: url('../images/debut_dark.png');
         background-color: $black;
+        color: $white;
     }
 
     .login {
-
-        #nav,
-        #backtoblog {
+        h1 {
             a {
-                color: darken($white, 4%);
+                background-image: url('../images/ddc_logo_white.png');
+            }
+        }
+
+        #nav a,
+        #backtoblog a {
+            color: rgba($white, 0.85);
+
+            &:hover,
+            &:focus {
+                color: $pink;
             }
         }
 
         #login_error,
         p.message {
-            background-color: darken($black, 3%);
-            color: darken($white, 4%);
+            background-color: lighten($black, 8%);
+            color: $white;
         }
 
         form {
-            background-color: lighten($black, 7%);
-            border-color: $black;
-            color: darken($white, 4%);
+            background-color: lighten($black, 6%);
+            border-color: lighten($black, 12%);
+            color: $white;
         }
 
-        h1 {
-            color: darken($white, 4%);
-            &.admin-email__heading {
-                color: darken($white, 4%);
-            }
-            a {
-                background-image: url('../images/admin_logo_darkmode.png');
-                background-size: contain;
-                
-            }
+        h1,
+        h1.admin-email__heading {
+            color: $white;
         }
 
         label {
-            font-size: 0.8rem;
-            color: darken($white, 4%);
+            color: $white;
         }
 
         input {
-            filter: none;
+            &[type='text'],
+            &[type='password'] {
+                background-color: lighten($black, 6%);
+                border-color: lighten($black, 12%);
+                color: $white;
 
-            &[type="text"] {
-                background-color: $black;
-                border-color: $black;
-                color: darken($white, 4%);
-            }
-
-            &[type="password"] {
-                background-color: $black;
-                border-color: $black;
-                color: darken($white, 4%);
+                &:focus {
+                    border-color: $pink;
+                    box-shadow: 0 0 0 3px rgba($pink, 0.3);
+                }
             }
         }
 
         .button-primary {
-            background: $black;
-            color: $white;
-            border: 1px solid $black;
-            text-shadow: none;
-            box-shadow: none;
-            padding: 0px 23px 2px !important;
-            transition: none;
-            box-shadow: none;
+            background: $darkPink;
+            border-color: $darkPink;
 
             &:hover,
             &:focus,
             &:active {
-                background: darken($black, 5%);
-                color: $white;
-                border: 1px solid darken($black, 5%);
-                box-shadow: none;
+                background: darken($darkPink, 8%);
+                border-color: darken($darkPink, 8%);
             }
         }
     }
