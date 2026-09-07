@@ -37,6 +37,7 @@
 	require_once( 'includes/post-types.php' );
 	require_once( 'includes/taxonomies.php' );
 	require_once( 'includes/i18n.php' );
+	require_once( 'includes/blog-helpers.php' );
 
 	/* ========================================================================================================================
 

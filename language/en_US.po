@@ -670,3 +670,30 @@ msgstr "Nothing to show yet."
 
 msgid "Close"
 msgstr "Close"
+
+msgid "Все"
+msgstr "All"
+
+msgid "Поиск по блогу"
+msgstr "Search the blog"
+
+msgid "Вперед"
+msgstr "Next"
+
+msgid "Навигация по страницам"
+msgstr "Page navigation"
+
+msgid "К блогу"
+msgstr "To the blog"
+
+msgid "Назад к блогу"
+msgstr "Back to the blog"
+
+msgid "Похожие материалы"
+msgstr "Related articles"
+
+msgid "Содержание"
+msgstr "Contents"
+
+msgid "%d мин. чтения"
+msgstr "%d min read"

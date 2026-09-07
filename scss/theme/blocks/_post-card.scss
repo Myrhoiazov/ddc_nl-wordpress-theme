@@ -1,0 +1,109 @@
+// =============================================================
+// POST CARD (shared by the news listing grid and single-post
+// "related materials" grid)
+// =============================================================
+
+$news-accents: $pink, $lime, $orange, $yellow, $gold;
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include set-breakpoint(lg, down) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include set-breakpoint(sm, down) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-card {
+  display: block;
+  text-decoration: none;
+}
+
+.news-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 4 / 3;
+  background-color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.news-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.news-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.news-card__cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  @each $accent in $news-accents {
+    $i: index($news-accents, $accent) - 1;
+
+    &--#{$i} {
+      color: $accent;
+    }
+  }
+}
+
+.news-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: $white;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card:hover .news-card__img,
+.news-card:focus-visible .news-card__img {
+  transform: scale(1.06);
+}
+
+// ── Shared date badge ─────────────────────────────────────────
+.news-date-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: $white;
+  color: $black;
+  line-height: 1.1;
+}
+
+.news-date-badge__day {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.news-date-badge__month {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

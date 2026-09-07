@@ -670,3 +670,30 @@ msgstr "Nog niets om te tonen."
 
 msgid "Close"
 msgstr "Sluiten"
+
+msgid "Все"
+msgstr "Alle"
+
+msgid "Поиск по блогу"
+msgstr "Zoeken in de blog"
+
+msgid "Вперед"
+msgstr "Volgende"
+
+msgid "Навигация по страницам"
+msgstr "Paginanavigatie"
+
+msgid "К блогу"
+msgstr "Naar de blog"
+
+msgid "Назад к блогу"
+msgstr "Terug naar de blog"
+
+msgid "Похожие материалы"
+msgstr "Gerelateerde artikelen"
+
+msgid "Содержание"
+msgstr "Inhoud"
+
+msgid "%d мин. чтения"
+msgstr "%d min. leestijd"
