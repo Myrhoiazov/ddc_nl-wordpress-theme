@@ -25,10 +25,6 @@
   <meta name="msapplication-config" content="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/browserconfig.xml')); ?>">
   <meta name="theme-color" content="#e8408a">
 
-  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/Poppins-Regular.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/Poppins-Bold.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/Poppins-SemiBold.woff" as="font" type="font/woff" crossorigin>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Six+Caps&display=swap" rel="stylesheet">
