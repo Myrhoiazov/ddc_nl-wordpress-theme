@@ -395,18 +395,12 @@
 			$is_home_page = is_home() || is_front_page() || is_page_template('templates/home-template.php');
 			$needs_sweetalert = $is_home_page || is_page_template('templates/schedule-template.php');
 
-			// if ($_SERVER['HTTP_HOST'] == 'talentcenterddc.nl') {
-			// 	wp_enqueue_script('main_combined', get_template_directory_uri() . '/js/main-combined.js', [], BOOTSTRAP_VERSION, [
-			// 		'in_footer' => true,
-			// 	]);
-			// } else {
-				wp_enqueue_script( 'cookiemonster', get_template_directory_uri() . '/js/CookieMonster.js', [  ], BOOTSTRAP_VERSION, true );
-				wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', [], BOOTSTRAP_VERSION, true );
-				wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/fslightbox.js', [ 'jquery' ], BOOTSTRAP_VERSION, true );
-				if ($needs_sweetalert) {
-					wp_enqueue_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', [], null, true);
-				}
-			// }
+			wp_enqueue_script( 'cookiemonster', get_template_directory_uri() . '/js/CookieMonster.js', [  ], BOOTSTRAP_VERSION, true );
+			wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', [], BOOTSTRAP_VERSION, true );
+			wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/fslightbox.js', [ 'jquery' ], BOOTSTRAP_VERSION, true );
+			if ($needs_sweetalert) {
+				wp_enqueue_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', [], null, true);
+			}
 
 			if ($is_home_page) {
 				wp_enqueue_script( 'flipdown', get_template_directory_uri() . '/js/flipdown.js', [ 'jquery' ], BOOTSTRAP_VERSION, [
@@ -596,8 +590,31 @@ function ddc_get_secret_value(string $constant_name, string $env_name = ''): str
 	return $value === false ? '' : (string) $value;
 }
 
+function ddc_rest_rate_limit_exceeded(string $bucket, int $max_requests = 5, int $window_seconds = 60): bool
+{
+	$ip = filter_var($_SERVER['REMOTE_ADDR'] ?? '', FILTER_VALIDATE_IP) ?: 'unknown';
+	$key = 'ddc_rl_' . $bucket . '_' . md5($ip);
+
+	$count = (int) get_transient($key);
+	if ($count >= $max_requests) {
+		return true;
+	}
+
+	set_transient($key, $count + 1, $window_seconds);
+
+	return false;
+}
+
 function send_cf7_to_telegram(WP_REST_Request $request)
 {
+	if (ddc_rest_rate_limit_exceeded('contact_form')) {
+		return new WP_Error(
+			'rate_limited',
+			'Too many requests. Please try again later.',
+			['status' => 429]
+		);
+	}
+
 	$data = $request->get_json_params();
 
 	// Поддерживаем оба варианта имени поля: "messenger-type" и "messenger-type[]"
@@ -668,6 +685,14 @@ function ddc_clean_camp_booking_field(array $data, string $key): string
 
 function send_camp_booking_to_telegram(WP_REST_Request $request)
 {
+	if (ddc_rest_rate_limit_exceeded('camp_booking')) {
+		return new WP_Error(
+			'rate_limited',
+			'Too many requests. Please try again later.',
+			['status' => 429]
+		);
+	}
+
 	$data = $request->get_json_params();
 	$data = is_array($data) ? $data : [];
 
