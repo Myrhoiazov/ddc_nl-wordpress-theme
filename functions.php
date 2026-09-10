@@ -395,9 +395,30 @@
 			$is_home_page = is_home() || is_front_page() || is_page_template('templates/home-template.php');
 			$needs_sweetalert = $is_home_page || is_page_template('templates/schedule-template.php');
 
+			// Bootstrap's JS (modal/collapse) is only needed where a template
+			// actually uses those components — the contact modal (home,
+			// schedule, agreement, contact), the camp booking modal, or the
+			// FAQ accordion. Everywhere else it was 227KB of dead weight.
+			$needs_bootstrap_js = $is_home_page
+				|| is_page_template( 'templates/schedule-template.php' )
+				|| is_page_template( 'templates/agreement-template.php' )
+				|| is_page_template( 'templates/contact-template.php' )
+				|| is_page_template( 'templates/camp-template.php' )
+				|| is_page_template( 'templates/FAQ-template.php' );
+
+			// fslightbox is only used by the home page's video gallery and
+			// the choreographer/style detail pages — not by home-template.php.
+			$needs_lightbox = ( is_home() || is_front_page() )
+				|| is_singular( 'choreographer' )
+				|| is_singular( 'styles' );
+
 			wp_enqueue_script( 'cookiemonster', get_template_directory_uri() . '/js/CookieMonster.js', [  ], BOOTSTRAP_VERSION, true );
-			wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', [], BOOTSTRAP_VERSION, true );
-			wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/fslightbox.js', [ 'jquery' ], BOOTSTRAP_VERSION, true );
+			if ( $needs_bootstrap_js ) {
+				wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', [], BOOTSTRAP_VERSION, true );
+			}
+			if ( $needs_lightbox ) {
+				wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/fslightbox.js', [ 'jquery' ], BOOTSTRAP_VERSION, true );
+			}
 			if ($needs_sweetalert) {
 				wp_enqueue_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', [], null, true);
 			}
@@ -416,7 +437,12 @@
 					'strategy' => 'defer'
 				] );
 			}
-			wp_enqueue_script('site', get_template_directory_uri() . '/js/app.js', [ 'jquery', 'bootstrap' ], $theme->get( 'Version' ), [
+			// app.js checks `typeof bootstrap` before touching bootstrap.Modal,
+			// but the 'bootstrap' handle must not be listed as a dependency on
+			// pages where it isn't registered above, or WP won't print this
+			// script at all.
+			$site_deps = $needs_bootstrap_js ? [ 'jquery', 'bootstrap' ] : [ 'jquery' ];
+			wp_enqueue_script('site', get_template_directory_uri() . '/js/app.js', $site_deps, $theme->get( 'Version' ), [
 				'in_footer' => true,
 				'strategy' => 'defer',
 			]);
