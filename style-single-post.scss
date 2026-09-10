@@ -1,0 +1,6 @@
+// Per-template stylesheet, enqueued only when this template is active.
+// Rebuild: sass style-single-post.scss style-single-post.css --style=compressed --source-map
+@import 'scss/variables';
+@import 'scss/animations';
+@import 'scss/theme/mixins';
+@import 'scss/theme/pages/single-post';

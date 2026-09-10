@@ -2,8 +2,9 @@
 // POST CARD (shared by the news listing grid and single-post
 // "related materials" grid)
 // =============================================================
-
-$news-accents: $pink, $lime, $orange, $yellow, $gold;
+// $news-accents lives in scss/_variables.scss — both style-news.scss and
+// style-single-post.scss compile this file's @each loop independently and
+// need the variable available without importing this whole block.
 
 .news-grid {
   display: grid;

@@ -427,6 +427,24 @@
 			wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', [], BOOTSTRAP_VERSION, 'all' );
 			wp_enqueue_style( 'screen', get_template_directory_uri() . '/style.css', [], $theme->get( 'Version' ), 'screen' );
 
+			// Per-template stylesheets: only the template actually rendering
+			// pays for its own CSS, instead of every page shipping all of
+			// them via the old bundled style.css. See style-<page>.scss.
+			$ddc_page_stylesheets = [
+				'home'        => $is_home_page,
+				'schedule'    => is_page_template( 'templates/schedule-template.php' ),
+				'styles'      => is_page_template( 'templates/styles-template.php' ),
+				'agreement'   => is_page_template( 'templates/agreement-template.php' ),
+				'contact'     => is_page_template( 'templates/contact-template.php' ),
+				'news'        => is_page_template( 'templates/news-template.php' ),
+				'single-post' => is_singular( 'post' ),
+			];
+			foreach ( $ddc_page_stylesheets as $ddc_page_slug => $ddc_page_active ) {
+				if ( $ddc_page_active ) {
+					wp_enqueue_style( 'ddc-page-' . $ddc_page_slug, get_template_directory_uri() . '/style-' . $ddc_page_slug . '.css', [ 'screen' ], $theme->get( 'Version' ), 'screen' );
+				}
+			}
+
 			ddc_nl_remove_excess_css_js();
 		}
 	}
