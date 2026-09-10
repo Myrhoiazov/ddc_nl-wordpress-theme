@@ -455,7 +455,7 @@
 
 			// Per-template stylesheets: only the template actually rendering
 			// pays for its own CSS, instead of every page shipping all of
-			// them via the old bundled style.css. See style-<page>.scss.
+			// them via the old bundled style.css. See css/pages/style-<page>.scss.
 			$ddc_page_stylesheets = [
 				'home'        => $is_home_page,
 				'schedule'    => is_page_template( 'templates/schedule-template.php' ),
@@ -467,7 +467,7 @@
 			];
 			foreach ( $ddc_page_stylesheets as $ddc_page_slug => $ddc_page_active ) {
 				if ( $ddc_page_active ) {
-					wp_enqueue_style( 'ddc-page-' . $ddc_page_slug, get_template_directory_uri() . '/style-' . $ddc_page_slug . '.css', [ 'screen' ], $theme->get( 'Version' ), 'screen' );
+					wp_enqueue_style( 'ddc-page-' . $ddc_page_slug, get_template_directory_uri() . '/css/pages/style-' . $ddc_page_slug . '.css', [ 'screen' ], $theme->get( 'Version' ), 'screen' );
 				}
 			}
 
