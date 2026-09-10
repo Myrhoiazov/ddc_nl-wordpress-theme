@@ -25,10 +25,6 @@
   <meta name="msapplication-config" content="<?php echo esc_url(add_query_arg('v', $ddc_theme_version, get_template_directory_uri() . '/images/browserconfig.xml')); ?>">
   <meta name="theme-color" content="#e8408a">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Six+Caps&display=swap" rel="stylesheet">
-
   <?php wp_head(); ?>
   <?php if (!is_page('camp')) : ?>
     <meta property="og:image" content="https://talentcenterddc.nl/wp-content/uploads/2025/12/faq-talent-center-ddc.jpg" />
