@@ -1,12 +1,10 @@
+// home, schedule, styles, agreement, contact, news, single-post moved to
+// their own per-template compiled stylesheets (style-<page>.scss at theme
+// root), enqueued only when that template is active — see functions.php's
+// bootstrap_script_init(). Keeps this global style.css to markup shared
+// across every template.
 @import 'account';
-@import 'home';
 @import 'shop';
 @import 'teacher';
 @import 'tickets';
 @import 'registration';
-@import 'schedule';
-@import 'styles';
-@import 'agreement';
-@import 'contact';
-@import 'news';
-@import 'single-post';
