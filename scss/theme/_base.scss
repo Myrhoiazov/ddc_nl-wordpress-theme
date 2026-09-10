@@ -5,6 +5,17 @@ body {
 	overflow: hidden;
 }
 
+// #main is the real scroll container everywhere (html/body are locked to
+// overflow:hidden above) — was previously reachable on every page because
+// it lived inside the one bundled style.css; moved here from _home.scss
+// when the per-template split (css/pages/) pulled it out and broke scroll
+// on every template except home.
+#main {
+	display: block;
+	overflow: auto;
+	height: 100%;
+}
+
 body {
 	background-color: $white;
 	font-family: $primaryFont;
