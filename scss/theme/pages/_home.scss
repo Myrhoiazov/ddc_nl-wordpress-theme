@@ -675,7 +675,7 @@ body.home {
 #team {
 	background-color: $black;
 	color: $white;
-	background-image: url('images/ddc_logo_white.png');
+	background-image: url('../../images/ddc_logo_white.png');
 	background-size: 237px auto;
 	background-blend-mode: soft-light;
 }
@@ -908,12 +908,12 @@ body.home {
 }
 
 #highlights {
-	background-image: url('images/ddc_logo_white.png');
+	background-image: url('../../images/ddc_logo_white.png');
 	background-color: $yellow;
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ad305a+0,e8408a+100 */
 	background:
 		linear-gradient(45deg, #8e273f 0%, #9b2b72 61%, #e8408a 100%),
-		url('images/ddc_logo_white.png'); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		url('../../images/ddc_logo_white.png'); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
 	background-size:
 		100% 100%,
@@ -955,7 +955,7 @@ body.home {
 }
 
 #team2 {
-	background-image: url('images/concrete_wall_2.png');
+	background-image: url('../../images/concrete_wall_2.png');
 	color: $black;
 }
 
@@ -1217,11 +1217,11 @@ body.home {
 }
 
 #previous_editions {
-	background-image: url('images/debut_light.png');
+	background-image: url('../../images/debut_light.png');
 }
 
 #partners {
-	background-image: url('images/grilled.png');
+	background-image: url('../../images/grilled.png');
 	@include set-breakpoint(lg, down) {
 		justify-content: center;
 	}
@@ -1281,7 +1281,7 @@ body.home {
 #schedule {
 	background-color: #111;
 	color: #fff;
-	background-image: url('images/sisco_BG.webp');
+	background-image: url('../../images/sisco_BG.webp');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1909,7 +1909,7 @@ body.home .ddc-achievements .container {
 		width: 240px;
 		height: 360px;
 		border-radius: 20px;
-		background: url('images/dasha-dance.webp') center / cover no-repeat;
+		background: url('../../images/dasha-dance.webp') center / cover no-repeat;
 
 		@include set-breakpoint(lg, down) {
 			display: none;
@@ -1931,14 +1931,14 @@ body.home .ddc-achievements .container {
 			width: 240px;
 			height: 350px;
 			border-radius: 20px;
-			background: url('images/inna-dance.webp') center / cover no-repeat;
+			background: url('../../images/inna-dance.webp') center / cover no-repeat;
 		}
 
 		@include set-breakpoint(lg, down) {
 			display: block;
 			height: 280px;
 			background-image:
-				url('images/inna-dance.webp'), url('images/dasha-dance.webp');
+				url('../../images/inna-dance.webp'), url('../../images/dasha-dance.webp');
 			background-position:
 				right center,
 				left center;

@@ -1,0 +1,6 @@
+// Per-template stylesheet, enqueued only when this template is active.
+// Rebuild (from theme root): sass css/pages/style-news.scss css/pages/style-news.css --style=compressed --source-map
+@import '../../scss/variables';
+@import '../../scss/animations';
+@import '../../scss/theme/mixins';
+@import '../../scss/theme/pages/news';

@@ -134,10 +134,14 @@ Only load the rules for the kind of change actually being made.
   `home.php`, `header*.php`, `footer*.php` for anything the change touches.
 
 **When styles change**
-- Source lives in `scss/`; never hand-edit the compiled `style.css` —
-  rebuild it: `sass style.scss style.css --style=compressed --source-map`.
-- `css/` holds third-party/vendor styles (Bootstrap, animate.css, etc.), not
-  build output — don't treat it as a compile target.
+- Source lives in `scss/`; never hand-edit a compiled `.css` file — rebuild
+  it: `sass style.scss style.css --style=compressed --source-map`.
+- `css/` root holds third-party/vendor styles (Bootstrap, animate.css, etc.).
+  `css/pages/style-<page>.scss` are the per-template stylesheets (only the
+  active template's CSS loads, instead of every page shipping every
+  template's styles) — rebuild each changed one the same way, e.g.
+  `sass css/pages/style-home.scss css/pages/style-home.css --style=compressed --source-map`.
+  Conditional loading lives in `functions.php`'s `bootstrap_script_init()`.
 
 **When JavaScript changes**
 - Run `node --check` on changed project files in `js/`.
