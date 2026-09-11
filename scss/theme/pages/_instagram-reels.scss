@@ -1,0 +1,89 @@
+// =============================================================
+// INSTAGRAM REELS (homepage section)
+// =============================================================
+//
+// Reuses the video-thumbnail-with-play-button language already
+// established by .styles-video-card (see _styles.scss): same radius,
+// dark background, hover scale, play icon — just a 9:16 aspect ratio
+// (spec: docs/spec/instagram) instead of 16:9, scoped under
+// .instagram-reels so nothing here leaks onto unrelated markup.
+
+.instagram-reels {
+  padding: 64px 0;
+
+  @include set-breakpoint(lg, down) {
+    padding: 40px 0;
+  }
+
+  &__card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 9 / 16;
+    background-color: #1a1a1a;
+    outline-offset: 4px;
+
+    &:focus-visible {
+      outline: 2px solid $pink;
+    }
+  }
+
+  &__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba($black, 0.55);
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      margin-left: 3px;
+    }
+  }
+
+  &__card:hover,
+  &__card:focus-visible {
+    .instagram-reels__poster {
+      transform: scale(1.06);
+    }
+
+    .instagram-reels__play {
+      background: $pink;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+}
+
+// Swiper stretches .swiper-slide to the wrapper's flex height by
+// default — this lets the card's own aspect-ratio drive the height
+// instead. Scoped to this instance only, never a bare .swiper-slide.
+.instagram-reels-swiper .swiper-slide {
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .instagram-reels__poster,
+  .instagram-reels__play {
+    transition: none;
+  }
+}

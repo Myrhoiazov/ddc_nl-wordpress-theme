@@ -224,6 +224,7 @@ const initHomeInteractions = () => {
 	initAchievementsCounters();
 	initHomeSwiper('.city-swiper');
 	initHomeSwiper('.styles-swiper');
+	initHomeSwiper('.instagram-reels-swiper');
 };
 
 if (document.readyState === 'loading') {
