@@ -12,6 +12,8 @@
 	define('BOOTSTRAP_VERSION', '5.3.4');
 	define('BOOTSTRAP_ICON_VERSION', '1.11.2');
 	define('NEXT_EDITION_YEAR', 2026);
+	define('DDC_INSTAGRAM_MAX_REELS', 12);
+	define('DDC_INSTAGRAM_SYNC_INTERVAL', 2 * HOUR_IN_SECONDS);
 
 	/* ========================================================================================================================
 
@@ -36,6 +38,8 @@
 	require_once( 'classes/Youtube.php' );
 	require_once( 'classes/InstagramMedia.php' );
 	require_once( 'classes/InstagramApiClient.php' );
+	require_once( 'classes/InstagramRepository.php' );
+	require_once( 'classes/InstagramSyncService.php' );
 	require_once( 'includes/post-types.php' );
 	require_once( 'includes/taxonomies.php' );
 	require_once( 'includes/i18n.php' );
@@ -947,3 +951,42 @@ add_filter('request', function ($query_vars) {
 
 	return $query_vars;
 }, 20);
+
+// Instagram Reels sync (WP-Cron)
+//
+// Homepage rendering never calls the Instagram API directly — a
+// scheduled WP-Cron event is the only thing that triggers a sync.
+// InstagramSyncService keeps the last successful cache untouched on
+// failure, so an Instagram outage never breaks the homepage.
+add_filter('cron_schedules', function (array $schedules): array {
+	$schedules['ddc_instagram_sync_interval'] = [
+		'interval' => DDC_INSTAGRAM_SYNC_INTERVAL,
+		'display'  => sprintf('Every %d hours (DDC Instagram sync)', DDC_INSTAGRAM_SYNC_INTERVAL / HOUR_IN_SECONDS),
+	];
+
+	return $schedules;
+});
+
+add_action('init', function () {
+	if (!wp_next_scheduled('ddc_instagram_sync_cron')) {
+		wp_schedule_event(time(), 'ddc_instagram_sync_interval', 'ddc_instagram_sync_cron');
+	}
+});
+
+add_action('switch_theme', function () {
+	wp_clear_scheduled_hook('ddc_instagram_sync_cron');
+});
+
+add_action('ddc_instagram_sync_cron', 'ddc_instagram_run_sync');
+
+function ddc_instagram_run_sync(): bool
+{
+	$accessToken = ddc_get_secret_value('INSTAGRAM_ACCESS_TOKEN');
+
+	$syncService = new InstagramSyncService(
+		new InstagramApiClient($accessToken),
+		new InstagramRepository()
+	);
+
+	return $syncService->run();
+}
