@@ -459,7 +459,7 @@
 			$ddc_page_stylesheets = [
 				'home'        => $is_home_page,
 				'schedule'    => is_page_template( 'templates/schedule-template.php' ),
-				'styles'      => is_page_template( 'templates/styles-template.php' ),
+				'styles'      => is_page_template( 'templates/styles-template.php' ) || is_singular( 'styles' ),
 				'agreement'   => is_page_template( 'templates/agreement-template.php' ),
 				'contact'     => is_page_template( 'templates/contact-template.php' ),
 				'news'        => is_page_template( 'templates/news-template.php' ),
