@@ -40,6 +40,7 @@
 	require_once( 'classes/InstagramApiClient.php' );
 	require_once( 'classes/InstagramRepository.php' );
 	require_once( 'classes/InstagramSyncService.php' );
+	require_once( 'classes/InstagramFeedService.php' );
 	require_once( 'includes/post-types.php' );
 	require_once( 'includes/taxonomies.php' );
 	require_once( 'includes/i18n.php' );
