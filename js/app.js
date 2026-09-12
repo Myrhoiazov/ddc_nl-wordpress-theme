@@ -195,7 +195,7 @@ const initHomeSwiper = (selector) => {
 		return;
 	}
 
-	new Swiper(selector, {
+	return new Swiper(selector, {
 		slidesPerView: 1,
 		spaceBetween: 20,
 		loop: false,
@@ -224,6 +224,9 @@ const initHomeInteractions = () => {
 	initAchievementsCounters();
 	initHomeSwiper('.city-swiper');
 	initHomeSwiper('.styles-swiper');
+	// .instagram-reels-swiper is initialized by js/instagram-reels.js
+	// instead, since that controller needs the Swiper instance itself
+	// to tell a real tap apart from a drag-release.
 };
 
 if (document.readyState === 'loading') {

@@ -276,6 +276,15 @@ $BsWp->get_template_parts([
     </div>
 </section>
 
+<!-- 6b. INSTAGRAM REELS — свежий контент из Instagram -->
+<?php
+$instagramFeedService = new InstagramFeedService(new InstagramRepository());
+$BsWp->get_template_parts(
+    ['parts/shared/instagram-reels'],
+    ['reels' => $instagramFeedService->getLatest()]
+);
+?>
+
 <!-- 7. СОЦСЕТИ — Удержание, вовлечение, повторные визиты -->
 <section id="ddc_nl_social">
     <div class="container">
