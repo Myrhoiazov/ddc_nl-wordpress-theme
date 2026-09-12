@@ -22,6 +22,7 @@ seem to disagree, the row below wins for that kind of information.
 | Domain terminology / public-copy rules | `CONTEXT.md` |
 | Multilingual system contract | `docs/spec/multilingual/MULTILINGUAL_SPEC.md`, `docs/spec/multilingual/GLOSSARY.md` |
 | Camp landing page contract | `docs/spec/camp/LITO_DANCE_CAMP_2027_SPEC.md` |
+| Instagram Reels module contract | `docs/spec/instagram/Instagram Reels Module — WordPress E2E Specification.md` |
 | Locked architecture/product decisions | `docs/adr/*.md` |
 | Planned refactors | `docs/roadmap/*.md` |
 | Step-by-step execution procedure | `.agents/skills/*/SKILL.md` |
@@ -96,6 +97,9 @@ why a multilingual/product decision was made the way it was
 
 /camp/ landing page content or behavior
 → docs/spec/camp/LITO_DANCE_CAMP_2027_SPEC.md
+
+Instagram Reels module (sync, cache, homepage carousel, video playback)
+→ docs/spec/instagram/Instagram Reels Module — WordPress E2E Specification.md
 
 this documentation architecture itself
 → docs/roadmap/REFACTOR_PROJECT_AI_CONTEXT_ARCHITECTURE.md

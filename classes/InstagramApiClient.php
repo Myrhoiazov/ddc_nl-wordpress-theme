@@ -13,7 +13,7 @@ class InstagramApiClient
 {
 	private const API_BASE = 'https://graph.instagram.com';
 	private const API_VERSION = 'v21.0';
-	private const MEDIA_FIELDS = 'id,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp,caption,username';
+	private const MEDIA_FIELDS = 'id,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp,caption';
 	private const REQUEST_TIMEOUT_SECONDS = 8;
 	private const MAX_PAGES = 5;
 
@@ -84,7 +84,7 @@ class InstagramApiClient
 		]);
 
 		if (is_wp_error($response)) {
-			return new WP_Error('instagram_request_failed', $response->get_error_message());
+			return new WP_Error('instagram_request_failed', $this->redactToken($response->get_error_message()));
 		}
 
 		$statusCode = (int) wp_remote_retrieve_response_code($response);
@@ -103,5 +103,17 @@ class InstagramApiClient
 		}
 
 		return $body;
+	}
+
+	/**
+	 * Transport-level error messages (e.g. from wp_remote_get()) aren't
+	 * expected to echo back the request URL, but that's not guaranteed
+	 * across every WP_Http transport — this is defense-in-depth so the
+	 * access token can never end up in a WP_Error or log line (spec
+	 * section 46), regardless of what a given transport's error text says.
+	 */
+	private function redactToken(string $message): string
+	{
+		return preg_replace('/access_token=[^&\s]+/', 'access_token=[redacted]', $message) ?? $message;
 	}
 }

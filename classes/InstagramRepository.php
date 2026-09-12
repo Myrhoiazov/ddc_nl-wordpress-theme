@@ -63,6 +63,8 @@ class InstagramRepository
 	/**
 	 * Observability fields only (no items) — last_sync_attempt_at,
 	 * last_successful_sync_at, last_sync_status, cached_items_count.
+	 * Not consumed by anything yet (no admin UI in this iteration —
+	 * see spec section 12); kept for a future manual-refresh screen.
 	 */
 	public function getSyncMeta(): array
 	{
