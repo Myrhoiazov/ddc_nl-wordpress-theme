@@ -443,6 +443,13 @@
 					'in_footer' => true,
 					'strategy' => 'defer'
 				] );
+				// Depends on 'swiper-js' (registered by my_theme_connect_swiper()
+				// under the same is_home_page-equivalent condition) and 'site'
+				// (app.js) for its shared initHomeSwiper() helper.
+				wp_enqueue_script( 'instagram-reels', get_template_directory_uri() . '/js/instagram-reels.js', [ 'site', 'swiper-js' ], $theme->get( 'Version' ), [
+					'in_footer' => true,
+					'strategy' => 'defer'
+				] );
 			}
 			// app.js checks `typeof bootstrap` before touching bootstrap.Modal,
 			// but the 'bootstrap' handle must not be listed as a dependency on

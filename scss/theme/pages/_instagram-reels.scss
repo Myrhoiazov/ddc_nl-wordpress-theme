@@ -72,6 +72,21 @@
       transform: translate(-50%, -50%) scale(1.1);
     }
   }
+
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Added by js/instagram-reels.js once a Reel starts playing — the
+  // play icon has nothing left to indicate once the video is visible.
+  &__card.is-playing &__play {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 // Swiper stretches .swiper-slide to the wrapper's flex height by
