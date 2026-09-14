@@ -190,7 +190,7 @@ const initAchievementsCounters = () => {
 	observer.observe(section);
 };
 
-const initHomeSwiper = (selector) => {
+const initHomeSwiper = (selector, overrides = {}) => {
 	if (typeof Swiper === 'undefined' || !document.querySelector(selector)) {
 		return;
 	}
@@ -217,6 +217,7 @@ const initHomeSwiper = (selector) => {
 				spaceBetween: 30,
 			},
 		},
+		...overrides,
 	});
 };
 

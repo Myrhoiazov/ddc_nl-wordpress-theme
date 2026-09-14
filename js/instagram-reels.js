@@ -25,8 +25,21 @@ class InstagramReels {
 	}
 
 	init() {
+		// 2 visible slides on mobile, 6 from the `lg` breakpoint (992px)
+		// up — matches the col-lg-6 split already used in this section's
+		// heading. All fetched Reels stay in the DOM either way; this
+		// only changes how many are visible per view before swiping.
 		this.swiper = typeof initHomeSwiper === 'function'
-			? initHomeSwiper('.instagram-reels-swiper')
+			? initHomeSwiper('.instagram-reels-swiper', {
+				slidesPerView: 2,
+				spaceBetween: 16,
+				breakpoints: {
+					992: {
+						slidesPerView: 6,
+						spaceBetween: 24,
+					},
+				},
+			})
 			: undefined;
 
 		this.root.querySelectorAll('[data-instagram-reels-item]').forEach((card) => {

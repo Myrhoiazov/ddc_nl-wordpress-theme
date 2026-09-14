@@ -283,6 +283,14 @@
 
 	add_action( 'wp_enqueue_scripts', 'bootstrap_script_init' );
 
+	add_action('admin_enqueue_scripts', function ($hook_suffix) {
+		if ($hook_suffix !== 'edit.php') {
+			return;
+		}
+
+		wp_enqueue_script('inline-edit-post');
+	}, 100);
+
 	$BsWp = new BsWp;
 	add_filter( 'body_class', [$BsWp, 'add_slug_to_body_class'] );
 
@@ -371,6 +379,10 @@
 
     function add_type_attribute($tag, $handle, $src) 
     {
+        if (is_admin()) {
+            return $tag;
+        }
+
         global $ModuleScripts;
         // use key values for comparison 
         $moduleHandles = array_keys($ModuleScripts);
@@ -860,6 +872,68 @@ add_filter('pll_rel_hreflang_attributes', function ($hreflangs) {
 
 	return $hreflangs;
 });
+
+/**
+ * Allow translated pages/CPT entries to share the same slug across languages
+ * while still blocking duplicate slugs inside one language.
+ *
+ * Polylang Free does not override WordPress' global slug uniqueness check, so
+ * translated pages become `faq-2`, `faq-3`, etc. The public request resolver
+ * below already maps a shared slug to the current language's translation; this
+ * filter handles the admin save side.
+ */
+add_filter('wp_unique_post_slug', function (
+	string $slug,
+	int $post_id,
+	string $post_status,
+	string $post_type,
+	int $post_parent,
+	string $original_slug
+): string {
+	if (
+		!function_exists('pll_get_post_language')
+		|| !function_exists('pll_is_translated_post_type')
+		|| !pll_is_translated_post_type($post_type)
+	) {
+		return $slug;
+	}
+
+	if (!in_array($post_type, ['page', 'styles', 'choreographer'], true)) {
+		return $slug;
+	}
+
+	$lang = pll_get_post_language($post_id);
+
+	if (!$lang) {
+		return $slug;
+	}
+
+	global $wpdb;
+
+	$conflicting_ids = $wpdb->get_col($wpdb->prepare(
+		"SELECT ID
+		FROM {$wpdb->posts}
+		WHERE post_name = %s
+			AND ID <> %d
+			AND post_type IN (%s, 'attachment')
+			AND post_parent = %d
+			AND post_status NOT IN ('trash', 'auto-draft')",
+		$original_slug,
+		$post_id,
+		$post_type,
+		$post_parent
+	));
+
+	foreach ($conflicting_ids as $conflicting_id) {
+		$conflicting_lang = pll_get_post_language((int) $conflicting_id);
+
+		if (!$conflicting_lang || $conflicting_lang === $lang) {
+			return $slug;
+		}
+	}
+
+	return $original_slug;
+}, 10, 6);
 
 /**
  * Redirect untranslated content to its RU (default-language) URL instead of
