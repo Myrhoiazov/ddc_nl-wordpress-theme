@@ -557,6 +557,15 @@ msgstr "Chamber of Commerce: 90720814"
 msgid "Ми в социальных сетях:"
 msgstr "Ми в соціальних мережах:"
 
+msgid "Мы в Instagram"
+msgstr "Ми в Instagram"
+
+msgid "СВЕЖИЕ<br>REELS"
+msgstr "СВІЖІ<br>REELS"
+
+msgid "Открыть Reel в Instagram"
+msgstr "Відкрити Reel в Instagram"
+
 msgid "Следите за нами"
 msgstr "Слідкуйте за нами"
 
