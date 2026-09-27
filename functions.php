@@ -14,6 +14,7 @@
 	define('NEXT_EDITION_YEAR', 2026);
 	define('DDC_INSTAGRAM_MAX_REELS', 12);
 	define('DDC_INSTAGRAM_SYNC_INTERVAL', 2 * HOUR_IN_SECONDS);
+	define('DDC_AI_DRAFT_RETRY_DELAY_SECONDS', MINUTE_IN_SECONDS);
 
 	/* ========================================================================================================================
 
@@ -41,10 +42,15 @@
 	require_once( 'classes/InstagramRepository.php' );
 	require_once( 'classes/InstagramSyncService.php' );
 	require_once( 'classes/InstagramFeedService.php' );
+	require_once( 'classes/AiDraftOpenAiClient.php' );
+	require_once( 'classes/AiDraftBatchRepository.php' );
+	require_once( 'classes/AiDraftLanguageGenerationService.php' );
 	require_once( 'includes/post-types.php' );
 	require_once( 'includes/taxonomies.php' );
 	require_once( 'includes/i18n.php' );
 	require_once( 'includes/blog-helpers.php' );
+	require_once( 'includes/ai-draft-cron.php' );
+	require_once( 'includes/ai-draft-admin.php' );
 
 	/* ========================================================================================================================
 
@@ -874,13 +880,17 @@ add_filter('pll_rel_hreflang_attributes', function ($hreflangs) {
 });
 
 /**
- * Allow translated pages/CPT entries to share the same slug across languages
- * while still blocking duplicate slugs inside one language.
+ * Allow translated pages/CPT entries — and, for the AI Черновики generator,
+ * standard `post` — to share the same slug across languages while still
+ * blocking duplicate slugs inside one language.
  *
  * Polylang Free does not override WordPress' global slug uniqueness check, so
  * translated pages become `faq-2`, `faq-3`, etc. The public request resolver
- * below already maps a shared slug to the current language's translation; this
- * filter handles the admin save side.
+ * below already maps a shared slug to the current language's translation for
+ * the hierarchical types (page/styles/choreographer); `post` doesn't need that
+ * resolver — it's non-hierarchical, so Polylang's own tax_query on the main
+ * query already picks the right language's post. This filter handles the
+ * admin/programmatic save side for all of them.
  */
 add_filter('wp_unique_post_slug', function (
 	string $slug,
@@ -898,7 +908,7 @@ add_filter('wp_unique_post_slug', function (
 		return $slug;
 	}
 
-	if (!in_array($post_type, ['page', 'styles', 'choreographer'], true)) {
+	if (!in_array($post_type, ['page', 'styles', 'choreographer', 'post'], true)) {
 		return $slug;
 	}
 
@@ -1028,7 +1038,21 @@ add_filter('request', function ($query_vars) {
 
 	if ($translated_id && (int) $translated_id !== $found->ID) {
 		unset($query_vars['pagename'], $query_vars['name'], $query_vars[$post_type]);
-		$query_vars['page_id'] = $translated_id;
+
+		// `page_id` unconditionally sets WP_Query::$is_page = true
+		// (class-wp-query.php parse_query(), regardless of the resolved
+		// post's actual post_type), which routes the request through the
+		// page.php template hierarchy instead of single-<post_type>.php.
+		// That's correct for the real 'page' case, but for 'styles' /
+		// 'choreographer' it silently replaces their dedicated single
+		// templates with the generic page template. `p` sets is_single
+		// instead and leaves post_type (still 'styles'/'choreographer' in
+		// $query_vars) driving template selection correctly.
+		if ('page' === $post_type) {
+			$query_vars['page_id'] = $translated_id;
+		} else {
+			$query_vars['p'] = $translated_id;
+		}
 	}
 
 	return $query_vars;

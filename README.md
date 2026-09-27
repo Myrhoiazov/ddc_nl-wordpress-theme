@@ -42,11 +42,15 @@ Current private configuration expected by the theme:
 define('TELEGRAM_TOKEN', '...');
 define('TELEGRAM_CHAT_ID', '...');
 define('INSTAGRAM_ACCESS_TOKEN', '...');
+define('OPENAI_API_KEY', '...');
+define('OPENAI_MODEL', 'gpt-4o');
 ```
 
-The theme can also read these values from environment variables named `TELEGRAM_TOKEN`, `TELEGRAM_CHAT_ID`, and `INSTAGRAM_ACCESS_TOKEN`.
+The theme can also read these values from environment variables named `TELEGRAM_TOKEN`, `TELEGRAM_CHAT_ID`, `INSTAGRAM_ACCESS_TOKEN`, `OPENAI_API_KEY`, and `OPENAI_MODEL`.
 
 `INSTAGRAM_ACCESS_TOKEN` is a long-lived Instagram API (Instagram Login) token for the `ddc_nl` Professional Account, scoped to the `instagram_business_basic` permission. It is read server-side only (`classes/InstagramApiClient.php` via `ddc_get_secret_value()`) and never exposed to the frontend.
+
+`OPENAI_API_KEY` and `OPENAI_MODEL` configure the AI Черновики blog post generator (`classes/AiDraftOpenAiClient.php`). There is no admin UI to set or override either value — both are read server-side only, via `ddc_get_secret_value()`.
 
 ## Media Content
 
