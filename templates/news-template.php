@@ -50,6 +50,14 @@ $news_query_args = [
     'paged'          => $news_paged,
 ];
 
+// A secondary WP_Query like this one isn't auto-filtered by Polylang the
+// way the main query is (same class of issue as ddc_news_page_url() in
+// includes/blog-helpers.php) — without this, the listing mixes every
+// language's posts together.
+if (function_exists('pll_current_language')) {
+    $news_query_args['lang'] = pll_current_language();
+}
+
 if ($news_cat) {
     $news_query_args['category_name'] = $news_cat;
 }
