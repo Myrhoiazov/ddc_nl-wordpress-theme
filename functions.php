@@ -1004,8 +1004,20 @@ add_action('template_redirect', function () {
  *   `$qv['name']` holds the slug and `$qv['post_type']` holds the CPT name
  *   directly (confirmed here for `styles`: `name => 'high-heels',
  *   post_type => 'styles'`, no `pagename` key at all).
- * Non-hierarchical translated types (faq, team) don't hit this at all: WP
- * resolves them through the tax_query-filtered main query directly.
+ * - Standard `post`: `$qv['name']` holds the slug, `$qv['post_type']` is
+ *   empty (implicit/default).
+ * Non-hierarchical translated types that never share a slug across
+ * languages (faq, team) don't hit this at all: WP resolves them through
+ * the tax_query-filtered main query directly. `post` used to be in that
+ * same "never shares a slug" category too — until the AI Черновики
+ * generator started deliberately giving every language of a Generation
+ * Batch the same slug (docs/adr/0007-llm-authored-slug-for-ai-drafts.md).
+ * Once multiple `post` rows can share one post_name, the same
+ * get_page_by_path()-bypasses-the-language-filter bug that already
+ * affected styles/choreographer applies to `post` too: without this fix,
+ * requesting the shared slug resolves to a WP_Query matching *every*
+ * language's post, and single.php's `while (have_posts())` loop renders
+ * all of them, one after another, on the same page.
  *
  * Fix: once Polylang has set $qv['lang'] (its own 'request' filter, default
  * priority 10, runs before this one), look up the *actual* translation for
@@ -1025,6 +1037,9 @@ add_filter('request', function ($query_vars) {
 	} elseif (!empty($query_vars['name']) && in_array($query_vars['post_type'] ?? '', ['styles', 'choreographer'], true)) {
 		$slug      = $query_vars['name'];
 		$post_type = $query_vars['post_type'];
+	} elseif (!empty($query_vars['name']) && empty($query_vars['post_type'])) {
+		$slug      = $query_vars['name'];
+		$post_type = 'post';
 	} else {
 		return $query_vars;
 	}

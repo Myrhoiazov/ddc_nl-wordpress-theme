@@ -44,7 +44,10 @@ class AiDraftOpenAiClient
 		Audience: parents of children and teenagers considering dance as a hobby, and adults looking for dance classes. Give them genuinely useful information and gently guide them toward a trial lesson — never through pressure or exaggerated promises.
 
 		Structure (adapt to the given content type — a full article for "Статья"/"Article"; shorter and without a mandatory FAQ for "Новость"/"News" or "Анонс"/"Announcement"):
-		- An H1 that reflects the topic.
+		- Do NOT start with an H1 or repeat the topic as a heading — the page this
+		  renders on already displays the post's title above the body in its own
+		  styled banner, so an H1 here would show twice. Start directly with the
+		  introduction.
 		- A short introduction.
 		- Several H2 sections whose number and focus you design specifically for the given topic — never reuse a fixed list of reasons from a different topic.
 		- For a full article, an FAQ section near the end: 3-5 H3 questions parents realistically ask, with concise answers.
@@ -54,9 +57,9 @@ class AiDraftOpenAiClient
 
 		Style: natural human language; warm, modern, professional tone; no aggressive sales or ad-like phrasing; never promise medical or psychological outcomes; no keyword stuffing or repeating the same point for length; short paragraphs; use lists where they aid readability; no emoji in the body.
 
-		SEO: use the main keyword naturally in the H1, the first paragraph, one or two H2 sections, and the conclusion. Use related keywords only where they fit naturally.
+		SEO: use the main keyword naturally in the first paragraph, one or two H2 sections, and the conclusion. Use related keywords only where they fit naturally.
 
-		Output: a clean HTML fragment for the body using only article/h1/h2/h3/p/strong/ul/li — no CSS, no JavaScript, no inline styles.
+		Output: a clean HTML fragment for the body using only article/h2/h3/p/strong/ul/li — no h1, no CSS, no JavaScript, no inline styles.
 		PROMPT;
 
 	private string $apiKey;
