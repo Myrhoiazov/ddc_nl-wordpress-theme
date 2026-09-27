@@ -30,6 +30,12 @@ if (!function_exists('ddc_news_page_url')) {
      * URL of the page using the News listing template, for "back to blog"
      * links from single posts. Falls back to the home page when no such
      * page has been created yet.
+     *
+     * get_posts() here isn't automatically filtered by Polylang (it only
+     * filters the main query by default), so without resolving the
+     * current language's translation this always returned the same one
+     * page's URL regardless of which language the visitor was reading —
+     * matches the pattern already used in parts/shared/header.php:21.
      */
     function ddc_news_page_url() {
         static $url = null;
@@ -47,7 +53,14 @@ if (!function_exists('ddc_news_page_url')) {
             'fields'         => 'ids',
         ]);
 
-        $url = !empty($pages) ? get_permalink($pages[0]) : home_url('/');
+        $page_id = !empty($pages) ? $pages[0] : null;
+
+        if ($page_id && function_exists('pll_get_post') && function_exists('pll_current_language')) {
+            $translated_id = pll_get_post($page_id, pll_current_language());
+            $page_id = $translated_id ?: $page_id;
+        }
+
+        $url = $page_id ? get_permalink($page_id) : home_url('/');
 
         return $url;
     }

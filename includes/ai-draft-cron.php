@@ -11,15 +11,58 @@
  * A failed language gets exactly one automatic retry
  * (DDC_AI_DRAFT_RETRY_DELAY_SECONDS later); a second consecutive failure
  * is left for the manual "Повторить" button in the admin screen.
+ *
+ * Each language job also links itself to whatever siblings the repository
+ * already shows as successful at that exact moment
+ * (AiDraftLanguageGenerationService::linkTranslations()) — correct if the
+ * 4 jobs truly run one after another, but if the host's WP-Cron ends up
+ * dispatching them with genuine overlap (e.g. a real system cron hitting
+ * wp-cron.php more often than one run takes to finish), two jobs can each
+ * see zero completed siblings and never end up linked at all. The delayed
+ * consolidation job below is a safety net for exactly that case: it runs
+ * once, well after every language (including its one auto-retry) should
+ * have settled, and re-links whatever the batch shows as successful by
+ * then in a single authoritative call.
  */
 
 const DDC_AI_DRAFT_LANGUAGES = ['ru', 'nl', 'uk', 'en'];
 const DDC_AI_DRAFT_CRON_HOOK = 'ddc_ai_draft_generate_language';
+const DDC_AI_DRAFT_LINK_HOOK = 'ddc_ai_draft_link_translations';
 
 function ddc_ai_draft_schedule_batch(string $batchId): void
 {
 	foreach (DDC_AI_DRAFT_LANGUAGES as $language) {
 		wp_schedule_single_event(time(), DDC_AI_DRAFT_CRON_HOOK, [$batchId, $language]);
+	}
+
+	wp_schedule_single_event(time() + DDC_AI_DRAFT_LINK_DELAY_SECONDS, DDC_AI_DRAFT_LINK_HOOK, [$batchId]);
+}
+
+add_action(DDC_AI_DRAFT_LINK_HOOK, 'ddc_ai_draft_run_link_job', 10, 1);
+
+function ddc_ai_draft_run_link_job(string $batchId): void
+{
+	if (!function_exists('pll_save_post_translations')) {
+		return;
+	}
+
+	$repository = new AiDraftBatchRepository();
+	$batch = $repository->getBatch($batchId);
+
+	if ($batch === null) {
+		return;
+	}
+
+	$translations = [];
+
+	foreach ($batch['languages'] as $language => $entry) {
+		if ($entry['status'] === 'success' && $entry['post_id']) {
+			$translations[$language] = (int) $entry['post_id'];
+		}
+	}
+
+	if (count($translations) >= 2) {
+		pll_save_post_translations($translations);
 	}
 }
 

@@ -15,6 +15,7 @@
 	define('DDC_INSTAGRAM_MAX_REELS', 12);
 	define('DDC_INSTAGRAM_SYNC_INTERVAL', 2 * HOUR_IN_SECONDS);
 	define('DDC_AI_DRAFT_RETRY_DELAY_SECONDS', MINUTE_IN_SECONDS);
+	define('DDC_AI_DRAFT_LINK_DELAY_SECONDS', 3 * MINUTE_IN_SECONDS);
 
 	/* ========================================================================================================================
 
