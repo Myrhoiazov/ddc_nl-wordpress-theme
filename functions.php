@@ -1027,7 +1027,17 @@ add_action('template_redirect', function () {
  * entirely.
  */
 add_filter('request', function ($query_vars) {
-	if (empty($query_vars['lang']) || !function_exists('pll_get_post')) {
+	// $query_vars['lang'] is reliably set by Polylang's own 'request' filter
+	// for a *prefixed* request (/nl/, /uk/, /en/), but stays empty for the
+	// default language's unprefixed URLs — confirmed directly against this
+	// install (RU requests never rewrote here, so they kept resolving to
+	// whichever post get_page_by_path() found first and got 301'd by
+	// Polylang's own canonical redirect). pll_current_language() is the
+	// reliable signal for both cases, and is already the pattern used above
+	// for the same default-language distinction.
+	$lang = function_exists('pll_current_language') ? pll_current_language() : null;
+
+	if (!$lang || !function_exists('pll_get_post')) {
 		return $query_vars;
 	}
 
@@ -1050,7 +1060,7 @@ add_filter('request', function ($query_vars) {
 		return $query_vars;
 	}
 
-	$translated_id = pll_get_post($found->ID, $query_vars['lang']);
+	$translated_id = pll_get_post($found->ID, $lang);
 
 	if ($translated_id && (int) $translated_id !== $found->ID) {
 		unset($query_vars['pagename'], $query_vars['name'], $query_vars[$post_type]);
