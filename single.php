@@ -81,6 +81,14 @@ $BsWp->get_template_parts([
 			'post__not_in'   => [ $post_id ],
 		];
 
+		// Same missing-language-filter issue as templates/news-template.php's
+		// listing query and ddc_news_page_url() — a secondary WP_Query isn't
+		// auto-filtered by Polylang, so without this, related posts could be
+		// pulled in from any language.
+		if ( function_exists( 'pll_current_language' ) ) {
+			$related_args['lang'] = pll_current_language();
+		}
+
 		if ( $primary_cat ) {
 			$related_args['category_name'] = $primary_cat->slug;
 		}
