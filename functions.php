@@ -1062,7 +1062,10 @@ add_filter('request', function ($query_vars) {
 
 	$translated_id = pll_get_post($found->ID, $lang);
 
-	if ($translated_id && (int) $translated_id !== $found->ID) {
+	// Pin the ID even when the first slug match is already in this language.
+	// Otherwise the main query still matches every translation sharing the
+	// slug, and Polylang can redirect to another language's first result.
+	if ($translated_id) {
 		unset($query_vars['pagename'], $query_vars['name'], $query_vars[$post_type]);
 
 		// `page_id` unconditionally sets WP_Query::$is_page = true
