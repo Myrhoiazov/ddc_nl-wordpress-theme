@@ -1,0 +1,3 @@
+# AI Drafts Always Generate All Four Site Languages Together
+
+A Generation Batch always produces one AI Draft per Site Language (ru, nl, uk, en) in a single request; there is no mode to generate only a subset. This matches the original requirement that every AI-generated Blog Post exist as a separate block per language, and keeps a batch's status tracking (per-language progress and retry) simple — one batch, always the same four outcomes. An early UI reference showed a "Generation languages" toggle implying per-language control; that control is deliberately not wired to actually disable languages.

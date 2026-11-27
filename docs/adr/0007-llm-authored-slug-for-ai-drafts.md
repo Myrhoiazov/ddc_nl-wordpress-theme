@@ -1,0 +1,3 @@
+# AI Draft SEO-URL Is Authored by the LLM, Not Derived via sanitize_title()
+
+Blog Posts on this site must share one slug across all Site Languages (`docs/adr/0001-polylang-for-multilingual.md`; enforced by the `wp_unique_post_slug` fix in `functions.php`). For AI Drafts, the LLM proposes that shared slug directly — a short, English, keyword-oriented string — instead of the module deriving it automatically by running `sanitize_title()` over one language's generated title, which would transliterate Cyrillic titles into a noisier, less predictable URL. The LLM's proposed slug is still passed through `sanitize_title()` before being used as `post_name`, but it is not mechanically derived from any single language's title.
