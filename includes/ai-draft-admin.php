@@ -10,6 +10,7 @@
 const DDC_AI_DRAFT_ADMIN_PAGE_SLUG = 'ddc-ai-drafts';
 const DDC_AI_DRAFT_NONCE_ACTION = 'ddc_ai_draft_generate';
 const DDC_AI_DRAFT_RETRY_NONCE_ACTION = 'ddc_ai_draft_retry';
+const DDC_AI_DRAFT_STATUS_NONCE_ACTION = 'ddc_ai_draft_set_status';
 
 add_action('admin_menu', 'ddc_ai_draft_register_admin_page');
 
@@ -22,6 +23,24 @@ function ddc_ai_draft_register_admin_page(): void
 		'edit_posts',
 		DDC_AI_DRAFT_ADMIN_PAGE_SLUG,
 		'ddc_ai_draft_render_admin_page'
+	);
+}
+
+add_action('admin_enqueue_scripts', 'ddc_ai_draft_enqueue_admin_assets');
+
+function ddc_ai_draft_enqueue_admin_assets(string $hookSuffix): void
+{
+	if ($hookSuffix !== 'posts_page_' . DDC_AI_DRAFT_ADMIN_PAGE_SLUG) {
+		return;
+	}
+
+	wp_enqueue_media();
+	wp_enqueue_script(
+		'ddc-ai-draft-admin',
+		get_template_directory_uri() . '/js/ai-draft-admin.js',
+		['jquery'],
+		(string) filemtime(get_template_directory() . '/js/ai-draft-admin.js'),
+		true
 	);
 }
 
@@ -68,6 +87,7 @@ function ddc_ai_draft_render_batches_table(): void
 	$batches = $repository->getRecentBatches(20);
 
 	echo '<h2>Недавние генерации</h2>';
+	echo '<p class="description">«Опубликовать все» публикует сразу все языковые версии. Записи без рубрики попадут в рубрику по умолчанию — при необходимости задайте рубрику до публикации.</p>';
 
 	if (empty($batches)) {
 		echo '<p>Пока нет ни одной генерации.</p>';
@@ -79,7 +99,7 @@ function ddc_ai_draft_render_batches_table(): void
 	echo '<thead><tr>'
 		. '<th>Тема</th><th>Тип</th>'
 		. implode('', array_map(static fn($lang) => '<th>' . esc_html(strtoupper($lang)) . '</th>', DDC_AI_DRAFT_LANGUAGES))
-		. '<th>Создано</th>'
+		. '<th>Публикация</th><th>Создано</th>'
 		. '</tr></thead><tbody>';
 
 	foreach ($batches as $batch) {
@@ -91,6 +111,10 @@ function ddc_ai_draft_render_batches_table(): void
 			ddc_ai_draft_render_language_status_cell($batch, $language);
 			echo '</td>';
 		}
+
+		echo '<td>';
+		ddc_ai_draft_render_publication_cell($batch);
+		echo '</td>';
 
 		printf('<td>%s</td>', esc_html(wp_date('d.m.Y H:i', $batch['created_at'])));
 		echo '</tr>';
@@ -135,6 +159,82 @@ function ddc_ai_draft_render_language_status_cell(array $batch, string $language
 	}
 }
 
+/**
+ * AI Drafts of a batch that still exist and can be switched between
+ * `draft` and `publish` — a language that failed, or whose post an editor
+ * has since trashed/deleted, is simply not part of the set.
+ *
+ * @return int[]
+ */
+function ddc_ai_draft_batch_post_ids(array $batch): array
+{
+	$postIds = [];
+
+	foreach ($batch['languages'] as $entry) {
+		if ($entry['status'] !== 'success' || !$entry['post_id']) {
+			continue;
+		}
+
+		$status = get_post_status((int) $entry['post_id']);
+
+		if ($status !== false && $status !== 'trash') {
+			$postIds[] = (int) $entry['post_id'];
+		}
+	}
+
+	return $postIds;
+}
+
+function ddc_ai_draft_batch_is_settled(array $batch): bool
+{
+	foreach ($batch['languages'] as $entry) {
+		if (in_array($entry['status'], ['pending', 'in_progress'], true)) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function ddc_ai_draft_render_publication_cell(array $batch): void
+{
+	$postIds = ddc_ai_draft_batch_post_ids($batch);
+
+	if (empty($postIds) || !ddc_ai_draft_batch_is_settled($batch)) {
+		echo '&mdash;';
+
+		return;
+	}
+
+	$total = count($postIds);
+	$published = count(array_filter($postIds, static fn($postId) => get_post_status($postId) === 'publish'));
+
+	if ($published === 0) {
+		echo 'Черновики';
+	} elseif ($published === $total) {
+		echo 'Опубликовано';
+	} else {
+		printf('Опубликовано %d из %d', $published, $total);
+	}
+
+	if (!current_user_can('publish_posts')) {
+		return;
+	}
+
+	$targetStatus = $published === $total ? 'draft' : 'publish';
+	?>
+	<form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="margin-top:4px;">
+		<?php wp_nonce_field(DDC_AI_DRAFT_STATUS_NONCE_ACTION); ?>
+		<input type="hidden" name="action" value="ddc_ai_draft_set_status">
+		<input type="hidden" name="batch_id" value="<?php echo esc_attr($batch['id']); ?>">
+		<input type="hidden" name="target_status" value="<?php echo esc_attr($targetStatus); ?>">
+		<button type="submit" class="button button-small<?php echo $targetStatus === 'publish' ? ' button-primary' : ''; ?>">
+			<?php echo $targetStatus === 'publish' ? 'Опубликовать все' : 'Вернуть в черновики'; ?>
+		</button>
+	</form>
+	<?php
+}
+
 function ddc_ai_draft_render_generate_form(): void
 {
 	?>
@@ -162,6 +262,16 @@ function ddc_ai_draft_render_generate_form(): void
 			<tr>
 				<th scope="row"><label for="ddc_ai_draft_context">Контекст (необязательно)</label></th>
 				<td><textarea id="ddc_ai_draft_context" name="context" class="large-text" rows="4"></textarea></td>
+			</tr>
+			<tr>
+				<th scope="row">Обложка (необязательно)</th>
+				<td>
+					<input type="hidden" id="ddc_ai_draft_thumbnail_id" name="thumbnail_id" value="">
+					<div id="ddc_ai_draft_thumbnail_preview" style="margin-bottom:8px;"></div>
+					<button type="button" class="button" id="ddc_ai_draft_thumbnail_select">Выбрать из медиатеки</button>
+					<button type="button" class="button-link" id="ddc_ai_draft_thumbnail_remove" style="margin-left:8px;" hidden>Убрать</button>
+					<p class="description">Будет установлена изображением записи для всех языковых версий.</p>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">Языки генерации</th>
@@ -192,6 +302,11 @@ function ddc_ai_draft_handle_generate_submit(): void
 	$topic = sanitize_text_field(wp_unslash($_POST['topic'] ?? ''));
 	$context = sanitize_textarea_field(wp_unslash($_POST['context'] ?? ''));
 	$contentType = ddc_ai_draft_sanitize_content_type(wp_unslash($_POST['content_type'] ?? ''));
+	$thumbnailId = absint($_POST['thumbnail_id'] ?? 0);
+
+	if ($thumbnailId && !wp_attachment_is_image($thumbnailId)) {
+		$thumbnailId = 0;
+	}
 
 	if ($topic === '') {
 		ddc_ai_draft_redirect_with_notice('error', 'Поле «Тема» обязательно для заполнения.');
@@ -209,7 +324,7 @@ function ddc_ai_draft_handle_generate_submit(): void
 	}
 
 	$repository = new AiDraftBatchRepository();
-	$batchId = $repository->createBatch($topic, $contentType, $context, $slug);
+	$batchId = $repository->createBatch($topic, $contentType, $context, $slug, $thumbnailId);
 
 	ddc_ai_draft_schedule_batch($batchId);
 
@@ -236,6 +351,63 @@ function ddc_ai_draft_handle_retry_submit(): void
 	ddc_ai_draft_schedule_language($batchId, $language);
 
 	ddc_ai_draft_redirect_with_notice('success', 'Повтор для этого языка поставлен в очередь.');
+}
+
+add_action('admin_post_ddc_ai_draft_set_status', 'ddc_ai_draft_handle_set_status_submit');
+
+/**
+ * Switches every existing AI Draft of a batch between `draft` and
+ * `publish` in one action, so the four language versions never end up
+ * half-published by hand.
+ */
+function ddc_ai_draft_handle_set_status_submit(): void
+{
+	if (!current_user_can('publish_posts')) {
+		wp_die('У вас нет доступа к этому действию.');
+	}
+
+	check_admin_referer(DDC_AI_DRAFT_STATUS_NONCE_ACTION);
+
+	$batchId = sanitize_text_field(wp_unslash($_POST['batch_id'] ?? ''));
+	$targetStatus = sanitize_key(wp_unslash($_POST['target_status'] ?? ''));
+	$batch = $batchId !== '' ? (new AiDraftBatchRepository())->getBatch($batchId) : null;
+
+	if ($batch === null || !in_array($targetStatus, ['publish', 'draft'], true)) {
+		ddc_ai_draft_redirect_with_notice('error', 'Некорректные параметры смены статуса.');
+	}
+
+	if (!ddc_ai_draft_batch_is_settled($batch)) {
+		ddc_ai_draft_redirect_with_notice('error', 'Генерация ещё не завершена — дождитесь всех языков.');
+	}
+
+	$updated = 0;
+	$failed = 0;
+
+	foreach (ddc_ai_draft_batch_post_ids($batch) as $postId) {
+		if (get_post_status($postId) === $targetStatus) {
+			continue;
+		}
+
+		if (!current_user_can('edit_post', $postId)) {
+			$failed++;
+			continue;
+		}
+
+		$result = wp_update_post(['ID' => $postId, 'post_status' => $targetStatus], true);
+
+		is_wp_error($result) ? $failed++ : $updated++;
+	}
+
+	if ($failed > 0) {
+		ddc_ai_draft_redirect_with_notice('error', sprintf('Статус изменён у %d записей, не удалось изменить у %d.', $updated, $failed));
+	}
+
+	ddc_ai_draft_redirect_with_notice(
+		'success',
+		$targetStatus === 'publish'
+			? sprintf('Опубликовано записей: %d.', $updated)
+			: sprintf('Возвращено в черновики записей: %d.', $updated)
+	);
 }
 
 function ddc_ai_draft_sanitize_content_type(string $submitted): string

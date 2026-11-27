@@ -59,7 +59,7 @@ One submission of Topic, Content Type, and Context to the AI Черновики 
 _Avoid_: Generation request, batch job
 
 **AI Draft**:
-A Blog Post created by the AI Черновики generator rather than written directly by an editor. Every AI Draft starts as `draft` in all Site Languages from the same Generation Batch, and needs an editor to add a Category and featured image before publishing.
+A Blog Post created by the AI Черновики generator rather than written directly by an editor. Every AI Draft starts as `draft` in all Site Languages from the same Generation Batch, and can receive one featured image shared by the whole batch at generation time. An editor still adds a Category before publishing; the generator screen can switch all AI Drafts of a batch between `draft` and `publish` at once.
 _Avoid_: AI-generated post, auto post
 
 **Agreement**:

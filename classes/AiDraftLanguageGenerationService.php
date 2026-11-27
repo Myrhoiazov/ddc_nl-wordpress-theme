@@ -5,7 +5,8 @@
  *
  *   OpenAI content -> wp_insert_post (draft) -> Polylang language + shared
  *   slug -> link as translation of any siblings already created in this
- *   batch -> Content Type meta -> AIOSEO SEO fields -> repository status.
+ *   batch -> featured image (if the batch has one) -> Content Type meta ->
+ *   AIOSEO SEO fields -> repository status.
  *
  * A failure at the OpenAI step, or a missing Polylang/AIOSEO integration,
  * leaves no post behind and marks only this language as failed — the other
@@ -77,6 +78,10 @@ class AiDraftLanguageGenerationService
 		pll_set_post_language($postId, $language);
 		$this->enforceSharedSlug($postId, $batch['slug']);
 		$this->linkTranslations($batchId, $language, $postId);
+
+		if (!empty($batch['thumbnail_id'])) {
+			set_post_thumbnail($postId, (int) $batch['thumbnail_id']);
+		}
 
 		update_post_meta($postId, self::CONTENT_TYPE_META_KEY, $batch['content_type']);
 		update_post_meta($postId, self::SECONDARY_KEYWORDS_META_KEY, $content['secondary_keywords']);

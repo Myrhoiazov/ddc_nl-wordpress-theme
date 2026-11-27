@@ -31,9 +31,11 @@ class AiDraftBatchRepository
 	/**
 	 * Creates a batch with all four languages set to "pending" and returns
 	 * its id. The slug is generated once by the caller (shared across all
-	 * four languages) and stored here, not regenerated per language.
+	 * four languages) and stored here, not regenerated per language. The
+	 * optional featured image is likewise one attachment shared by all four
+	 * AI Drafts (0 = none).
 	 */
-	public function createBatch(string $topic, string $contentType, string $context, string $slug): string
+	public function createBatch(string $topic, string $contentType, string $context, string $slug, int $thumbnailId = 0): string
 	{
 		$batchId = wp_generate_uuid4();
 
@@ -48,6 +50,7 @@ class AiDraftBatchRepository
 			'content_type' => $contentType,
 			'context'      => $context,
 			'slug'         => $slug,
+			'thumbnail_id' => $thumbnailId,
 			'created_at'   => time(),
 			'languages'    => $languages,
 		], false);
